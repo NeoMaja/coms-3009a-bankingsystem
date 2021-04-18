@@ -9,6 +9,11 @@ android:
     - build-tools-29.0.1
     - android-29
     - extra-android-m2repository
+  licenses:
+    - 'android-sdk-preview-license-52d11cd2'
+    - 'android-sdk-license-.+'
+    - 'google-gdk-license-.+'
+
 #optional, use it if only you haven't give permission yet.
 #before_install:
 before_install:
