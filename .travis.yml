@@ -9,3 +9,9 @@ android:
     - build-tools-29.0.1
     - android-29
     - extra-android-m2repository
+#optional, use it if only you haven't give permission yet.
+#before_install:
+before_install:
+  - chmod +x gradlew
+script:
+  - ./gradlew build
