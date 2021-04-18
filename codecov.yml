@@ -19,3 +19,4 @@ comment:
   behavior: default
   require_changes: no
 
+curl --data-binary @- https://codecov.io/validate
