@@ -6,7 +6,7 @@ android:
     - tools
     - platform-tools
     - tools
-    - build-tools-30.0.2
+    - build-tools-31.0.2
     - android-30
     - extra-android-m2repository
   licenses:
