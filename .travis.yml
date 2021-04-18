@@ -20,7 +20,8 @@ before_install:
   - chmod +x gradlew
   - yes | sdkmanager "platforms;android-30"
 script:
-  - ./gradlew build jacocoTestReport assembleAndroidTest
+#  - ./gradlew build jacocoTestReport assembleAndroidTest
+  #Remember to change gradle file to add this jacoco thing
   - ./gradlew clean build
   - ./gradlew test
   - ./gradlew build check
