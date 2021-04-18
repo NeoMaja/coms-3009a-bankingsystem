@@ -18,5 +18,8 @@ android:
 #before_install:
 before_install:
   - chmod +x gradlew
+  - yes | sdkmanager "platforms;android-30"
 script:
-  - ./gradlew build
+  - ./gradlew clean build
+  - ./gradlew test
+  - ./gradlew build check
