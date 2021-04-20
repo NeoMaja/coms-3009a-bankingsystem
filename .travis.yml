@@ -24,6 +24,7 @@ script:
 
   - ./gradlew clean build
   - ./gradlew test
+  - ./gradlew jacocoTestReport
   - ./gradlew build check
  # - ./gradlew build jacocoTestReport assembleAndroidTest
   #- ./gradlew connectedCheck
