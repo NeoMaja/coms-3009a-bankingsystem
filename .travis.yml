@@ -25,6 +25,7 @@ script:
   - ./gradlew clean build
   - ./gradlew test
   - ./gradlew build check
+  - ./gradlew connectedCheck
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
