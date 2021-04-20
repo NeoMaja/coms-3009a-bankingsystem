@@ -24,10 +24,10 @@ script:
 
   - ./gradlew clean build
   - ./gradlew test
-  - ./gradlew jacocoTestReport
+ # - ./gradlew jacocoTestReport
   - ./gradlew build check
  # - ./gradlew build jacocoTestReport assembleAndroidTest
-  #- ./gradlew connectedCheck
+  - ./gradlew connectedCheck
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
