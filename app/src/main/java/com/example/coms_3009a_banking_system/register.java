@@ -190,37 +190,4 @@ public class register extends AppCompatActivity {
             }
         });
     }
-
-    /* by Lindo
-    //Registering into the system
-                if(validate_fields.equals("true") & validate_password.equals("true") & validate_passLength.equals("true")){
-
-        //add information to database
-        //adding/declaring parameters
-        ContentValues parameters = new ContentValues();
-        parameters.put("User_Type_ID","201");
-        parameters.put("Username", username );
-        parameters.put("Password", password);
-        parameters.put("Problem_Name",problem);
-
-
-        AsyncHTTPPost asyncHttpPost = new AsyncHTTPPost("https://lamp.ms.wits.ac.za/home/s2092154/regtry.php",parameters){
-            @Override
-            protected void onPostExecute(String output) {
-                //check for existing username error
-
-                val.setText(output);
-                //register to users table using php
-                //register to counselor table using php
-
-                if(!(output.equals("username already exists"))) {
-                    //Go to login page after successful registration.
-                    Toast.makeText(getApplicationContext(),"Welcome to the family",Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(CounselorSignUp.this, MainActivity.class);
-                    startActivity(intent);
-                }
-            }
-        };
-        asyncHttpPost.execute();
-    }*/
 }
