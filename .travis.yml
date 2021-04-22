@@ -31,6 +31,7 @@ script:
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
+  - coveralls-lcov --repo-token '4ebb17a9-ca4d-43b5-8138-9c3fd5268c5b' coverage/lcov.info
 
 env:
   global:
