@@ -101,7 +101,7 @@ public class login extends AppCompatActivity {
     private void doLogin(String email, final String password) {
         OkHttpClient client = new OkHttpClient();
 ////////////////////////DATABASE/////////////////////////////////////////////////////////////////////
-        HttpUrl.Builder urlBuilder = HttpUrl.parse("").newBuilder();//url here
+        HttpUrl.Builder urlBuilder = HttpUrl.parse("https://lamp.ms.wits.ac.za/home/s2143686/userLogin.php").newBuilder();//url here
         urlBuilder.addQueryParameter("email", email);
         urlBuilder.addQueryParameter("password", password);
         String url = urlBuilder.build().toString();
@@ -119,7 +119,7 @@ public class login extends AppCompatActivity {
                         try {
                             JSONObject jO = new JSONObject(responseData);
                             String success = jO.getString("success");
-                            if(success.equals("1")){
+                            if(success.equals("$gettype")){
                                 Toast.makeText(login.this, "Login successful", Toast.LENGTH_SHORT).show();
                                 Email.requestFocus();
                                 Password.requestFocus();
