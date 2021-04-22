@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">coms-3009a-banking-system</string>
+    <string name="invalid_name">Please enter a valid Name</string>
+    <string name="invalid_Lname">Please enter valid last Name</string>
+    <string name="invalid_username">Please enter valid username</string>
+    <string name="missing_id">Please enter your ID</string>
+    <string name="missing_cell">Please enter your Cellphone number</string>
+    <string name="missing_email">Please enter your email</string>
+    <string name="missing_password">Please enter your password</string>
+    <string name="username">Username</string>
 </resources>
