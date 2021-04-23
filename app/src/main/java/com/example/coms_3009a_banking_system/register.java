@@ -168,9 +168,7 @@ public class register extends AppCompatActivity {
 //
 ////By Lindo, please dont touch (21 April 2021)
 ////Registering into the system
-
-
-
+        
         //add information to database
         //adding/declaring parameters
         ContentValues parameters = new ContentValues();
