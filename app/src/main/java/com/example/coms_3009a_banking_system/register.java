@@ -38,6 +38,7 @@ public class register extends AppCompatActivity {
     //initializing variables
     EditText firstName,lastName, username,idNumber,celNumber,email,password,confirmPassword;
     Button register;
+    String Cell;
  
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,7 +73,7 @@ public class register extends AppCompatActivity {
             String L_Name = lastName.getText().toString().trim();
             String Username = username.getText().toString().trim();
             String ID = idNumber.getText().toString().trim();
-            String Cell = celNumber.getText().toString().trim();
+            Cell = celNumber.getText().toString().trim();
             String Email = email.getText().toString().trim();
             String Password = password.getText().toString().trim();
             String c_password = confirmPassword.getText().toString().trim();
@@ -173,25 +174,26 @@ public class register extends AppCompatActivity {
         //add information to database
         //adding/declaring parameters
         ContentValues parameters = new ContentValues();
-        parameters.put("User_Type_ID","201");           //TODO
-        parameters.put("First Name", fName );
-        parameters.put("Last Name", lName);
+        parameters.put("ID_Number",IdNumber );
         parameters.put("Username", username );
-        parameters.put("ID Number",IdNumber );
-        parameters.put("Email", email );
+        parameters.put("First_Name", fName );
+        parameters.put("LastName", lName);
         parameters.put("Password", password);
+        parameters.put("Email", email );
+        parameters.put("Cellphone_Number", Cell);
+        parameters.put("User_Type_ID","250");           //TODO
+
+
 
                                                                               //TODO
-        AsyncHTTPPost asyncHttpPost = new AsyncHTTPPost("https://lamp.ms.wits.ac.za/home/s2092154/regtry.php",parameters){
+        AsyncHTTPPost asyncHttpPost = new AsyncHTTPPost("https://lamp.ms.wits.ac.za/home/s2143686/Bank_Registration.php",parameters){
             @Override
             protected void onPostExecute(String output) {
                 //check for existing username error
 
                 Toast.makeText(getApplicationContext(),output,Toast.LENGTH_SHORT).show();
-                //register to users table using php
-                //register to counselor table using php
 
-                if(!(output.equals("Username already exists"))) {
+                if((output.equals("Await your verification"))) {
                     //Go to login page after successful registration.
                     Toast.makeText(getApplicationContext(),"Welcome to the family",Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(register.this, MainActivity.class);
