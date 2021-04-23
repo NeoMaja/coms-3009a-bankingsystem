@@ -119,11 +119,20 @@ public class login extends AppCompatActivity {
                         try {
                             JSONObject jO = new JSONObject(responseData);
                             String success = jO.getString("success");
-                            if(success.equals("$gettype")){
+                            if(success.equals("250")){ //client login, should take you to homepage
                                 Toast.makeText(login.this, "Login successful", Toast.LENGTH_SHORT).show();
                                 Email.requestFocus();
                                 Password.requestFocus();
                                 Intent loginIntent = new Intent(login.this,MainActivity.class);///LOGIN BUTTON HERE
+                                loginIntent.putExtra("email",Email.getText().toString().trim());
+                                startActivity(loginIntent);
+                                login.this.finish();
+                            }
+                            if(success.equals("300")){ //admin login
+                                Toast.makeText(login.this, "Login successful", Toast.LENGTH_SHORT).show();
+                                Email.requestFocus();
+                                Password.requestFocus();
+                                Intent loginIntent = new Intent(login.this,MainActivity.class);///LOGIN BUTTON HERE //needs to be edited so it takes you to verification screen
                                 loginIntent.putExtra("email",Email.getText().toString().trim());
                                 startActivity(loginIntent);
                                 login.this.finish();
