@@ -75,6 +75,10 @@ public class  register extends AppCompatActivity {
 
     private void validateDataAndDoRegister() {
         String username = Username.getText().toString().trim();
+        String firstname = LastName.getText().toString().trim();
+        String lastname = FirstName.getText().toString().trim();
+        String idnumber = IDnumber.getText().toString().trim();
+        String phonenumber = Phonenumber.getText().toString().trim();
         String email = Email.getText().toString().trim();
         String password = Password.getText().toString().trim();
         String c_password = cPassword.getText().toString().trim();
@@ -91,36 +95,60 @@ public class  register extends AppCompatActivity {
         }
 
         if (username.isEmpty()) {
-            Username.setError("enter surname address");
+            Username.setError("Enter username");
             Username.requestFocus();
         }
         else if(username.length()<5){
-            Username.setError("username too short");
+            Username.setError("Username too short");
             Username.requestFocus();
         }
+        else if (firstname.isEmpty()){
+            FirstName.setError("Enter first name");
+            FirstName.requestFocus();
+        }
+        else if (lastname.isEmpty()){
+            LastName.setError("Enter last name");
+            LastName.requestFocus();
+        }
+        else if (idnumber.isEmpty()){
+            IDnumber.setError("Enter ID number");
+            IDnumber.requestFocus();
+        }
+        else if(idnumber.length()<13){
+            IDnumber.setError("ID number invalid");
+            IDnumber.requestFocus();
+        }
+        else if (phonenumber.isEmpty()){
+            Phonenumber.setError("Enter cellphone number");
+            Phonenumber.requestFocus();
+        }
+        else if(phonenumber.length()<10){
+            Phonenumber.setError("Cellphone number invalid");
+            Phonenumber.requestFocus();
+        }
         else if (email.isEmpty()){
-            Email.setError("enter email address");
+            Email.setError("Enter email address");
             Email.requestFocus();
         }
         else if(email.length()<10){
-            Email.setError("enter valid email address");
+            Email.setError("Email address invalid");
             Email.requestFocus();
         }
         else if (password.isEmpty()){
-            Password.setError("enter password");
+            Password.setError("Enter password");
             Password.requestFocus();
         }else if(password.length()<8){
-            Password.setError("password must be 8 characters or more");
+            Password.setError("Password must be 8 characters or more");
             Password.requestFocus();
         }
         else if (c_password.isEmpty()) {
-            cPassword.setError("enter password");
+            cPassword.setError("Enter password");
             cPassword.requestFocus();
         }
         else if (!password.equals(c_password)){
-            Password.setError("passwords do not match");
+            Password.setError("Passwords do not match");
             Password.requestFocus();
-            cPassword.setError("passwords do not match");
+            cPassword.setError("Passwords do not match");
             cPassword.requestFocus();
             Password.setText("");
             cPassword.setText("");

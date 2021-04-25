@@ -42,7 +42,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/username"
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
+                    android:layout_height="60dp"
                     android:hint="Enter username" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -65,7 +65,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/firstname"
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
+                    android:layout_height="60dp"
                     android:hint="Enter first name" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -88,7 +88,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/lastname"
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
+                    android:layout_height="60dp"
                     android:hint="Enter last name" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -111,7 +111,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/idnumber"
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
+                    android:layout_height="60dp"
                     android:hint="Enter ID number" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -134,7 +134,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/phonenumber"
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
+                    android:layout_height="60dp"
                     android:hint="Enter phone number" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -158,7 +158,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/email"
                     android:layout_width="match_parent"
-                    android:layout_height="34dp"
+                    android:layout_height="60dp"
                     android:hint="Enter email"
                     android:inputType="textEmailAddress" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -220,7 +220,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/password"
                     android:layout_width="match_parent"
-                    android:layout_height="41dp"
+                    android:layout_height="60dp"
                     android:hint="Enter password"
                     android:inputType="textPassword" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -238,7 +238,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/cpassword"
                     android:layout_width="match_parent"
-                    android:layout_height="44dp"
+                    android:layout_height="60dp"
                     android:hint="Re-enter password"
                     android:inputType="textPassword" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -248,18 +248,10 @@
                 android:layout_height="31dp"
                 android:gravity="center" />
 
-
-
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="31dp"
-                android:gravity="center" />
-
             <Button
                 android:id="@+id/create_acc"
                 android:layout_width="249dp"
-                android:layout_height="38dp"
+                android:layout_height="40dp"
                 android:layout_gravity="center_vertical|center_horizontal"
                 android:background="#FFFFFFFF"
                 android:text="Create Account"

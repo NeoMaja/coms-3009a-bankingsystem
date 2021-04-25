@@ -4,12 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#12616A"
     tools:context=".MainActivity">
 
     <Button
         android:id="@+id/button"
         android:layout_width="249dp"
-        android:layout_height="38dp"
+        android:layout_height="50dp"
         android:background="#FFFFFFFF"
         android:text="Welcome"
         android:textColor="#FFFFFF"

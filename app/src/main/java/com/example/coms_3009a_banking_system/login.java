@@ -63,18 +63,18 @@ public class login extends AppCompatActivity {
         String email = Email.getText().toString().trim();
         String password = Password.getText().toString().trim();
         if (email.isEmpty()){
-            Email.setError("enter email address");
+            Email.setError("Enter email address");
             Email.requestFocus();
         }
         else if(email.length()<10){
-            Email.setError("enter valid email address");
+            Email.setError("Enter valid email address");
             Email.requestFocus();
         }
         else if (password.isEmpty()){
-            Password.setError("enter password");
+            Password.setError("Enter password");
             Password.requestFocus();
         }else if(password.length()<8){
-            Password.setError("password must be 8 characters or more");
+            Password.setError("Password must be 8 characters or more");
             Password.requestFocus();
         }
         else{
