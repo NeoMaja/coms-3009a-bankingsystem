@@ -11,7 +11,7 @@
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="47dp"
-        android:text="REGISTRAION"
+        android:text="REGISTRATION"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
         android:textStyle="bold"
