@@ -1,6 +1,7 @@
 package com.example.coms_3009a_banking_system;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
@@ -8,6 +9,7 @@ import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -19,6 +21,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -27,200 +31,179 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-public class  register extends AppCompatActivity {
 
-    private TextInputEditText IDnumber,Phonenumber,Username,FirstName, LastName,Email,Password,cPassword;
-    private RadioGroup Gender;
-    private ProgressBar progressbar;
-    private Button btnDisplay;
+
+public class register extends AppCompatActivity {
+
+    //initializing variables
+    EditText firstName,lastName, username,idNumber,celNumber,email,password,confirmPassword;
+    Button register;
+    String Cell;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        Username =(TextInputEditText) findViewById(R.id.username);
-        FirstName =(TextInputEditText) findViewById(R.id.firstname);
-        LastName =(TextInputEditText) findViewById(R.id.lastname);
-        IDnumber =(TextInputEditText) findViewById(R.id.idnumber);
-        Phonenumber =(TextInputEditText) findViewById(R.id.phonenumber);
-        Email =(TextInputEditText) findViewById(R.id.email);
-        Password =(TextInputEditText) findViewById(R.id.password);
-        cPassword =(TextInputEditText) findViewById(R.id.cpassword);
-        Gender = (RadioGroup) findViewById(R.id.radiosex);
-        progressbar = (ProgressBar) findViewById(R.id.progressBar);
-        btnDisplay = (Button) findViewById(R.id.create_acc);
-        progressbar.setVisibility(View.GONE);
-        btnDisplay.setOnClickListener(new View.OnClickListener() {
+//        assigning variables
+
+        firstName = findViewById(R.id.firstName);
+        lastName = findViewById(R.id.lastName);
+        username = (TextInputEditText) findViewById(R.id.username);
+        idNumber = findViewById(R.id.idNumber);
+        celNumber = findViewById(R.id.cellNumber);
+        email = findViewById(R.id.email);
+        password = findViewById(R.id.password);
+        confirmPassword = findViewById(R.id.confirmPassword);
+
+        register = findViewById(R.id._register);
+
+        register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 validateDataAndDoRegister();
 
             }
         });
-
     }
 
-    private static boolean isNetworkStatusAvialable (Context context) {
-        ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-        if (connectivityManager != null)
-        {
-            NetworkInfo netInfos = connectivityManager.getActiveNetworkInfo();
-            if(netInfos != null)
-                if(netInfos.isConnected())
-                    return true;
-        }
-        return false;
-    }
-
+    //        Validation function
     private void validateDataAndDoRegister() {
-        String username = Username.getText().toString().trim();
-        String firstname = LastName.getText().toString().trim();
-        String lastname = FirstName.getText().toString().trim();
-        String idnumber = IDnumber.getText().toString().trim();
-        String phonenumber = Phonenumber.getText().toString().trim();
-        String email = Email.getText().toString().trim();
-        String password = Password.getText().toString().trim();
-        String c_password = cPassword.getText().toString().trim();
-        String gender = null;
+        String F_Name = firstName.getText().toString().trim();
+        String L_Name = lastName.getText().toString().trim();
+        String Username = username.getText().toString().trim();
+        String ID = idNumber.getText().toString().trim();
+        String Cell = celNumber.getText().toString().trim();
+        String Email = email.getText().toString().trim();
+        String Password = password.getText().toString().trim();
+        String c_password = confirmPassword.getText().toString().trim();
+
+
+//            Fname
+        Pattern F_P = Pattern.compile("^[a-zA-Z]+$");
+        Matcher Fm = F_P.matcher(F_Name);
+        boolean f =Fm.matches();
+
+//            Lname check check
+        Pattern L_P = Pattern.compile("^[a-zA-Z]+$");
+        Matcher Lm = L_P.matcher(L_Name);
+        boolean l =Lm.matches();
+
+//            ID check
+        Pattern ID_P = Pattern.compile("^[0-9]{13}$");
+        Matcher IDm = ID_P.matcher(ID);
+        boolean i = IDm.matches();
+//            Cell check
+        Pattern Cell_P = Pattern.compile("^[0-9]{10}$");
+        Matcher Cm = Cell_P.matcher(Cell);
+        boolean c = Cm.matches();
+
+//            Email check
+        Pattern E_P = Pattern.compile("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$");
+        Matcher Em = E_P.matcher(Email);
+        boolean e = Em.matches();
+
+//            Password Check
+        Pattern Pass_P = Pattern.compile("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8}$");
+        Matcher Pm = Pass_P.matcher(Password);
+        boolean p = Pm.matches();
+
+
         String assistance = null;
 
-        if(Gender.getCheckedRadioButtonId()!=-1){
-            int id= Gender.getCheckedRadioButtonId();
-            View radioButton = Gender.findViewById(id);
-            int radioId = Gender.indexOfChild(radioButton);
-            RadioButton btn = (RadioButton) Gender.getChildAt(radioId);
-            gender = btn.getText().toString().trim();
-
+        if (!l) {
+            firstName.setError("Enter a valid First Name");
+            firstName.requestFocus();
+        }
+        else if (!f) {
+            lastName.setError("Enter a valid Last Name");
+            lastName.requestFocus();
         }
 
-        if (username.isEmpty()) {
-            Username.setError("Enter username");
-            Username.requestFocus();
+        else if(Username.length()<5){
+            username.setError("Enter 5 character Username");
+            username.requestFocus();
         }
-        else if(username.length()<5){
-            Username.setError("Username too short");
-            Username.requestFocus();
+        else if(!i){
+            idNumber.setError("Enter 13 digit ID number");
+            idNumber.requestFocus();
         }
-        else if (firstname.isEmpty()){
-            FirstName.setError("Enter first name");
-            FirstName.requestFocus();
+
+        else if (!c){
+            celNumber.setError("Enter 10 digit Cellphone Number");
+            celNumber.requestFocus();
         }
-        else if (lastname.isEmpty()){
-            LastName.setError("Enter last name");
-            LastName.requestFocus();
+        else if(!e){
+            email.setError("Enter valid email address");
+            email.requestFocus();
         }
-        else if (idnumber.isEmpty()){
-            IDnumber.setError("Enter ID number");
-            IDnumber.requestFocus();
+
+        else if (Password.isEmpty()){
+            password.setError("Enter password");
+            password.requestFocus();
+        }else if(!p){
+            password.setError("Password must be 8 characters with at least 1 Upper case , 1 lower case and 1 special Character");
+            password.requestFocus();
         }
-        else if(idnumber.length()<13){
-            IDnumber.setError("ID number invalid");
-            IDnumber.requestFocus();
-        }
-        else if (phonenumber.isEmpty()){
-            Phonenumber.setError("Enter cellphone number");
-            Phonenumber.requestFocus();
-        }
-        else if(phonenumber.length()<10){
-            Phonenumber.setError("Cellphone number invalid");
-            Phonenumber.requestFocus();
-        }
-        else if (email.isEmpty()){
-            Email.setError("Enter email address");
-            Email.requestFocus();
-        }
-        else if(email.length()<10){
-            Email.setError("Email address invalid");
-            Email.requestFocus();
-        }
-        else if (password.isEmpty()){
-            Password.setError("Enter password");
-            Password.requestFocus();
-        }else if(password.length()<8){
-            Password.setError("Password must be 8 characters or more");
-            Password.requestFocus();
-        }
+
         else if (c_password.isEmpty()) {
-            cPassword.setError("Enter password");
-            cPassword.requestFocus();
+            confirmPassword.setError("enter password");
+            confirmPassword.requestFocus();
         }
-        else if (!password.equals(c_password)){
-            Password.setError("Passwords do not match");
-            Password.requestFocus();
-            cPassword.setError("Passwords do not match");
-            cPassword.requestFocus();
-            Password.setText("");
-            cPassword.setText("");
+        else if (!Password.equals(c_password)){
+            password.setError("Passwords do not match");
+            password.requestFocus();
+            confirmPassword.setError("Passwords do not match");
+            confirmPassword.requestFocus();
+            password.setText("");
+            confirmPassword.setText("");
         }
-        else{
-            doRegister(username,email,password,gender,assistance);
-            progressbar.setVisibility(View.VISIBLE);
-            if(isNetworkStatusAvialable (getApplicationContext())) {
-                Toast.makeText(getApplicationContext(), "internet avialable", Toast.LENGTH_SHORT).show();
-            } else {
-                Toast.makeText(getApplicationContext(), "internet is not avialable", Toast.LENGTH_SHORT).show();
-                progressbar.setVisibility(View.GONE);
-            }
+        else {
+            doRegister(F_Name,L_Name,Username,ID, Email, Password);
         }
     }
 
 
-    private void doRegister(String username, String email, String password, String gender, String assistance) {
-        OkHttpClient client = new OkHttpClient();
-
-///////////////////////////////meng's DATABASE///////////////////////////////////////////////////////////////////////////
-        HttpUrl.Builder urlBuilder = HttpUrl.parse("").newBuilder();
-        urlBuilder.addQueryParameter("username", username);
-        urlBuilder.addQueryParameter("email", email);
-        urlBuilder.addQueryParameter("password", password);
-        urlBuilder.addQueryParameter("gender", gender);
-
-        String url = urlBuilder.build().toString();
-
-        Request request = new Request.Builder()
-                .url(url)
-                .build();
 
 
-        client.newCall(request).enqueue(new Callback() {
+    private void doRegister(String fName,String lName ,String username, String IdNumber,String email, String password) {
+//        OkHttpClient client = new OkHttpClient();
+/////////////////////////////////Meng's DATABASE///////////////////////////////////////////////////////////////////////////
+//
+////By Lindo, please dont touch (21 April 2021)
+////Registering into the system
+
+        //add information to database
+        //adding/declaring parameters
+        ContentValues parameters = new ContentValues();
+        parameters.put("ID_Number",IdNumber );
+        parameters.put("Username", username );
+        parameters.put("First_Name", fName );
+        parameters.put("LastName", lName);
+        parameters.put("Password", password);
+        parameters.put("Email", email );
+        parameters.put("Cellphone_Number", Cell);
+        parameters.put("User_Type_ID","250");           //TODO
+
+
+        //TODO
+        AsyncHTTPPost asyncHttpPost = new AsyncHTTPPost("https://lamp.ms.wits.ac.za/home/s2143686/Bank_Registration.php",parameters){
             @Override
-            public void onResponse(Call call, final Response response) throws IOException {
-                final String responseData = response.body().string();
-                register.this.runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        try {
-                            JSONObject jO = new JSONObject(responseData);
-                            String success = jO.getString("success");
-                            if(success.equals("1")){
-                                Toast.makeText(register.this, "Register Success", Toast.LENGTH_SHORT).show();
-                                progressbar.setVisibility(View.GONE);
-                                Intent loginIntent = new Intent(register.this,MainActivity.class);
-                                startActivity(loginIntent);
-                                register.this.finish();
-                            }
-                            if(success.equals("-1")) {
-                                Toast.makeText(register.this, "Email Registered", Toast.LENGTH_SHORT).show();
-                                progressbar.setVisibility(View.GONE);
-                            }
-                            if(success.equals("2")) {
-                                Toast.makeText(register.this, "Username registered", Toast.LENGTH_SHORT).show();
-                                progressbar.setVisibility(View.GONE);
-                            }
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                            Toast.makeText(register.this, "Register Error", Toast.LENGTH_SHORT).show();
-                            progressbar.setVisibility(View.GONE);
-                        }
-                    }
-                });
-            }
+            protected void onPostExecute(String output) {
+                //check for existing username error
 
-            @Override
-            public void onFailure(Call call, final IOException e) {
-                e.printStackTrace();
+                Toast.makeText(getApplicationContext(),output,Toast.LENGTH_SHORT).show();
+
+                if((output.equals("Await your verification"))) {
+                    //Go to login page after successful registration.
+                    Toast.makeText(getApplicationContext(),"Welcome to the family",Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(register.this, MainActivity.class);
+                    startActivity(intent);
+                }
             }
-        });
+        };
+        asyncHttpPost.execute();
     }
+
 }
+
