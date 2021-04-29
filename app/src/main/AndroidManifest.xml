@@ -12,7 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Coms3009abankingsystem">
-        <activity android:name=".register"></activity>
+        <activity android:name=".clientRegister"></activity>
         <activity android:name=".usertype" />
         <activity android:name=".login" />
         <activity android:name=".MainActivity">

@@ -2,38 +2,20 @@ package com.example.coms_3009a_banking_system;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
-import android.content.Context;
 import android.content.Intent;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.IOException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.HttpUrl;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
 
-
-
-public class register extends AppCompatActivity {
+public class clientRegister extends AppCompatActivity {
 
     //initializing variables
     EditText firstName,lastName, username,idNumber,celNumber,email,password,confirmPassword;
@@ -43,7 +25,7 @@ public class register extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register);
+        setContentView(R.layout.activity_client_register);
 
 //        assigning variables
 
@@ -197,7 +179,7 @@ public class register extends AppCompatActivity {
                 if((output.equals("Await your verification"))) {
                     //Go to login page after successful registration.
                     Toast.makeText(getApplicationContext(),"Welcome to the family",Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(register.this, MainActivity.class);
+                    Intent intent = new Intent(clientRegister.this, MainActivity.class);
                     startActivity(intent);
                 }
             }

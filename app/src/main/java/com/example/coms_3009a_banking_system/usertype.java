@@ -23,7 +23,7 @@ public class usertype extends AppCompatActivity {
         Admin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent registerIntent = new Intent(usertype.this,MainActivity.class);
+                Intent registerIntent = new Intent(usertype.this, adminRegister.class);
                 startActivity(registerIntent);
             }
 
@@ -31,7 +31,7 @@ public class usertype extends AppCompatActivity {
         Patient.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent registerIntentP = new Intent(usertype.this,register.class);
+                Intent registerIntentP = new Intent(usertype.this, clientRegister.class);
                 startActivity(registerIntentP);
             }
 
