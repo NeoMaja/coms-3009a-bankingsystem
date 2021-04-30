@@ -7,32 +7,35 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.coms_3009a_banking_system.R;
+import com.example.coms_3009a_banking_system.adminRegister;
+
 public class usertype extends AppCompatActivity {
 
     Button Admin;
-    Button Patient;
+    Button Client;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_usertype);
 
-        Admin = (Button) findViewById(R.id.Admin_id);
-        Patient = (Button) findViewById(R.id.client_id);
+        Admin = (Button) findViewById(R.id.Admin_b);
+        Client = (Button) findViewById(R.id.client_b);
 
         Admin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent registerIntent = new Intent(usertype.this, adminRegister.class);
-                startActivity(registerIntent);
+                Intent AdminRegister = new Intent(usertype.this, adminRegister.class);
+                startActivity(AdminRegister);
             }
 
         });
-        Patient.setOnClickListener(new View.OnClickListener() {
+        Client.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent registerIntentP = new Intent(usertype.this, clientRegister.class);
-                startActivity(registerIntentP);
+                Intent ClientRegister = new Intent(usertype.this, clientRegister.class);
+                startActivity(ClientRegister);
             }
 
         });

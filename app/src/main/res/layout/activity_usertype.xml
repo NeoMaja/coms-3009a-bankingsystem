@@ -39,7 +39,7 @@
         app:layout_constraintVertical_bias="0.272" />
 
     <Button
-        android:id="@+id/Admin_id"
+        android:id="@+id/Admin_b"
         android:layout_width="339dp"
         android:layout_height="56dp"
         android:layout_marginBottom="272dp"
@@ -54,7 +54,7 @@
         app:layout_constraintVertical_bias="0.154" />
 
     <Button
-        android:id="@+id/client_id"
+        android:id="@+id/client_b"
         android:layout_width="339dp"
         android:layout_height="56dp"
         android:background="#FFFFFFFF"
@@ -64,6 +64,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Admin_id"
+        app:layout_constraintTop_toBottomOf="@+id/Admin_b"
         app:layout_constraintVertical_bias="0.123" />
 </androidx.constraintlayout.widget.ConstraintLayout>

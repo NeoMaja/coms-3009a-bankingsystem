@@ -12,9 +12,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Coms3009abankingsystem">
-        <activity android:name=".clientRegister"></activity>
+        <activity android:name=".clientRegister" />
         <activity android:name=".usertype" />
         <activity android:name=".login" />
+        <activity android:name=".adminRegister" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
