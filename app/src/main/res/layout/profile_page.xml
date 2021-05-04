@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <include layout="@layout/profile_toolbar" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingTop="15dp">
+
+    <com.mikhaellopez.circularimageview.CircularImageView
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:src="@drawable/neo_face" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Neo Maja"
+        android:textColor="@android:color/holo_blue_bright"
+        android:textSize="20dp"
+        android:layout_marginTop="8dp"
+        android:textStyle="bold"
+        />
+
+    <view
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/holo_blue_bright"
+        android:layout_marginTop="10dp"
+        />
+        <!-- First Name TextField-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:layout_marginTop="20dp"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/ic_person"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="First Name"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:layout_marginLeft="5dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Neo"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="18dp"
+                android:layout_marginLeft="25dp"/>
+             <View
+                 android:layout_width="match_parent"
+                 android:layout_height="0.5dp"
+                 android:background="@android:color/darker_gray"
+                 android:layout_marginTop="10dp"
+                 android:layout_marginLeft="15dp"
+                 android:layout_marginRight="15dp"/>
+
+        </LinearLayout>
+
+        <!-- Last Name TextField  -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:layout_marginTop="20dp"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/ic_person"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Last Name"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:layout_marginLeft="5dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Maja"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="18dp"
+                android:layout_marginLeft="25dp"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@android:color/darker_gray"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"/>
+
+        </LinearLayout>
+
+        <!--  email TextField -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:layout_marginTop="20dp"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/ic_email"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="email"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:layout_marginLeft="5dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="neokgmaja@gmail.com"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="18dp"
+                android:layout_marginLeft="70dp"/>
+
+            <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@android:color/darker_gray"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"/>
+        </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="90dp"
+                android:gravity="center"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/bg_btn"
+                    android:text="Edit Profile"
+                    android:gravity="center"
+                    android:textColor="@android:color/holo_blue_bright"
+                    android:textSize="18dp"
+                    android:drawableLeft="@drawable/ic_edit"
+                    android:paddingLeft="20dp"
+                    android:layout_marginLeft="-10dp"/>
+
+
+                <TextView
+                    android:layout_width="240dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/bg_btn"
+                    android:text="Change Password"
+                    android:gravity="center"
+                    android:textColor="@android:color/holo_blue_bright"
+                    android:textSize="18dp"
+                    android:drawableLeft="@drawable/ic_lock"
+                    android:paddingLeft="30dp"
+                    android:layout_marginLeft="-10dp"
+                    android:layout_marginTop="15dp"/>
+
+            </LinearLayout>
+
+
+
+    </LinearLayout>
+
+
+</LinearLayout>
