@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Coms3009abankingsystem">
-        <activity android:name=".Registration.AdminKeyView"></activity>
+        <activity android:name=".client_account"></activity>
+        <activity android:name=".Registration.AdminKeyView" />
         <activity android:name=".Registration.clientRegister" />
         <activity android:name=".usertype" />
         <activity android:name=".login" />
