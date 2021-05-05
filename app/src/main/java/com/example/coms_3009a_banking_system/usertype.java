@@ -7,8 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.coms_3009a_banking_system.R;
-import com.example.coms_3009a_banking_system.adminRegister;
+import com.example.coms_3009a_banking_system.Registration.adminRegister;
+import com.example.coms_3009a_banking_system.Registration.clientRegister;
 
 public class usertype extends AppCompatActivity {
 
