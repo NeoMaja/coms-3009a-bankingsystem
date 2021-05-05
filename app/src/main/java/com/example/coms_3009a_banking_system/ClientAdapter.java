@@ -44,7 +44,7 @@ public class ClientAdapter extends RecyclerView.Adapter<ClientAdapter.ClientView
                 @Override
                 public void onClick(View v) {
                     if(listener != null){
-                        int position = getAbsoluteAdapterPosition();
+                        int position = getAdapterPosition();
                         if(position != RecyclerView.NO_POSITION){
                             listener.OnItemClick(position);
                         }
@@ -56,7 +56,7 @@ public class ClientAdapter extends RecyclerView.Adapter<ClientAdapter.ClientView
                 @Override
                 public void onClick(View v) {
                     if(listener != null){
-                        int position = getAbsoluteAdapterPosition();
+                        int position = getAdapterPosition();
                         if(position != RecyclerView.NO_POSITION){
                             listener.onDeleteClick(position);
                         }
