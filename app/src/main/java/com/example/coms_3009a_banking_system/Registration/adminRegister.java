@@ -11,7 +11,6 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.coms_3009a_banking_system.AsyncHTTPPost;
-import com.example.coms_3009a_banking_system.MainActivity;
 import com.example.coms_3009a_banking_system.R;
 import com.google.android.material.textfield.TextInputEditText;
 
