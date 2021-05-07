@@ -32,16 +32,16 @@ public class adminRegister extends AppCompatActivity {
 
         //        assigning variables  //TODO the find by id thing.
 
-        firstName = findViewById(R.id.firstName);
-        lastName = findViewById(R.id.lastName);
-        username = (TextInputEditText) findViewById(R.id.username);
-        idNumber = findViewById(R.id.idNumber);
-        celNumber = findViewById(R.id.cellNumber);
-        email = findViewById(R.id.email);
-        password = findViewById(R.id.password);
-        confirmPassword = findViewById(R.id.confirmPassword);
+        firstName = findViewById(R.id.firstNameAdmin);
+        lastName = findViewById(R.id.lastNameAdmin);
+        username = (TextInputEditText) findViewById(R.id.usernameAdmin);
+        idNumber = findViewById(R.id.idNumberAdmin);
+        celNumber = findViewById(R.id.cellNumberAdmin);
+        email = findViewById(R.id.emailAdmin);
+        password = findViewById(R.id.passwordAdmin);
+        confirmPassword = findViewById(R.id.confirmPasswordAdmin);
 
-        register = findViewById(R.id._register);
+        register = findViewById(R.id._registerAdmin);
 
         register.setOnClickListener(new View.OnClickListener() {
             @Override

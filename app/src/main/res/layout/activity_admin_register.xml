@@ -23,133 +23,146 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="34dp"
-                android:text="First Name"
+                android:text="        First Name"
                 android:textSize="16sp" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="#68EFE7">
+                android:background="#12616A"
+                android:layout_gravity="center">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/firstName"
-                    android:layout_width="match_parent"
+                    android:id="@+id/firstNameAdmin"
+                    android:layout_width="360dp"
                     android:layout_height="wrap_content"
-                    android:hint="Enter your First name"
+                    android:hint="Enter your first name"
                     android:inputType="textEmailAddress" />
             </com.google.android.material.textfield.TextInputLayout>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="34dp"
-                android:text="Last Name"
+                android:text="        Last Name"
                 android:textSize="16sp" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#68EFE7">
+                android:background="#12616A"
+                android:layout_gravity="center">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/lastName"
-                    android:layout_width="match_parent"
+                    android:id="@+id/lastNameAdmin"
+                    android:layout_width="360dp"
                     android:layout_height="wrap_content"
-                    android:hint="Enter your  Last Name"
-                    android:inputType="textEmailAddress" />
+                    android:hint="Enter your last name"
+                    android:inputType="textEmailAddress"
+                    android:layout_gravity="center"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="34dp"
-                android:text="@string/username"
+                android:text="        Username"
                 android:textSize="16sp" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#68EFE7">
+                android:background="#12616A"
+                android:layout_gravity="center">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/username"
-                    android:layout_width="match_parent"
+                    android:id="@+id/usernameAdmin"
+                    android:layout_width="360dp"
                     android:layout_height="wrap_content"
-                    android:hint="Enter your Username"
-                    android:inputType="textEmailAddress" />
+                    android:hint="Enter your username"
+                    android:inputType="textEmailAddress"
+                    android:layout_gravity="center"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="34dp"
-                android:text="ID Number"
+                android:text="        ID Number"
                 android:textSize="16sp" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#68EFE7">
+                android:background="#12616A"
+                android:layout_gravity="center">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/idNumber"
-                    android:layout_width="match_parent"
+                    android:id="@+id/idNumberAdmin"
+                    android:layout_width="360dp"
                     android:layout_height="wrap_content"
-                    android:hint="Enter your ID Number"
-                    android:inputType="number" />
+                    android:hint="Enter your ID number"
+                    android:inputType="number"
+                    android:layout_gravity="center"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="34dp"
-                android:text="Cellphone Number"
+                android:text="        Cellphone Number"
                 android:textSize="16sp" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#68EFE7">
+                android:background="#12616A"
+                android:layout_gravity="center">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/cellNumber"
-                    android:layout_width="match_parent"
+                    android:id="@+id/cellNumberAdmin"
+                    android:layout_width="360dp"
                     android:layout_height="wrap_content"
-                    android:hint="Enter your Cellphone Number"
-                    android:inputType="number" />
+                    android:hint="Enter your cellphone number"
+                    android:inputType="number"
+                    android:layout_gravity="center"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="34dp"
-                android:text="Email"
+                android:text="        Email"
                 android:textSize="16sp" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#68EFE7">
+                android:background="#12616A"
+                android:layout_gravity="center">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/email"
-                    android:layout_width="match_parent"
+                    android:id="@+id/emailAdmin"
+                    android:layout_width="360dp"
                     android:layout_height="wrap_content"
-                    android:hint="Enter your email"
-                    android:inputType="textEmailAddress" />
+                    android:hint="Enter your email address"
+                    android:inputType="textEmailAddress"
+                    android:layout_gravity="center"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="34dp"
-                android:text="  Password"
+                android:text="        Password"
                 android:textSize="16sp" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#68EFE7">
+                android:background="#12616A"
+                android:layout_gravity="center">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/password"
-                    android:layout_width="match_parent"
+                    android:id="@+id/passwordAdmin"
+                    android:layout_width="360dp"
                     android:layout_height="wrap_content"
                     android:hint="Enter password"
-                    android:inputType="textPassword" />
+                    android:inputType="textPassword"
+                    android:layout_gravity="center"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
@@ -160,34 +173,30 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#68EFE7">
+                android:background="#12616A"
+                android:layout_gravity="center">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/confirmPassword"
-                    android:layout_width="match_parent"
+                    android:id="@+id/confirmPasswordAdmin"
+                    android:layout_width="360dp"
                     android:layout_height="wrap_content"
                     android:hint="Re-enter password"
-                    android:inputType="textPassword" />
+                    android:inputType="textPassword"
+                    android:layout_gravity="center"/>
             </com.google.android.material.textfield.TextInputLayout>
 
-
-
-
             <Button
-                android:id="@+id/_register"
+                android:id="@+id/_registerAdmin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="Register"
+                android:background="@drawable/roundedbutton"
+                android:text="Register"
+                android:textColor="#FFFFFF"
                 android:layout_gravity="center"
                 tools:layout_editor_absoluteX="159dp"
                 tools:layout_editor_absoluteY="604dp" />
 
-
-
-
         </LinearLayout>
     </ScrollView>
-
-
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
