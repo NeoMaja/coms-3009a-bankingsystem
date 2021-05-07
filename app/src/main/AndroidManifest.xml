@@ -20,7 +20,8 @@
         <activity android:name=".Registration.clientRegister"
             android:parentActivityName=".usertype"/>
 
-        <activity android:name=".usertype" />
+        <activity android:name=".usertype"
+            android:parentActivityName=".login"/>
         <activity android:name=".login" />
         <activity android:name=".MainActivity">
             <intent-filter>
