@@ -12,10 +12,12 @@ import android.widget.Toast;
 import com.example.coms_3009a_banking_system.AsyncHTTPPost;
 import com.example.coms_3009a_banking_system.MainActivity;
 import com.example.coms_3009a_banking_system.R;
+import com.example.coms_3009a_banking_system.client_account;
 import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
 
 
 public class clientRegister extends AppCompatActivity {
@@ -182,7 +184,7 @@ public class clientRegister extends AppCompatActivity {
                 if((output.equals("Await your verification"))) {
                     //Go to login page after successful registration.
                     Toast.makeText(getApplicationContext(),"Welcome to the family",Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(clientRegister.this, MainActivity.class);
+                    Intent intent = new Intent(clientRegister.this, client_account.class);
                     startActivity(intent);
                 }
             }
