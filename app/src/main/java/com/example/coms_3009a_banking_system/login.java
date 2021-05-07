@@ -79,14 +79,14 @@ public class login extends AppCompatActivity {
         }
         else{
             doLogin(email, password);
-            if(isNetworkStatusAvialable (getApplicationContext())) {
+            if(isNetworkStatusAvailable (getApplicationContext())) {
                 Toast.makeText(getApplicationContext(), "internet avialable", Toast.LENGTH_SHORT).show();
             } else {
                 Toast.makeText(getApplicationContext(), "internet is not avialable", Toast.LENGTH_SHORT).show();
             }
         }
     }
-    private static boolean isNetworkStatusAvialable (Context context) {
+    private static boolean isNetworkStatusAvailable(Context context) {
         ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         if (connectivityManager != null)
         {
