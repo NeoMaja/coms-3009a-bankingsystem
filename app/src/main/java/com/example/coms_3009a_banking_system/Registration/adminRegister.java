@@ -28,6 +28,7 @@ public class adminRegister extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_register);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         //        assigning variables  //TODO the find by id thing.
 

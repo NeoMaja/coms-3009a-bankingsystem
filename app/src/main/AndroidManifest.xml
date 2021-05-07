@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Coms3009abankingsystem">
-        <activity android:name=".Registration.adminRegister"></activity>
+        <activity android:name=".Registration.adminRegister"
+            android:parentActivityName=".usertype"></activity>
         <activity android:name=".Banking" />
         <activity android:name=".client_account" />
         <activity android:name=".Registration.AdminKeyView" />
