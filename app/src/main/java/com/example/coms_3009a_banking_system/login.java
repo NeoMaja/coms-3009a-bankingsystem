@@ -73,16 +73,16 @@ public class login extends AppCompatActivity {
         else if (password.isEmpty()){
             Password.setError("Enter password");
             Password.requestFocus();
-        }else if(password.length()<8){
-            Password.setError("Password must be 8 characters or more");
+        }else if(password.length()<5){
+            Password.setError("Password must be 5 characters or more");
             Password.requestFocus();
         }
         else{
             doLogin(email, password);
             if(isNetworkStatusAvailable (getApplicationContext())) {
-                Toast.makeText(getApplicationContext(), "internet avialable", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "internet available", Toast.LENGTH_SHORT).show();
             } else {
-                Toast.makeText(getApplicationContext(), "internet is not avialable", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "internet is not available", Toast.LENGTH_SHORT).show();
             }
         }
     }
