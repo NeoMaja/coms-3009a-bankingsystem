@@ -33,9 +33,8 @@ public class clientRegister extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_client_register);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Client Registration");
 
-        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-        getSupportActionBar().setCustomView(R.layout.client_reg_toolbar);
 
 //        assigning variables
 
@@ -96,9 +95,9 @@ public class clientRegister extends AppCompatActivity {
         boolean e = Em.matches();
 
 //            Password Check
-        Pattern Pass_P = Pattern.compile("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8}$");
-        Matcher Pm = Pass_P.matcher(Password);
-        boolean p = Pm.matches();
+//        Pattern Pass_P = Pattern.compile("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8}$");
+//        Matcher Pm = Pass_P.matcher(Password);
+//        boolean p = Pm.matches();
 
 
         String assistance = null;
@@ -133,9 +132,12 @@ public class clientRegister extends AppCompatActivity {
         else if (Password.isEmpty()){
             password.setError("Enter password");
             password.requestFocus();
-        }else if(!p){
-            password.setError("Password must be 8 characters with at least 1 Upper case , 1 lower case and 1 special Character");
+
+        }else if(Password.length()<5){
+//            password.setError("Password must be 8 characters with at least 1 Upper case , 1 lower case and 1 special Character");
+            password.setError("Password must be 5 or more characters long ");
             password.requestFocus();
+
         }
 
         else if (c_password.isEmpty()) {

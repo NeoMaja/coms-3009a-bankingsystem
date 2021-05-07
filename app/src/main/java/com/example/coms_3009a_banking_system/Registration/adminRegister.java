@@ -30,9 +30,8 @@ public class adminRegister extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_register);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Admin Registration");
 
-        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-        getSupportActionBar().setCustomView(R.layout.admin_reg_toolbar);
 
         //        assigning variables  //TODO the find by id thing.
 
@@ -93,9 +92,9 @@ public class adminRegister extends AppCompatActivity {
         boolean e = Em.matches();
 
 //            Password Check
-        Pattern Pass_P = Pattern.compile("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8}$");
-        Matcher Pm = Pass_P.matcher(Password);
-        boolean p = Pm.matches();
+//        Pattern Pass_P = Pattern.compile("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8}$");
+//        Matcher Pm = Pass_P.matcher(Password);
+//        boolean p = Pm.matches();
 
 
         String assistance = null;
@@ -130,8 +129,10 @@ public class adminRegister extends AppCompatActivity {
         else if (Password.isEmpty()){
             password.setError("Enter password");
             password.requestFocus();
-        }else if(!p){
-            password.setError("Password must be 8 characters with at least 1 Upper case , 1 lower case and 1 special Character");
+
+        }else if(Password.length()<5){
+//            password.setError("Password must be 8 characters with at least 1 Upper case , 1 lower case and 1 special Character");
+            password.setError("Password must be 5 or more characters long ");
             password.requestFocus();
         }
 
