@@ -8,7 +8,7 @@ public class Clientitem {
     public Clientitem(String clientAcctype, String AccNumber, String Amount) {
         this.mText0 = clientAcctype;
         this.mText1 = AccNumber;
-        this.mText2 = mText2;
+        this.mText2 = Amount;
     }
     public void changeText1(String text){
         mText0 = text;
@@ -27,3 +27,4 @@ public class Clientitem {
         return mText2;
     }
 }
+
