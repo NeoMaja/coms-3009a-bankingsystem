@@ -19,6 +19,8 @@
         <activity android:name=".Banking" />
         <activity android:name=".client_account" />
         <activity android:name=".Registration.AdminKeyView" />
+        <activity android:name=".Client_Verification_Status"
+            android:parentActivityName=".login"/>
         <activity
             android:name=".Registration.clientRegister"
             android:parentActivityName=".usertype" />
