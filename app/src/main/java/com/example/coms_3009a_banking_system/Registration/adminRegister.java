@@ -173,9 +173,9 @@ public class adminRegister extends AppCompatActivity {
             protected void onPostExecute(String output) {
                 //Unique admin key is output
 
-                Toast.makeText(getApplicationContext(),output,Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(),output,Toast.LENGTH_SHORT).show();
 
-                if((output.length()==5)) {
+                if((output.length() == 5)) {
                     //Go to page to see admin key after successful registration.
                     Toast.makeText(getApplicationContext(),output,Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(adminRegister.this, AdminKeyView.class);
