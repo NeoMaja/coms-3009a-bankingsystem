@@ -8,10 +8,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.coms_3009a_banking_system.AsyncHTTPPost;
-import com.example.coms_3009a_banking_system.MainActivity;
 import com.example.coms_3009a_banking_system.R;
 import com.google.android.material.textfield.TextInputEditText;
 
@@ -23,25 +23,28 @@ public class adminRegister extends AppCompatActivity {
     //initializing variables
     EditText firstName,lastName, username,idNumber,celNumber,email,password,confirmPassword;
     Button register;
-    String Cell;
+    //String Cell;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_register);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Admin Registration");
+
 
         //        assigning variables  //TODO the find by id thing.
 
-        firstName = findViewById(R.id.firstName);
-        lastName = findViewById(R.id.lastName);
-        username = (TextInputEditText) findViewById(R.id.username);
-        idNumber = findViewById(R.id.idNumber);
-        celNumber = findViewById(R.id.cellNumber);
-        email = findViewById(R.id.email);
-        password = findViewById(R.id.password);
-        confirmPassword = findViewById(R.id.confirmPassword);
+        firstName = findViewById(R.id.firstNameAdmin);
+        lastName = findViewById(R.id.lastNameAdmin);
+        username = (TextInputEditText) findViewById(R.id.usernameAdmin);
+        idNumber = findViewById(R.id.idNumberAdmin);
+        celNumber = findViewById(R.id.cellNumberAdmin);
+        email = findViewById(R.id.emailAdmin);
+        password = findViewById(R.id.passwordAdmin);
+        confirmPassword = findViewById(R.id.confirmPasswordAdmin);
 
-        register = findViewById(R.id._register);
+        register = findViewById(R.id._registerAdmin);
 
         register.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,9 +92,9 @@ public class adminRegister extends AppCompatActivity {
         boolean e = Em.matches();
 
 //            Password Check
-        Pattern Pass_P = Pattern.compile("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8}$");
-        Matcher Pm = Pass_P.matcher(Password);
-        boolean p = Pm.matches();
+//        Pattern Pass_P = Pattern.compile("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8}$");
+//        Matcher Pm = Pass_P.matcher(Password);
+//        boolean p = Pm.matches();
 
 
         String assistance = null;
@@ -126,8 +129,10 @@ public class adminRegister extends AppCompatActivity {
         else if (Password.isEmpty()){
             password.setError("Enter password");
             password.requestFocus();
-        }else if(!p){
-            password.setError("Password must be 8 characters with at least 1 Upper case , 1 lower case and 1 special Character");
+
+        }else if(Password.length()<5){
+//            password.setError("Password must be 8 characters with at least 1 Upper case , 1 lower case and 1 special Character");
+            password.setError("Password must be 5 or more characters long ");
             password.requestFocus();
         }
 
@@ -144,22 +149,22 @@ public class adminRegister extends AppCompatActivity {
             confirmPassword.setText("");
         }
         else {
-            doRegister(F_Name,L_Name,Username,ID, Email, Password);
+            doRegister(F_Name,L_Name,Username,ID, Email, Password, Cell);
         }
     }
 
 
-    private void doRegister(String fName,String lName ,String username, String IdNumber,String email, String password) {
+    private void doRegister(String fName,String lName ,String username, String IdNumber,String email, String password, String Cell) {
         //by Lindo to send data into the database and show the admin key
-        //here the admin key is outputed in order to show the the admin his/her unique admin key.
+        //here the admin key is output in order to show the the admin his/her unique admin key.
         ContentValues parameters = new ContentValues();
         parameters.put("ID_Number",IdNumber );
         parameters.put("Username", username );
         parameters.put("First_Name", fName );
         parameters.put("LastName", lName);
         parameters.put("Password", password);
-        parameters.put("Email", email );
         parameters.put("Cellphone_Number", Cell);
+        parameters.put("Email", email );
         parameters.put("User_Type_ID","300");
 
 
@@ -168,9 +173,9 @@ public class adminRegister extends AppCompatActivity {
             protected void onPostExecute(String output) {
                 //Unique admin key is output
 
-                Toast.makeText(getApplicationContext(),output,Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(),output,Toast.LENGTH_SHORT).show();
 
-                if((output.length()==5)) {
+                if((output.length() == 5)) {
                     //Go to page to see admin key after successful registration.
                     Toast.makeText(getApplicationContext(),output,Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(adminRegister.this, AdminKeyView.class);

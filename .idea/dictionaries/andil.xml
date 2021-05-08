@@ -4,6 +4,7 @@
       <w>firstname</w>
       <w>idnumber</w>
       <w>lastname</w>
+      <w>roundedbutton</w>
     </words>
   </dictionary>
 </component>
