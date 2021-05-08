@@ -123,7 +123,8 @@ public class login extends AppCompatActivity {
                                 Toast.makeText(login.this, "Login successful", Toast.LENGTH_SHORT).show();
                                 Email.requestFocus();
                                 Password.requestFocus();
-                                Intent loginIntent = new Intent(login.this,MainActivity.class);///LOGIN BUTTON HERE
+                                //Login path
+                                Intent loginIntent = new Intent(login.this,Client_Verification_Status.class);///LOGIN BUTTON HERE
                                 loginIntent.putExtra("email",Email.getText().toString().trim());
                                 startActivity(loginIntent);
                                 login.this.finish();
