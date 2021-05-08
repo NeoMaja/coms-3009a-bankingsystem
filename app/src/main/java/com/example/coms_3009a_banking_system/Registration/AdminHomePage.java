@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.coms_3009a_banking_system.R;
+import com.example.coms_3009a_banking_system.VerificationActivity;
 
 public class AdminHomePage extends AppCompatActivity {
 
@@ -26,7 +27,7 @@ public class AdminHomePage extends AppCompatActivity {
         });*/
 
         mVcard.setOnClickListener(v -> {
-            move = new Intent(getApplicationContext(),VerificationActivity.class);
+            move = new Intent(getApplicationContext(), VerificationActivity.class);
             startActivity(move);
         });
     }
