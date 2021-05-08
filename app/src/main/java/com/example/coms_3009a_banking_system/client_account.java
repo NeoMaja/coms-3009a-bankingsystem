@@ -69,7 +69,7 @@ public class client_account extends AppCompatActivity {
         adapter.setOnItemClickListener(new ClientAdapter.OnItemClickListener() {
             @Override
             public void OnItemClick(int position) {
-                OpenActivity();
+//                OpenActivity();
             }
 
             @Override
@@ -86,7 +86,7 @@ public class client_account extends AppCompatActivity {
         AddButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                OpenActivity();
+//                OpenActivity();
                 // insertItem(0);//Inserting the item at the first position
 
             }
@@ -94,10 +94,10 @@ public class client_account extends AppCompatActivity {
 
     }
 
-    public void OpenActivity(){
-        Intent intent = new Intent(this,Banking.class);
-        startActivity(intent);
-    }
+//    public void OpenActivity(){
+//        Intent intent = new Intent(this,Banking.class);
+//        startActivity(intent);
+//    }
 
 
 }
