@@ -2,6 +2,7 @@ package com.example.coms_3009a_banking_system;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
@@ -90,7 +91,7 @@ public class login extends AppCompatActivity {
         ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         if (connectivityManager != null)
         {
-            NetworkInfo netInfos = connectivityManager.getActiveNetworkInfo();
+            @SuppressLint("MissingPermission") NetworkInfo netInfos = connectivityManager.getActiveNetworkInfo();
             if(netInfos != null)
                 if(netInfos.isConnected())
                     return true;
