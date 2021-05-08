@@ -13,19 +13,28 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Coms3009abankingsystem">
         <activity android:name=".Registration.AdminHomePage"></activity>
+
         <activity
             android:name=".Registration.adminRegister"
             android:parentActivityName=".usertype" />
+
         <activity android:name=".Banking" />
+
         <activity android:name=".client_account" />
-        <activity android:name=".Registration.AdminKeyView" />
+
+        <activity android:name=".Registration.AdminKeyView"
+            android:parentActivityName=".Registration.adminRegister"/>
+
         <activity
             android:name=".Registration.clientRegister"
             android:parentActivityName=".usertype" />
         <activity
             android:name=".usertype"
             android:parentActivityName=".login" />
-        <activity android:name=".login" />
+
+        <activity android:name=".login"
+            android:parentActivityName=".MainActivity"/>
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

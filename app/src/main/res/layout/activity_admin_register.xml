@@ -77,7 +77,6 @@
                     android:layout_width="360dp"
                     android:layout_height="wrap_content"
                     android:hint="Enter your username"
-                    android:inputType="textEmailAddress"
                     android:layout_gravity="center"/>
             </com.google.android.material.textfield.TextInputLayout>
 
