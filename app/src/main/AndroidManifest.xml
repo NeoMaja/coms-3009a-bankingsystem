@@ -1,53 +1,65 @@
-<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.coms_3009a_banking_system">
+<?xml version="1.0" encoding="utf-8"?><manifest xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+package="com.example.coms_3009a_banking_system">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+<uses-permission android:name="android.permission.INTERNET" />
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
-    <application
-        android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
-        android:theme="@style/Theme.Coms3009abankingsystem">
-        <activity android:name=".Registration.AdminHomePage"></activity>
+<application
+    android:allowBackup="true"
+    android:icon="@mipmap/ic_launcher"
+    android:label="@string/app_name"
+    android:roundIcon="@mipmap/ic_launcher_round"
+    android:supportsRtl="true"
+    android:theme="@style/Theme.Coms3009abankingsystem">
+    <activity android:name=".Registration.AdminHomePage"></activity>
 
-        <activity
-            android:name=".Registration.adminRegister"
-            android:parentActivityName=".usertype" />
+    <activity
+        android:name=".Registration.adminRegister"
+        android:parentActivityName=".usertype" />
 
-        <activity android:name=".Banking" />
+    <activity android:name=".Banking" />
 
-        <activity android:name=".client_account" />
-<<<<<<< HEAD
-        <activity android:name=".Registration.AdminKeyView" />
-        <activity android:name=".Client_Verification_Status"
-            android:parentActivityName=".login"/>
-=======
+    <activity android:name=".client_account" />
 
-        <activity android:name=".Registration.AdminKeyView"
-            android:parentActivityName=".Registration.adminRegister"/>
+    <activity android:name=".Registration.AdminKeyView" />
+    <activity
+        android:name=".Client_Verification_Status"
+        android:parentActivityName=".login" />
 
->>>>>>> e62a2c9b0cad90f29b71bed4ea443f8f10a5fb79
-        <activity
-            android:name=".Registration.clientRegister"
-            android:parentActivityName=".usertype" />
-        <activity
-            android:name=".usertype"
-            android:parentActivityName=".login" />
 
-        <activity android:name=".login"
-            android:parentActivityName=".MainActivity"/>
+    <activity
+        android:name=".Registration.AdminKeyView"
+        android:parentActivityName=".Registration.adminRegister"
+        tools:ignore="DuplicateActivity" />
 
-        <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+    <activity
+        android:name=".Registration.clientRegister"
+        android:parentActivityName=".usertype" />
+    <activity
+        android:name=".usertype"
+        android:parentActivityName=".login" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-    </application>
+    <activity
+        android:name=".login"
+        android:parentActivityName=".MainActivity" />
+
+    <activity android:name=".ClientsActivity"
+        android:parentActivityName=".AdminVerification"/>
+
+    <activity android:name=".VerificationActivity"
+        android:parentActivityName=".AdminVerification"/>
+
+    <activity android:name=".AdminVerification"/>
+
+    <activity android:name=".MainActivity">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+    </activity>
+</application>
 
 </manifest>
+
