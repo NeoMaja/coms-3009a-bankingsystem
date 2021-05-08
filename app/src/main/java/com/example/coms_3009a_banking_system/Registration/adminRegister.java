@@ -23,7 +23,7 @@ public class adminRegister extends AppCompatActivity {
     //initializing variables
     EditText firstName,lastName, username,idNumber,celNumber,email,password,confirmPassword;
     Button register;
-    String Cell;
+    //String Cell;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -149,22 +149,22 @@ public class adminRegister extends AppCompatActivity {
             confirmPassword.setText("");
         }
         else {
-            doRegister(F_Name,L_Name,Username,ID, Email, Password);
+            doRegister(F_Name,L_Name,Username,ID, Email, Password, Cell);
         }
     }
 
 
-    private void doRegister(String fName,String lName ,String username, String IdNumber,String email, String password) {
+    private void doRegister(String fName,String lName ,String username, String IdNumber,String email, String password, String Cell) {
         //by Lindo to send data into the database and show the admin key
-        //here the admin key is outputed in order to show the the admin his/her unique admin key.
+        //here the admin key is output in order to show the the admin his/her unique admin key.
         ContentValues parameters = new ContentValues();
         parameters.put("ID_Number",IdNumber );
         parameters.put("Username", username );
         parameters.put("First_Name", fName );
         parameters.put("LastName", lName);
         parameters.put("Password", password);
-        parameters.put("Email", email );
         parameters.put("Cellphone_Number", Cell);
+        parameters.put("Email", email );
         parameters.put("User_Type_ID","300");
 
 
