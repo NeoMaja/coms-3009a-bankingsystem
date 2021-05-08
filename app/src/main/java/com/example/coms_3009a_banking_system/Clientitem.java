@@ -5,9 +5,9 @@ public class Clientitem {
     private String mText1;
     private String mText2;
 
-    public Clientitem(String mText0, String mText1, String mText2) {
-        this.mText0 = mText0;
-        this.mText1 = mText1;
+    public Clientitem(String clientAcctype, String AccNumber, String Amount) {
+        this.mText0 = clientAcctype;
+        this.mText1 = AccNumber;
         this.mText2 = mText2;
     }
     public void changeText1(String text){
