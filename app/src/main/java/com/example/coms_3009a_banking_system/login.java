@@ -119,12 +119,14 @@ public class login extends AppCompatActivity {
                         try {
                             JSONObject jO = new JSONObject(responseData);
                             String success = jO.getString("success");
+
                             if(success.equals("250")){ //client login, should take you to homepage
                                 Toast.makeText(login.this, "Login successful", Toast.LENGTH_SHORT).show();
                                 Email.requestFocus();
                                 Password.requestFocus();
                                 //Login path
-                                Intent loginIntent = new Intent(login.this,Client_Verification_Status.class);///LOGIN BUTTON HERE
+                                System.err.println("I am On Client Login");
+                                Intent loginIntent = new Intent(login.this,MainActivity.class);///LOGIN BUTTON HERE
                                 loginIntent.putExtra("email",Email.getText().toString().trim());
                                 startActivity(loginIntent);
                                 login.this.finish();
