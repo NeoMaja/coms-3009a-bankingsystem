@@ -26,7 +26,9 @@ script:
   - ./gradlew test
  # - ./gradlew jacocoTestReport
   - ./gradlew build check
- # - ./gradlew build jacocoTestReport assembleAndroidTest
+  - ./gradlew createDebugCoverageReport
+
+  # - ./gradlew build jacocoTestReport assembleAndroidTest
   #- ./gradlew connectedCheck
 
 env:
