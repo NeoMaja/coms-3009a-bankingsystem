@@ -154,7 +154,7 @@ public class login extends AppCompatActivity {
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
-                            Toast.makeText(login.this, "Login error", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(login.this, "Login  error", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
