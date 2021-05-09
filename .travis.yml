@@ -21,7 +21,7 @@ before_install:
   - yes | sdkmanager "platforms;android-30"
 script:
   #Remember to change gradle file to add this jacoco thing
-
+  - ./gradlew assembleDebug
   - ./gradlew clean build
   - ./gradlew test
  # - ./gradlew jacocoTestReport
