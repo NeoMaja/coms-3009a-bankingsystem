@@ -50,6 +50,7 @@ public class adminRegister extends AppCompatActivity {
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                System.err.println("Admin Register Button clicked");
                 validateDataAndDoAdminRegister();
 
             }
