@@ -36,6 +36,11 @@ public class AdminRegCode extends AppCompatActivity {
                     Intent intent = new Intent(AdminRegCode.this, adminRegister.class);
                     startActivity(intent);
                 }
+
+                else {
+                    Code.setError("Incorrect Key");
+                    Code.requestFocus();
+                }
             }
         });
 
