@@ -11,15 +11,16 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Coms3009abankingsystem">
-
-        <activity android:name=".Registration.AdminRegCode"/>
+        android:theme="@style/Theme.Coms3009abankingsystem"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".ClientAccount.Cli_Acc_Test"></activity>
+        <activity android:name=".login.AdminLoginKey" />
+        <activity android:name=".login.Login2" />
+        <activity android:name=".Registration.AdminRegCode" />
         <activity android:name=".Registration.AdminHomePage" />
-
         <activity
             android:name=".Registration.adminRegister"
             android:parentActivityName=".Registration.AdminRegCode" />
-
         <activity android:name=".Banking" />
         <activity android:name=".client_account" />
         <activity android:name=".Registration.AdminKeyView" />

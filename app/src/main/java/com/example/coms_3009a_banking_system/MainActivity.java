@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.coms_3009a_banking_system.login.Login2;
 import com.example.coms_3009a_banking_system.login.login;
 
 public class MainActivity extends AppCompatActivity {
@@ -25,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
     public void OpenActivity(){
-        Intent intent = new Intent(this, login.class);
+        Intent intent = new Intent(this, Login2.class);
         startActivity(intent);
     }
 }
