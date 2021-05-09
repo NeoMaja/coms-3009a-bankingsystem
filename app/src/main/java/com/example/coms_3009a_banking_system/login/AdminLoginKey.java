@@ -22,15 +22,17 @@ public class AdminLoginKey extends AppCompatActivity {
     EditText Admin_key;
     String Key;
 
-    String Email = getIntent().getStringExtra("email");
+    String Email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_login_key);
 
-        Enter = findViewById(R.id.enter_key_log);
-        Admin_key = findViewById(R.id.admin_key);
+        Email = getIntent().getStringExtra("email");
+
+        Enter = (Button)findViewById(R.id.enter_key_log);
+        Admin_key = (EditText)findViewById(R.id.adminlog_key);
 
         Enter.setOnClickListener(new View.OnClickListener() {
             @Override
