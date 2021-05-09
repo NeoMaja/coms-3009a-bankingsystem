@@ -23,18 +23,19 @@ public class AdminRegCode extends AppCompatActivity {
 
         Code = (EditText)findViewById(R.id.AdRegCode);
         Enter = (Button)findViewById(R.id.CodeButton);
-        RegCode = Code.getText().toString();
+
 
 
         Enter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                if(RegCode == "201221"){
+                RegCode = Code.getText().toString().trim();
+
+                if(RegCode.equals("201221")){
                     Intent intent = new Intent(AdminRegCode.this, adminRegister.class);
                     startActivity(intent);
                 }
-
             }
         });
 
