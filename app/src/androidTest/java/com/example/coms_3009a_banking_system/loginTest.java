@@ -32,15 +32,16 @@ public class loginTest {
 
     public void testLaunch(){
 
-//        View view = tLogin.findViewBy(R.id.textView3);
-
         assertNotNull( onView(withId(R.id.textView3)));
+        assertNotNull(onView(withId(R.id.username)));
+        assertNotNull(onView(withId(R.id.textInputLayout)));
+        assertNotNull(onView(withId(R.id.textView)));
+        assertNotNull(onView(withId(R.id.password_l)));
+        assertNotNull(onView(withId(R.id.login_id)));
+        assertNotNull(onView(withId(R.id.new_acc_id)));
+
     }
-//
-//    public void testOfLaunchOfUsertypePageOnClickOnButton(){
-//
-//        assertNotNull(tLogin.findViewBy(R.id._register));
-//    }
+
 
     @After
     public void tearDown() throws Exception {
