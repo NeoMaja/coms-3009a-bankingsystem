@@ -16,8 +16,9 @@
         <activity android:name=".Registration.AdminHomePage" />
         <activity
             android:name=".Registration.adminRegister"
-            android:parentActivityName=".usertype" />
+            android:parentActivityName=".Registration.AdminRegCode" />
         <activity android:name=".VerificationActivity"/>
+
         <activity android:name=".Banking" />
         <activity android:name=".client_account" />
         <activity android:name=".Registration.AdminKeyView" />
