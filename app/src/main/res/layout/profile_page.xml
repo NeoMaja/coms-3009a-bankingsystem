@@ -17,7 +17,7 @@
         android:orientation="vertical"
         android:paddingTop="15dp">
 
-    <com.mikhaellopez.circularimageview.CircularImageView
+    <ImageView
         android:layout_width="110dp"
         android:layout_height="110dp"
         android:src="@drawable/neo_face" />
