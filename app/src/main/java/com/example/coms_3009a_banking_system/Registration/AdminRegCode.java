@@ -23,6 +23,7 @@ public class AdminRegCode extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Admin Key");
 
+
         Code = (EditText)findViewById(R.id.AdRegCode);
         Enter = (Button)findViewById(R.id.CodeButton);
 
