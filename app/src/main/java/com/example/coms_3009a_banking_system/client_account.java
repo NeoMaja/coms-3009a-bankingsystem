@@ -40,6 +40,7 @@ public class client_account extends AppCompatActivity {
 
         adapter.notifyItemInserted(position);
     }
+    
     //////////////////////Function remove client items to the list/////////////////////////////////////////////////////////////////////////
     public void RemoveItem(int position){
         mClientList.remove(position);
