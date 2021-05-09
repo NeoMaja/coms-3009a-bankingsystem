@@ -57,20 +57,27 @@ public class Login2 extends AppCompatActivity {
                         if(output.equals("300")){
                             Intent intent = new Intent(Login2.this, AdminLoginKey.class);
                             intent.putExtra("email", email);
+                            intent.putExtra("password",password);
                             startActivity(intent);
                         }
 
                         //if 250verified go to Client_account
                         if(output.equals("250verified")){
+                            String status ="verified";
                             Intent intent = new Intent(Login2.this, client_account.class);
                             intent.putExtra("email", email);
+                            intent.putExtra("password",password);
+                            intent.putExtra("status",status);
                             startActivity(intent);
                         }
 
                         //if 250unverified go to Client_Verification_Status
                         if(output.equals("250un-verified")){
+                            String status ="un-verified";
                             Intent intent = new Intent(Login2.this, Client_Verification_Status.class);
                             intent.putExtra("email", email);
+                            intent.putExtra("status",status);
+
                             startActivity(intent);
                         }
                     }

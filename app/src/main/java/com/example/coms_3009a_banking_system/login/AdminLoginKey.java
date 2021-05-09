@@ -23,6 +23,8 @@ public class AdminLoginKey extends AppCompatActivity {
     String Key;
 
     String Email;
+    String Password;
+    String Status;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +32,8 @@ public class AdminLoginKey extends AppCompatActivity {
         setContentView(R.layout.activity_admin_login_key);
 
         Email = getIntent().getStringExtra("email");
+        Password = getIntent().getStringExtra("password");
+        Status= getIntent().getStringExtra("status");
 
         Enter = (Button)findViewById(R.id.enter_key_log);
         Admin_key = (EditText)findViewById(R.id.adminlog_key);
@@ -49,9 +53,12 @@ public class AdminLoginKey extends AppCompatActivity {
                 AsyncHTTPPost asyncHttpPost = new AsyncHTTPPost("https://lamp.ms.wits.ac.za/home/s2143686/getAdminKey.php",parameters){
                     @Override
                     protected void onPostExecute(String output) {
-                        //if output = success then go the activiy page
+                        //if output = success then go the activity page
                         if(output.equals("success")){
                             Intent intent = new Intent(AdminLoginKey.this, Client_Verification_Status.class);
+                            intent.putExtra("email",Email);
+                            intent.putExtra("password",Password);
+                            intent.putExtra("status",Status);
                             startActivity(intent);
                         }
 

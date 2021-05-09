@@ -127,7 +127,7 @@ public class login extends AppCompatActivity {
                                 Email.requestFocus();
                                 Password.requestFocus();
                                 //Login path
-                                System.err.println("I am On Client Login");
+
                                 Intent loginIntent = new Intent(login.this, MainActivity.class);///LOGIN BUTTON HERE
                                 loginIntent.putExtra("email",Email.getText().toString().trim());
                                 startActivity(loginIntent);
