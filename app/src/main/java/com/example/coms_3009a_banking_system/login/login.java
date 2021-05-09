@@ -1,4 +1,4 @@
-package com.example.coms_3009a_banking_system;
+package com.example.coms_3009a_banking_system.login;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,10 +10,11 @@ import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.example.coms_3009a_banking_system.MainActivity;
+import com.example.coms_3009a_banking_system.R;
+import com.example.coms_3009a_banking_system.usertype;
 import com.google.android.material.textfield.TextInputEditText;
 
 import org.json.JSONException;
@@ -52,7 +53,7 @@ public class login extends AppCompatActivity {
         NewAcc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent userTypeIntent = new Intent(login.this,usertype.class);
+                Intent userTypeIntent = new Intent(login.this, usertype.class);
                 startActivity(userTypeIntent);
             }
 
@@ -127,7 +128,7 @@ public class login extends AppCompatActivity {
                                 Password.requestFocus();
                                 //Login path
                                 System.err.println("I am On Client Login");
-                                Intent loginIntent = new Intent(login.this,MainActivity.class);///LOGIN BUTTON HERE
+                                Intent loginIntent = new Intent(login.this, MainActivity.class);///LOGIN BUTTON HERE
                                 loginIntent.putExtra("email",Email.getText().toString().trim());
                                 startActivity(loginIntent);
                                 login.this.finish();

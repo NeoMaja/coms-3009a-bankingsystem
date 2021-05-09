@@ -1,9 +1,9 @@
 package com.example.coms_3009a_banking_system;
 
-import android.view.View;
-
 import androidx.test.core.app.ActivityScenario;
 import androidx.test.ext.junit.rules.ActivityScenarioRule;
+
+import com.example.coms_3009a_banking_system.login.login;
 
 import org.junit.After;
 import org.junit.Before;

@@ -25,15 +25,15 @@
         <activity android:name=".Registration.AdminKeyView" />
         <activity
             android:name=".Client_Verification_Status"
-            android:parentActivityName=".login" />
+            android:parentActivityName=".login.login" />
         <activity
             android:name=".Registration.clientRegister"
             android:parentActivityName=".usertype" />
         <activity
             android:name=".usertype"
-            android:parentActivityName=".login" />
+            android:parentActivityName=".login.login" />
         <activity
-            android:name=".login"
+            android:name=".login.login"
             android:parentActivityName=".MainActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
