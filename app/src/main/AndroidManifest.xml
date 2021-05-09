@@ -13,7 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Coms3009abankingsystem">
 
-        <activity android:name=".Registration.AdminRegCode"/>
+        <activity android:name=".Registration.AdminRegCode"
+            android:parentActivityName=".usertype"/>
         <activity android:name=".Registration.AdminHomePage" />
 
         <activity

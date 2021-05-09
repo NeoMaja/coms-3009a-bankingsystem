@@ -20,6 +20,8 @@ public class AdminRegCode extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_reg_code);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Admin Key");
 
         Code = (EditText)findViewById(R.id.AdRegCode);
         Enter = (Button)findViewById(R.id.CodeButton);
