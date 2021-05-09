@@ -36,7 +36,7 @@ public class client_account extends AppCompatActivity {
     //////////////////////Function that adds Client items to the list and notify the adapter about the change////////////////////////////
     public void insertItem(int position){
 
-        mClientList.add(new Clientitem("Account type","chosen account :" + position," ERR boy"));
+        mClientList.add(new Clientitem("Savings Account","chosen account :" + position," ERR boy"));
 
         adapter.notifyItemInserted(position);
     }

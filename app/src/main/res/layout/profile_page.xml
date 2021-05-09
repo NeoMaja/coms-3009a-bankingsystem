@@ -17,7 +17,7 @@
         android:orientation="vertical"
         android:paddingTop="15dp">
 
-    <com.mikhaellopez.circularimageview.CircularImageView
+    <ImageView
         android:layout_width="110dp"
         android:layout_height="110dp"
         android:src="@drawable/neo_face" />
@@ -33,7 +33,7 @@
         android:textStyle="bold"
         />
 
-    <view
+    <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@android:color/holo_blue_bright"

@@ -12,6 +12,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.coms_3009a_banking_system.AsyncHTTPPost;
+//import com.example.coms_3009a_banking_system.AdminKeyView;
 import com.example.coms_3009a_banking_system.R;
 import com.google.android.material.textfield.TextInputEditText;
 
@@ -35,28 +36,28 @@ public class adminRegister extends AppCompatActivity {
 
         //        assigning variables  //TODO the find by id thing.
 
-        firstName = findViewById(R.id.firstNameAdmin);
-        lastName = findViewById(R.id.lastNameAdmin);
-        username = (TextInputEditText) findViewById(R.id.usernameAdmin);
-        idNumber = findViewById(R.id.idNumberAdmin);
-        celNumber = findViewById(R.id.cellNumberAdmin);
-        email = findViewById(R.id.emailAdmin);
-        password = findViewById(R.id.passwordAdmin);
-        confirmPassword = findViewById(R.id.confirmPasswordAdmin);
+        firstName = (EditText)findViewById(R.id.firstNameAdmin);
+        lastName = (EditText)findViewById(R.id.lastNameAdmin);
+        username = (EditText)findViewById(R.id.usernameAdmin);
+        idNumber = (EditText)findViewById(R.id.idNumberAdmin);
+        celNumber = (EditText)findViewById(R.id.cellNumberAdmin);
+        email = (EditText)findViewById(R.id.emailAdmin);
+        password = (EditText)findViewById(R.id.passwordAdmin);
+        confirmPassword = (EditText)findViewById(R.id.confirmPasswordAdmin);
 
-        register = findViewById(R.id._registerAdmin);
+        register = (Button)findViewById(R.id._registerAdmin);
 
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                validateDataAndDoRegister();
+                validateDataAndDoAdminRegister();
 
             }
         });
     }
 
     //        Validation function
-    private void validateDataAndDoRegister() {
+    private void validateDataAndDoAdminRegister() {
         String F_Name = firstName.getText().toString().trim();
         String L_Name = lastName.getText().toString().trim();
         String Username = username.getText().toString().trim();
@@ -175,7 +176,7 @@ public class adminRegister extends AppCompatActivity {
 
                 //Toast.makeText(getApplicationContext(),output,Toast.LENGTH_SHORT).show();
 
-                if((output.length() == 5)) {
+                if((output.length() == 4)) {
                     //Go to page to see admin key after successful registration.
                     Toast.makeText(getApplicationContext(),output,Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(adminRegister.this, AdminKeyView.class);
