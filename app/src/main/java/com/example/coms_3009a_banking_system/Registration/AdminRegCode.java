@@ -14,6 +14,7 @@ public class AdminRegCode extends AppCompatActivity {
 
     EditText Code;
     Button Enter;
+    String RegCode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,12 +23,12 @@ public class AdminRegCode extends AppCompatActivity {
 
         Code = (EditText)findViewById(R.id.AdRegCode);
         Enter = (Button)findViewById(R.id.CodeButton);
+        RegCode = Code.getText().toString();
+
 
         Enter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                String RegCode = Code.getText().toString();
 
                 if(RegCode == "201221"){
                     Intent intent = new Intent(AdminRegCode.this, adminRegister.class);
