@@ -32,6 +32,7 @@ public class AdminRegCode extends AppCompatActivity {
 
                 if(RegCode == "201221"){
                     Intent intent = new Intent(AdminRegCode.this, adminRegister.class);
+                    startActivity(intent);
                 }
 
             }
