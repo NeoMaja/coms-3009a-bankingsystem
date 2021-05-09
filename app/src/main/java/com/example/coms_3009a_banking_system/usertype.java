@@ -21,6 +21,7 @@ public class usertype extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_usertype);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("User Type");
 
         Admin = (Button) findViewById(R.id.Admin_b);
         Client = (Button) findViewById(R.id.client_b);

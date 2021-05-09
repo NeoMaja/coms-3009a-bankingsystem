@@ -179,6 +179,9 @@ public class clientRegister extends AppCompatActivity {
         parameters.put("Cellphone_Number", Cell);
         parameters.put("User_Type_ID","250");           //TODO
 
+        System.err.println(fName);
+        System.err.println(username);
+
 
         //TODO
         AsyncHTTPPost asyncHttpPost = new AsyncHTTPPost("https://lamp.ms.wits.ac.za/home/s2143686/Bank_Registration.php",parameters){

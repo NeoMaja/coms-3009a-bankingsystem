@@ -22,20 +22,10 @@
             android:textSize="16sp" />
 
         <TextView
-            android:id="@+id/AdminKeyView"
+            android:id="@+id/AdKView"
             android:layout_width="match_parent"
             android:layout_height="54dp"
             android:text="Admin Key" />
-
-
-        <!--            <Button-->
-        <!--                android:id="@+id/_confirmKey"-->
-        <!--                android:layout_width="wrap_content"-->
-        <!--                android:layout_height="wrap_content"-->
-        <!--                android:hint="Confirm"-->
-        <!--                android:layout_gravity="center"-->
-        <!--                tools:layout_editor_absoluteX="159dp"-->
-        <!--                tools:layout_editor_absoluteY="604dp" />-->
 
     </LinearLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

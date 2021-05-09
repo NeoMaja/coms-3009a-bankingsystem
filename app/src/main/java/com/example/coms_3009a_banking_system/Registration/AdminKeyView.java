@@ -21,7 +21,10 @@ public class AdminKeyView extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_key_view2);
 
-        AdKey = (TextView)findViewById(R.id.AdminKeyView);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Your Admin Key Is :");
+
+        AdKey = (TextView)findViewById(R.id.AdKView);
         AdKey.setText(Admin_Key);
 
     }
