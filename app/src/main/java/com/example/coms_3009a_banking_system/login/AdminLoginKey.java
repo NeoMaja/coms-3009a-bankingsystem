@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.coms_3009a_banking_system.AdminVerification;
 import com.example.coms_3009a_banking_system.AsyncHTTPPost;
 import com.example.coms_3009a_banking_system.Client_Verification_Status;
 import com.example.coms_3009a_banking_system.R;
@@ -55,7 +56,7 @@ public class AdminLoginKey extends AppCompatActivity {
                     protected void onPostExecute(String output) {
                         //if output = success then go the activity page
                         if(output.equals("success")){
-                            Intent intent = new Intent(AdminLoginKey.this, Client_Verification_Status.class);
+                            Intent intent = new Intent(AdminLoginKey.this, AdminVerification.class);
                             intent.putExtra("email",Email);
                             intent.putExtra("password",Password);
                             intent.putExtra("status",Status);
