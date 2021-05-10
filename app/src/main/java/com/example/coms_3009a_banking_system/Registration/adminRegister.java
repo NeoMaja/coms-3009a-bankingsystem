@@ -185,7 +185,7 @@ public class adminRegister extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(),output,Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(adminRegister.this, AdminKeyView.class);
                     intent.putExtra("Admin_Key",output);
-                    startActivity(intent;
+                    startActivity(intent);
                 }
             }
         };
