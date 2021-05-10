@@ -2,7 +2,7 @@
  [![Build Status](https://travis-ci.com/NeoMaja/coms-3009a-bankingsystem.svg?token=KRJyGJdtUy45xqsuRezk&branch=main)](https://travis-ci.com/NeoMaja/coms-3009a-bankingsystem)
 [![codecov](https://codecov.io/gh/NeoMaja/coms-3009a-bankingsystem/branch/main/graph/badge.svg?token=WX9OXZK4WD)](https://codecov.io/gh/NeoMaja/coms-3009a-bankingsystem)
 
-** Software Architecture **
+**Software Architecture**
 
 The banking app is written in Java. It is designed to optimize the traditional banking system by speeding up processes like opening a bank account, balance enquiry, transactions and other menial tasks. It accomplishes this by the use of well-thought-out algorithms that prioritize security.
 
