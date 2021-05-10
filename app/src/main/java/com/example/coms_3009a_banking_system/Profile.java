@@ -32,6 +32,7 @@ public class Profile extends AppCompatActivity {
     private TextView LastName;
     private TextView UserName;
     private TextView Email;
+    private TextView Password;
     private static final String TAG = "Profile";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +43,8 @@ public class Profile extends AppCompatActivity {
         LastName= (TextView)findViewById(R.id.lastname);
         UserName=  (TextView)findViewById(R.id.username);
         Email= (TextView)findViewById(R.id.useremail);
+        Password= (TextView)findViewById(R.id.password);
+
 
 
         Intent getIntent= getIntent();
@@ -50,20 +53,25 @@ public class Profile extends AppCompatActivity {
         Log.e(TAG,email);
         Log.e(TAG,password);
 
+
+        Email.setText(email.toUpperCase());
+        Password.setText(password);
+
+
         ContentValues parameters = new ContentValues();
         parameters.put("email", email);
         parameters.put("password", password);
 
 
-        AsyncHTTPPost asyncHttpPost = new AsyncHTTPPost("https://lamp.ms.wits.ac.za/home/s2143686/retrieveUserData.php",parameters){
-            @Override
-            protected void onPostExecute(String output) {
-                //if output = success then go the activity page
-               Log.e(TAG, "Out ="+output.length());
-
-            }
-        };
-        asyncHttpPost.execute();
+//        AsyncHTTPPost asyncHttpPost = new AsyncHTTPPost("https://lamp.ms.wits.ac.za/home/s2143686/retrieveUserData.php",parameters){
+//            @Override
+//            protected void onPostExecute(String output) {
+//                //if output = success then go the activity page
+//               Log.e(TAG, "Out ="+output.length());
+//
+//            }
+//        };
+//        asyncHttpPost.execute();
 
 
 //        AsyncHTTPPost asyncHttpPost =  new AsyncHTTPPost("https://lamp.ms.wits.ac.za/home/s2143686/retrieveUserData.php",parameters) {
