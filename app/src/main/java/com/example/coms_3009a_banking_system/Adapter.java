@@ -1,6 +1,8 @@
 package com.example.coms_3009a_banking_system;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -78,49 +80,64 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
         holder.btnAccept.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                StringRequest request = new StringRequest( com.android.volley.Request.Method.POST, URL, new Response.Listener<String>() {
+                AlertDialog.Builder builder = new AlertDialog.Builder(mCtx);
+                builder.setTitle("ACCEPT USER");
+                builder.setMessage("CONFIRM TO ACCEPT " + user.getName());
+                builder.setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
+                    @Override   
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+                builder.setPositiveButton("ACCEPT", new DialogInterface.OnClickListener() {
                     @Override
-                    public void onResponse(String response) {
-                        try {
-                            JSONObject jsonObject = new JSONObject(response);
+                    public void onClick(DialogInterface dialog, int which) {
+                        StringRequest request = new StringRequest(com.android.volley.Request.Method.POST, URL, new Response.Listener<String>() {
+                            @Override
+                            public void onResponse(String response) {
+                                try {
+                                    JSONObject jsonObject = new JSONObject(response);
 
 
-                            //Delete(position);
-                            if (jsonObject.names().get(0).equals("success")) {
+                                    //Delete(position);
+                                    if (jsonObject.names().get(0).equals("success")) {
 
-                                Toast.makeText(mCtx.getApplicationContext(), "SUCCESS " + jsonObject.getString("success"), Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(mCtx.getApplicationContext(), "SUCCESS " + jsonObject.getString("success"), Toast.LENGTH_SHORT).show();
+
+                                    } else {
+                                        Toast.makeText(mCtx.getApplicationContext(), "ERROR " + jsonObject.getString("error"), Toast.LENGTH_SHORT).show();
+                                    }
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        }, new Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
 
                             }
-                            else{
-                                Toast.makeText(mCtx.getApplicationContext(), "ERROR " + jsonObject.getString("error"), Toast.LENGTH_SHORT).show();
-                            }
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }, new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
 
-                    }
-
-                }){
-                    @Override
-                    protected Map<String, String> getParams() throws AuthFailureError {
-                        Map<String, String> hashMap = new HashMap<String, String>();
-                        //Intent intent = new Intent();
-                        //String email =intent.getStringExtra("email");
-                        //String name =intent.getStringExtra("name");
-                        hashMap.put("Id", user.getId());
+                        }) {
+                            @Override
+                            protected Map<String, String> getParams() throws AuthFailureError {
+                                Map<String, String> hashMap = new HashMap<String, String>();
+                                //Intent intent = new Intent();
+                                //String email =intent.getStringExtra("email");
+                                //String name =intent.getStringExtra("name");
+                                hashMap.put("Id", user.getId());
 
 //                        hashMap.put("First_Name", user.getName());
 
-                        return hashMap;
-                    }
-                };
-                RequestQueue requestQueue = Volley.newRequestQueue(mCtx);
-                requestQueue.add(request);
+                                return hashMap;
+                            }
+                        };
+                        RequestQueue requestQueue = Volley.newRequestQueue(mCtx);
+                        requestQueue.add(request);
 
+                    }
+                });
+                AlertDialog dialog = builder.create();
+                dialog.show();
             }
         });
     }
