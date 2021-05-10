@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.coms_3009a_banking_system.R;
+import com.example.coms_3009a_banking_system.login.Login2;
 
 public class AdminKeyView extends AppCompatActivity {
 
@@ -17,6 +18,7 @@ public class AdminKeyView extends AppCompatActivity {
     //getting admin key from AdminRegister to be displayed so Admin can see it.
     String Admin_Key;
     Button _Continue;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,13 +30,14 @@ public class AdminKeyView extends AppCompatActivity {
         getSupportActionBar().setTitle("Your Admin Key Is :");
 
         AdKey = (TextView)findViewById(R.id.AdKView);
+        _Continue = (Button)findViewById(R.id.Continue);
         AdKey.setText(Admin_Key);
 
 
         _Continue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(AdminKeyView.this, AdminRegCode.class);
+                Intent intent = new Intent(AdminKeyView.this, Login2.class);
                 startActivity(intent);
 
             }

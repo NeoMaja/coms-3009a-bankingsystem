@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.coms_3009a_banking_system.AsyncHTTPPost;
 //import com.example.coms_3009a_banking_system.AdminKeyView;
 import com.example.coms_3009a_banking_system.R;
+import com.example.coms_3009a_banking_system.login.Login2;
 import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.regex.Matcher;
@@ -180,7 +181,7 @@ public class adminRegister extends AppCompatActivity {
                 System.err.println(output);
 
 
-                if((output.length() ==5)) {
+                if((output.length() < 6)) {
                     //Go to page to see admin key after successful registration.
                     Toast.makeText(getApplicationContext(),output,Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(adminRegister.this, AdminKeyView.class);
