@@ -1,5 +1,4 @@
 package com.example.coms_3009a_banking_system.Registration;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
@@ -11,9 +10,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.coms_3009a_banking_system.AsyncHTTPPost;
-import com.example.coms_3009a_banking_system.MainActivity;
 import com.example.coms_3009a_banking_system.R;
-import com.example.coms_3009a_banking_system.client_account;
+import com.example.coms_3009a_banking_system.ClientAccount.client_account;
 import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.regex.Matcher;
