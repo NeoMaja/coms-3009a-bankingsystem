@@ -22,6 +22,11 @@ public class client_account extends AppCompatActivity {
     private RecyclerView.LayoutManager layoutManager;
 
     private Button AddButton;
+    private Button ProfileButton;
+
+    //Intent Information from Login
+    private String email = getIntent().getStringExtra("email");
+    private String password = getIntent().getStringExtra("password");
 
 
     @Override
@@ -90,6 +95,22 @@ public class client_account extends AppCompatActivity {
 //                OpenActivity();
                 // insertItem(0);//Inserting the item at the first position
 
+            }
+        });
+
+        ProfileButton = findViewById(R.id.button_profile);
+
+        ProfileButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Take me to Client Profile Page
+
+
+                Intent intent = new Intent(client_account.this,Profile.class);
+                intent.putExtra("email", email);
+                intent.putExtra("password",password);
+
+                startActivity(intent);
             }
         });
 
