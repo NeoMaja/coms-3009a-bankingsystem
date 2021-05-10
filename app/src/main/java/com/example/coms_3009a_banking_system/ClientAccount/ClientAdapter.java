@@ -9,7 +9,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.coms_3009a_banking_system.Clientitem;
 import com.example.coms_3009a_banking_system.R;
 
 import java.util.ArrayList;
