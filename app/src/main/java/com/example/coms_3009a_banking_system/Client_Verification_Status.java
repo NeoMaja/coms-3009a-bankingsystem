@@ -11,7 +11,7 @@ public class Client_Verification_Status extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.client_verification_status);
         TextView status = (TextView) findViewById(R.id.verification_status);
-        status.setText("Hope");
+        status.setText("You are not yet verified");
 
 
 

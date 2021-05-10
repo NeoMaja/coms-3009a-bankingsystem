@@ -1,14 +1,16 @@
-package com.example.coms_3009a_banking_system;
+package com.example.coms_3009a_banking_system.ClientAccount;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.PopupMenu;
 import android.widget.TextView;
 
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.coms_3009a_banking_system.Clientitem;
+import com.example.coms_3009a_banking_system.R;
 
 import java.util.ArrayList;
 
@@ -38,7 +40,7 @@ public class ClientAdapter extends RecyclerView.Adapter<ClientAdapter.ClientView
             mtext0 = itemView.findViewById(R.id.account_type);
             mtext1 = itemView.findViewById(R.id.account_number);
             mtext2 = itemView.findViewById(R.id.amount);
-            deleteImage = itemView.findViewById(R.id.image_delete);
+//            deleteImage = itemView.findViewById(R.id.image_delete);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -52,18 +54,18 @@ public class ClientAdapter extends RecyclerView.Adapter<ClientAdapter.ClientView
                 }
             });
 
-            deleteImage.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if(listener != null){
-                        int position = getAdapterPosition();
-                        if(position != RecyclerView.NO_POSITION){
-                            listener.onDeleteClick(position);
-                        }
-                    }
-
-                }
-            });
+//            deleteImage.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    if(listener != null){
+//                        int position = getAdapterPosition();
+//                        if(position != RecyclerView.NO_POSITION){
+//                            listener.onDeleteClick(position);
+//                        }
+//                    }
+//
+//                }
+//            });
 
         }
     }
