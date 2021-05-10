@@ -1,4 +1,4 @@
-package com.example.coms_3009a_banking_system;
+package com.example.coms_3009a_banking_system.ClientAccount;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -12,6 +12,10 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
+import com.example.coms_3009a_banking_system.ClientAdapter;
+import com.example.coms_3009a_banking_system.Clientitem;
+import com.example.coms_3009a_banking_system.R;
+
 import java.util.ArrayList;
 
 public class client_account extends AppCompatActivity {
@@ -22,6 +26,7 @@ public class client_account extends AppCompatActivity {
     private RecyclerView.LayoutManager layoutManager;
 
     private Button AddButton;
+    String email;
 
 
     @Override
@@ -30,7 +35,20 @@ public class client_account extends AppCompatActivity {
         setContentView(R.layout.activity_client_account);
         createClientList();
         buildRecyclerView();
-        setButtons();
+        //setButtons();
+
+        email = getIntent().getStringExtra("email");
+
+        AddButton = (Button)findViewById(R.id.button_insert);
+
+        AddButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(client_account.this, Cli_Acc_Test.class);
+                intent.putExtra("Email", email);
+                startActivity(intent);
+            }
+        });
 
     }
     //////////////////////Function that adds Client items to the list and notify the adapter about the change////////////////////////////
@@ -52,6 +70,9 @@ public class client_account extends AppCompatActivity {
         adapter.notifyItemChanged(position);
     }
     ////////////////////////////Making my cardview(which has three strings and an image)
+
+    //Get data from the database
+
     public void createClientList(){
         mClientList = new ArrayList<>();
         mClientList.add(new Clientitem("Account Type","Account Number", "Amount"));
@@ -87,6 +108,7 @@ public class client_account extends AppCompatActivity {
         AddButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
 //                OpenActivity();
                 // insertItem(0);//Inserting the item at the first position
 

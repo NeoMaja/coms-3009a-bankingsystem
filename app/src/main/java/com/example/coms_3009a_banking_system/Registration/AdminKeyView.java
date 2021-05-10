@@ -14,12 +14,14 @@ public class AdminKeyView extends AppCompatActivity {
     TextView AdKey;
 
     //getting admin key from AdminRegister to be displayed so Admin can see it.
-    String Admin_Key = getIntent().getStringExtra("Admin_Key");
+    String Admin_Key;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_key_view2);
+
+        Admin_Key = getIntent().getStringExtra("Admin_Key");
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Your Admin Key Is :");
