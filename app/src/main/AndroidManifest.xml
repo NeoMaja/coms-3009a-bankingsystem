@@ -37,6 +37,12 @@
         <activity
             android:name=".login.login"
             android:parentActivityName=".MainActivity" />
+        <activity android:name=".AdminVerification"
+            android:parentActivityName=".login.AdminLoginKey"/>
+        <activity android:name=".VerificationActivity"
+            android:parentActivityName=".AdminVerification"/>
+        <activity android:name=".ClientsActivity"
+            android:parentActivityName=".AdminVerification"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
