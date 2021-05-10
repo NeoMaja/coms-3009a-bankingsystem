@@ -12,7 +12,7 @@ import android.widget.EditText;
 import com.example.coms_3009a_banking_system.AsyncHTTPPost;
 import com.example.coms_3009a_banking_system.Client_Verification_Status;
 import com.example.coms_3009a_banking_system.R;
-import com.example.coms_3009a_banking_system.ClientAccount.client_account;
+import com.example.coms_3009a_banking_system.client_account;
 import com.example.coms_3009a_banking_system.usertype;
 
 public class Login2 extends AppCompatActivity {
@@ -26,6 +26,7 @@ public class Login2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        System.err.println("Login Pressed");
         //finding views by ids
         Login = (Button)findViewById(R.id.login_id);
         Register = (Button)findViewById(R.id.new_acc_id);
@@ -36,6 +37,7 @@ public class Login2 extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                System.err.println("Login Pressed2");
                 //get email address and password,
                 email = Get_email.getText().toString();
                 password = Get_Password.getText().toString();
@@ -60,12 +62,12 @@ public class Login2 extends AppCompatActivity {
 
                         //if 250verified go to Client_account
                         if(output.equals("250verified")){
-                            String status ="verified";
+
                             Intent intent = new Intent(Login2.this, client_account.class); // this takes us to the Client Account Page
                                                                                                             // email and password to be used to get info for Profile page
                             intent.putExtra("email", email);
                             intent.putExtra("password",password);
-                            intent.putExtra("status",status);
+                           // intent.putExtra("status",status);
                             startActivity(intent);
                         }
 

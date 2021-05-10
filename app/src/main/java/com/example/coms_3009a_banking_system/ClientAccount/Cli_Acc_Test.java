@@ -14,6 +14,7 @@ import android.widget.RadioGroup;
 import com.example.coms_3009a_banking_system.AsyncHTTPPost;
 import com.example.coms_3009a_banking_system.Client_Verification_Status;
 import com.example.coms_3009a_banking_system.R;
+import com.example.coms_3009a_banking_system.client_account;
 import com.example.coms_3009a_banking_system.login.AdminLoginKey;
 
 public class Cli_Acc_Test extends AppCompatActivity {
@@ -62,6 +63,7 @@ public class Cli_Acc_Test extends AppCompatActivity {
             protected void onPostExecute(String output) {
                 //if output = success then go the activiy page
                 if(output.equals("success")){
+
                     Intent intent = new Intent(Cli_Acc_Test.this, client_account.class);
                     startActivity(intent);
                 }
