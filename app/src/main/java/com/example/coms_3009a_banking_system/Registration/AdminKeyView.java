@@ -2,6 +2,7 @@ package com.example.coms_3009a_banking_system.Registration;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -15,7 +16,7 @@ public class AdminKeyView extends AppCompatActivity {
 
     //getting admin key from AdminRegister to be displayed so Admin can see it.
     String Admin_Key;
-
+    Button _Continue;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +29,16 @@ public class AdminKeyView extends AppCompatActivity {
 
         AdKey = (TextView)findViewById(R.id.AdKView);
         AdKey.setText(Admin_Key);
+
+
+        _Continue.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(AdminKeyView.this, AdminRegCode.class);
+                startActivity(intent);
+
+            }
+        });
 
     }
 
