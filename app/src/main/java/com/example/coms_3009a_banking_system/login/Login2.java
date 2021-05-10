@@ -37,7 +37,7 @@ public class Login2 extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                System.err.println("Login Pressed2");
+
                 //get email address and password,
                 email = Get_email.getText().toString();
                 password = Get_Password.getText().toString();
@@ -91,6 +91,7 @@ public class Login2 extends AppCompatActivity {
         Register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                
                 Intent intent = new Intent(Login2.this, usertype.class);
                 startActivity(intent);
             }
