@@ -56,7 +56,7 @@ public class AdminLoginKey extends AppCompatActivity {
                     protected void onPostExecute(String output) {
                         //if output = success then go the activity page
                         if(output.equals("success")){
-                            Intent intent = new Intent(AdminLoginKey.this, Login2.class);
+                            Intent intent = new Intent(AdminLoginKey.this, AdminVerification.class);
                             intent.putExtra("email",Email);
                             intent.putExtra("password",Password);
                             intent.putExtra("status",Status);
