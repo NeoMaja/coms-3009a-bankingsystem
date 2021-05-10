@@ -8,7 +8,7 @@ The banking app is written in Java. It is designed to optimize the traditional b
 
 Features:
 
--Secure password interface
+- Secure password interface
 Login page
 Registration page with input validation checks
 Verification status screen
