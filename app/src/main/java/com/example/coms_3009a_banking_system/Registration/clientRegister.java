@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 import com.example.coms_3009a_banking_system.AsyncHTTPPost;
 import com.example.coms_3009a_banking_system.R;
-import com.example.coms_3009a_banking_system.client_account;
+import com.example.coms_3009a_banking_system.ClientAccount.client_account;
 import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.regex.Matcher;
