@@ -55,7 +55,8 @@ public class Login2 extends AppCompatActivity {
                         //output UserTypeID
                         //if 300 go to AdminLoginKey
                         if(output.equals("300")){
-                            Intent intent = new Intent(Login2.this, AdminLoginKey.class);
+                            Intent intent = new Intent(Login2.this, AdminLoginKey.class); // Intent should take you to Admin Verification Page.
+                                                                                                        // Should Be able to see Admin profile
                             intent.putExtra("email", email);
                             intent.putExtra("password",password);
                             startActivity(intent);
@@ -64,7 +65,8 @@ public class Login2 extends AppCompatActivity {
                         //if 250verified go to Client_account
                         if(output.equals("250verified")){
                             String status ="verified";
-                            Intent intent = new Intent(Login2.this, client_account.class);
+                            Intent intent = new Intent(Login2.this, client_account.class); // this takes us to the Client Account Page
+                                                                                                            // email and password to be used to get info for Profile page
                             intent.putExtra("email", email);
                             intent.putExtra("password",password);
                             intent.putExtra("status",status);
