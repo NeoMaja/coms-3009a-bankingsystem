@@ -75,7 +75,6 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
         holder.mEmail.setText(user.getEmail());
         holder.mPhone.setText(user.getPhoneNo());
 
-
         holder.btnAccept.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -85,6 +84,8 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
                         try {
                             JSONObject jsonObject = new JSONObject(response);
 
+
+                            Delete(position);
                             if (jsonObject.names().get(0).equals("success")) {
 
                                 Toast.makeText(mCtx.getApplicationContext(), "SUCCESS " + jsonObject.getString("success"), Toast.LENGTH_SHORT).show();
@@ -106,13 +107,13 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
                 }){
                     @Override
                     protected Map<String, String> getParams() throws AuthFailureError {
-                        HashMap<String, String> hashMap = new HashMap<String, String>();
-                        Intent intent = new Intent();
-                        String email =intent.getStringExtra("email");
-                        String name =intent.getStringExtra("name");
-                        hashMap.put("name", name);
+                        Map<String, String> hashMap = new HashMap<String, String>();
+                        //Intent intent = new Intent();
+                        //String email =intent.getStringExtra("email");
+                        //String name =intent.getStringExtra("name");
+                        hashMap.put("email", user.getEmail());
 
-                        hashMap.put("email", email);
+//                        hashMap.put("First_Name", user.getName());
 
                         return hashMap;
                     }
@@ -122,10 +123,12 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
 
             }
         });
-
     }
 
-
+    public void Delete(int position)
+    {
+        userList.remove(position);
+    }
     @Override
     public int getItemCount() {
         return userList.size();
