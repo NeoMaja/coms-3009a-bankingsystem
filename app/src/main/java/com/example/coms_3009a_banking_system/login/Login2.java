@@ -8,15 +8,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.example.coms_3009a_banking_system.AsyncHTTPPost;
 import com.example.coms_3009a_banking_system.Client_Verification_Status;
-import com.example.coms_3009a_banking_system.ClientsActivity;
 import com.example.coms_3009a_banking_system.R;
-import com.example.coms_3009a_banking_system.Registration.AdminKeyView;
-import com.example.coms_3009a_banking_system.Registration.adminRegister;
-import com.example.coms_3009a_banking_system.client_account;
+import com.example.coms_3009a_banking_system.ClientAccount.client_account;
 import com.example.coms_3009a_banking_system.usertype;
 
 public class Login2 extends AppCompatActivity {
