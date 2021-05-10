@@ -8,17 +8,17 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
-public class AdminVerification extends AppCompatActivity {
+public class AdminVerification extends AppCompatActivity { //declaring variable
 
     private CardView mVerified, mPending;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) { 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin_home_page);
+        setContentView(R.layout.activity_admin_home_page); // moving to verification activity
 
         mPending = findViewById(R.id.pendingCardID);
-        mVerified = findViewById(R.id.verifiedCardID);
+        mVerified = findViewById(R.id.verifiedCardID); //moving to client activity
 
         mVerified.setOnClickListener(new View.OnClickListener() {
             @Override
