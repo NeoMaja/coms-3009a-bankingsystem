@@ -85,7 +85,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
                             JSONObject jsonObject = new JSONObject(response);
 
 
-                            Delete(position);
+                            //Delete(position);
                             if (jsonObject.names().get(0).equals("success")) {
 
                                 Toast.makeText(mCtx.getApplicationContext(), "SUCCESS " + jsonObject.getString("success"), Toast.LENGTH_SHORT).show();
@@ -111,7 +111,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
                         //Intent intent = new Intent();
                         //String email =intent.getStringExtra("email");
                         //String name =intent.getStringExtra("name");
-                        hashMap.put("email", user.getEmail());
+                        hashMap.put("Id", user.getId());
 
 //                        hashMap.put("First_Name", user.getName());
 
