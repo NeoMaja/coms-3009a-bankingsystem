@@ -8,7 +8,7 @@
     android:orientation="vertical">
 
 
-    <include layout="@layout/profile_toolbar" />
+<!--    <include layout="@layout/profile_toolbar" />-->
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -25,7 +25,6 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Neo Maja"
         android:id="@+id/username"
         android:textColor="@android:color/holo_blue_bright"
         android:textSize="20dp"
@@ -66,18 +65,12 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Neo"
+
                 android:id="@+id/firstname"
                 android:textColor="@android:color/darker_gray"
                 android:textSize="18dp"
                 android:layout_marginLeft="25dp"/>
-             <View
-                 android:layout_width="match_parent"
-                 android:layout_height="0.5dp"
-                 android:background="@android:color/darker_gray"
-                 android:layout_marginTop="10dp"
-                 android:layout_marginLeft="15dp"
-                 android:layout_marginRight="15dp"/>
+
 
         </LinearLayout>
 
@@ -108,18 +101,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Maja"
                 android:id="@+id/lastname"
                 android:textColor="@android:color/darker_gray"
                 android:textSize="18dp"
                 android:layout_marginLeft="25dp"/>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:background="@android:color/darker_gray"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"/>
+
 
         </LinearLayout>
 
@@ -150,19 +136,18 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="neokgmaja@gmail.com"
                 android:id="@+id/useremail"
                 android:textColor="@android:color/darker_gray"
                 android:textSize="18dp"
                 android:layout_marginLeft="70dp"/>
 
-            <View
-            android:layout_width="match_parent"
-            android:layout_height="0.5dp"
-            android:background="@android:color/darker_gray"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"/>
+<!--            <View-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="0.5dp"-->
+<!--            android:background="@android:color/darker_gray"-->
+<!--            android:layout_marginTop="10dp"-->
+<!--            android:layout_marginLeft="15dp"-->
+<!--            android:layout_marginRight="15dp"/>-->
         </LinearLayout>
 
             <LinearLayout
