@@ -6,7 +6,7 @@
 
 The banking app is written in Java. It is designed to optimize the traditional banking system by speeding up processes like opening a bank account, balance enquiry, transactions and other menial tasks. It accomplishes this by the use of well-thought-out algorithms that prioritize security.
 
-** Features: **
+**Features:**
 
 - Secure password interface
 - Login page
@@ -17,15 +17,15 @@ The banking app is written in Java. It is designed to optimize the traditional b
 - Verification screen where admin verifies users
 - A screen with list of users who have been verified
 
-** Requirements: **
+**Requirements:**
 
 - Android API 16 & above all
 
-** How to Installing: **
+**How to Installing:**
 
 - Click on the APK
 
-** How does it work? **
+**How does it work?**
 
 - On opening the App, you are taken to the login screen.
  - If you aren't registered on the app yet, you can choose the option to create a new account. You will then be taken to a screen where you have to choose whether you are registering as an admin or a client.
