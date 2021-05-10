@@ -1,16 +1,23 @@
-package com.example.coms_3009a_banking_system;
+package com.example.coms_3009a_banking_system.ClientAccount;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.ContentValues;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
+import android.widget.Toast;
+
+import com.example.coms_3009a_banking_system.AsyncHTTPPost;
+import com.example.coms_3009a_banking_system.Clientitem;
+import com.example.coms_3009a_banking_system.R;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -20,85 +27,79 @@ public class client_account extends AppCompatActivity {
     private ClientAdapter adapter;
 
     private RecyclerView.LayoutManager layoutManager;
-
     private Button AddButton;
 
+    String AccountType;
+    String AccountNumber;
+    String Amount;
+    String email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_client_account);
-        createClientList();
-        buildRecyclerView();
-        setButtons();
 
-    }
-    //////////////////////Function that adds Client items to the list and notify the adapter about the change////////////////////////////
-    public void insertItem(int position){
-
-        mClientList.add(new Clientitem("Savings Account","chosen account :" + position," ERR boy"));
-
-        adapter.notifyItemInserted(position);
-    }
-    
-    //////////////////////Function remove client items to the list/////////////////////////////////////////////////////////////////////////
-    public void RemoveItem(int position){
-        mClientList.remove(position);
-        adapter.notifyItemRemoved(position);
-    }
-    //////////////Was to change client item but was not used///////////////////////////////////////////
-    public void changeItem(int position ,String text){
-        mClientList.get(position).changeText1(text);
-        adapter.notifyItemChanged(position);
-    }
-    ////////////////////////////Making my cardview(which has three strings and an image)
-    public void createClientList(){
-        mClientList = new ArrayList<>();
-        mClientList.add(new Clientitem("Account Type","Account Number", "Amount"));
-
-    }
-    public void buildRecyclerView(){
-        recyclerView = findViewById(R.id.recyclerview);
-        recyclerView.setHasFixedSize(true);
-        layoutManager = new LinearLayoutManager(this);
-        adapter = new ClientAdapter(mClientList);
-
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setAdapter(adapter);
-
-
-        adapter.setOnItemClickListener(new ClientAdapter.OnItemClickListener() {
-            @Override
-            public void OnItemClick(int position) {
-//                OpenActivity();
-            }
-
-            @Override
-            public void onDeleteClick(int position) {
-                RemoveItem(position);
-            }
-        });
-    }
-
-    public void setButtons(){
         AddButton = findViewById(R.id.button_insert);
+        Intent intent = getIntent();
+        email = intent.getStringExtra("email");
 
-
+        //going to Cli_Acc_Test page
         AddButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-//                OpenActivity();
-                // insertItem(0);//Inserting the item at the first position
-
+            public void onClick(View view) {
+                Intent intent1 = new Intent(client_account.this, Cli_Acc_Test.class);
+                intent1.putExtra("email", email);
+                startActivity(intent1);
             }
         });
 
+
+        ContentValues cv = new ContentValues();
+        cv.put("Email", email);
+        getAccounts(cv);
     }
 
-//    public void OpenActivity(){
-//        Intent intent = new Intent(this,Banking.class);
-//        startActivity(intent);
-//    }
+    private void getAccounts(ContentValues cv){
+        recyclerView = findViewById(R.id.recyclerview);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        new AsyncHTTPPost("https://lamp.ms.wits.ac.za/home/s2143686/Cli_Account_data.php", cv){
+            @Override
+            protected void onPreExecute() {
+
+            }
+
+            @Override
+            protected void onPostExecute(String output) {
+                try {
+                    JSONArray array = new JSONArray(output);
+                    ArrayList<Clientitem> cl = new ArrayList<>();
+                    Clientitem clientitem;
+                    for(int i =0; i < array.length(); i++){
+                        final JSONObject object = (JSONObject) array.get(i);
+                        AccountType = object.getString("Account_Type_Name");
+                        AccountNumber = object.getString("Account_Number");
+                        Amount = object.getString("Balance");
+
+                        clientitem = new Clientitem(AccountType, AccountNumber, Amount);
+                        cl.add(clientitem);
+                        mClientList = cl;
+                    }
+
+                    if (mClientList.size() == 0){
+                        Toast toast = Toast.makeText(client_account.this, "User has no accounts", Toast.LENGTH_LONG);
+                    }else{
+                        adapter = new ClientAdapter(mClientList);
+                        recyclerView.setAdapter(adapter);
+                    }
+                }catch (JSONException e){
+                    e.printStackTrace();
+                }
+            }
+        }.execute();
+    }
+
+
 
 
 }

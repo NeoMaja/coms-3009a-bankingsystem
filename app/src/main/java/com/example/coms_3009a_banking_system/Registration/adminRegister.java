@@ -169,7 +169,7 @@ public class adminRegister extends AppCompatActivity {
         parameters.put("Email", email );
         parameters.put("User_Type_ID","300");
 
-
+        System.err.println(IdNumber);
         AsyncHTTPPost asyncHttpPost = new AsyncHTTPPost("https://lamp.ms.wits.ac.za/home/s2143686/Bank_Registration.php",parameters){
             @Override
             protected void onPostExecute(String output) {

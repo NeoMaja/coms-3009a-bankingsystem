@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#12616A"
-    tools:context=".ClientAccount.client_account">
+    tools:context=".client_account">
 
     <TextView
         android:id="@+id/heading"
@@ -28,50 +28,11 @@
         android:textStyle="bold" />
 
 
-    <ImageView
-        android:id="@+id/logo"
-        android:src="@drawable/logo"
-        android:layout_width="154dp"
-        android:layout_height="143dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="129dp"
-        android:layout_marginLeft="129dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginEnd="128dp"
-        android:background="#FFFFFF"
-        android:layout_marginRight="128dp"
-        android:layout_marginBottom="488dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/heading"
-        app:layout_constraintVertical_bias="0.031" />
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview"
         android:layout_width="match_parent"
-        android:layout_height="433dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginTop="298dp"
-        android:layout_marginEnd="0dp"
-        android:layout_marginRight="0dp"
-        android:layout_marginBottom="100dp"
-        android:background="#12616A"
-        android:padding="4dp"
-        />
+        android:layout_height="wrap_content"
+  />
 
     <Button
         android:id="@+id/button_insert"
