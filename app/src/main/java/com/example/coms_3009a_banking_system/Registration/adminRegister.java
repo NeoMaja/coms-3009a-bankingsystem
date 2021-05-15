@@ -75,6 +75,7 @@ public class adminRegister extends AppCompatActivity {
         Matcher Fm = F_P.matcher(F_Name);
         boolean f =Fm.matches();
 
+
 //            Lname check check
         Pattern L_P = Pattern.compile("^[a-zA-Z]+$");
         Matcher Lm = L_P.matcher(L_Name);
