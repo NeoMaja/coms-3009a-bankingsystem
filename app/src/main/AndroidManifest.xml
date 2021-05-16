@@ -13,40 +13,72 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Coms3009abankingsystem"
         android:usesCleartextTraffic="true">
+
         <activity android:name=".AdminProfilePage"></activity>
         <activity android:name=".ClientAccount.Cli_Acc_Test" />
+
+
         <activity android:name=".login.AdminLoginKey" />
+
+
         <activity android:name=".login.Login2" />
+
+
         <activity android:name=".Registration.AdminRegCode" />
+
+
         <activity android:name=".Registration.AdminHomePage" />
+
+
         <activity
             android:name=".Registration.adminRegister"
             android:parentActivityName=".Registration.AdminRegCode" />
+
         <activity android:name=".Banking" />
+
+
         <activity android:name=".ClientAccount.client_account" />
+
+
         <activity android:name=".Registration.AdminKeyView" />
+
+
         <activity
             android:name=".Client_Verification_Status"
             android:parentActivityName=".login.login" />
+
+
         <activity
             android:name=".Registration.clientRegister"
             android:parentActivityName=".usertype" />
+
         <activity android:name=".Profile" />
+
+
         <activity
             android:name=".usertype"
             android:parentActivityName=".login.login" />
+
         <activity
             android:name=".login.login"
             android:parentActivityName=".MainActivity" />
-        <activity
-            android:name=".AdminVerification"
-            android:parentActivityName=".login.AdminLoginKey" />
-        <activity
-            android:name=".VerificationActivity"
-            android:parentActivityName=".AdminVerification" />
-        <activity
-            android:name=".ClientsActivity"
-            android:parentActivityName=".AdminVerification" />
+
+
+
+
+        //Admin
+        <activity android:name=".AdminVerification"
+/>
+
+
+        <activity android:name=".VerificationActivity"/>
+
+
+        <activity android:name=".ClientsActivity"
+            />
+
+
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -54,6 +86,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+
     </application>
 
 </manifest>
