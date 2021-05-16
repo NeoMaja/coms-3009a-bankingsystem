@@ -2,46 +2,60 @@ package com.example.coms_3009a_banking_system;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+
 public class AdminVerification extends AppCompatActivity { //declaring variable
 
-    private CardView mVerified, mPending;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) { 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_home_page); // moving to verification activity
 
-        mPending = findViewById(R.id.pendingCardID);
-        mVerified = findViewById(R.id.verifiedCardID); //moving to client activity
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav);
 
-        mVerified.setOnClickListener(new View.OnClickListener() {
+
+        //Set home Selected
+        bottomNavigationView.setSelectedItemId(R.id.home);
+
+        // Perform ItemSelected
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
-            public void onClick(View v) {
-                OpenActivity_2();
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+                switch (item.getItemId()){
+                    case R.id.home:
+                        return true;
+
+                    case R.id.pending_users:
+                        startActivity(new Intent(getApplicationContext()
+                                ,VerificationActivity.class));
+                        overridePendingTransition(0,0);
+                        return true;
+
+                    case R.id.verified_users:
+                        startActivity(new Intent(getApplicationContext()
+                                ,ClientsActivity.class));
+                        overridePendingTransition(0,0);
+                        return true;
+
+                }
+                return false;
             }
         });
-        mPending.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                OpenActivity();
-            }
-        });
+
     }
 
-    public void OpenActivity(){
-        Intent intent = new Intent(this,VerificationActivity.class);
-        startActivity(intent);
-    }
 
-    public void OpenActivity_2(){
-        Intent intent = new Intent(this,ClientsActivity.class);
-        startActivity(intent);
-    }
 
 }
