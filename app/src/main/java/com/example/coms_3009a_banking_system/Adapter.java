@@ -149,10 +149,13 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
 //                        hashMap.put("First_Name", user.getName());
 
                                 return hashMap;
+
+
                             }
                         };
                         RequestQueue requestQueue = Volley.newRequestQueue(mCtx);
                         requestQueue.add(request);
+
 
                     }
                 });
