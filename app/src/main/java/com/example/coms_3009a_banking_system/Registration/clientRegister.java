@@ -42,7 +42,7 @@ public class clientRegister extends AppCompatActivity {
         idNumber = findViewById(R.id.idNumber);
         celNumber = findViewById(R.id.cellNumber);
         email = findViewById(R.id.email);
-        password = findViewById(R.id.password);
+        password = findViewById(R.id.p_number);
         confirmPassword = findViewById(R.id.confirmPassword);
 
         register = findViewById(R.id._register);

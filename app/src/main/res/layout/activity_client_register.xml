@@ -157,7 +157,7 @@
                 android:layout_gravity="center">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/password"
+                    android:id="@+id/p_number"
                     android:layout_width="360dp"
                     android:layout_height="wrap_content"
                     android:hint="Enter password"

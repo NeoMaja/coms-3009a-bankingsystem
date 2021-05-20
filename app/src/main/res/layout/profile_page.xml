@@ -26,7 +26,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/username"
-        android:textColor="@android:color/holo_blue_bright"
+        android:textColor="@color/black"
         android:textSize="20dp"
         android:layout_marginTop="8dp"
         android:textStyle="bold"
@@ -35,7 +35,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@android:color/holo_blue_bright"
+        android:background="#12616A"
         android:layout_marginTop="10dp"
         />
         <!-- First Name TextField-->
@@ -46,7 +46,7 @@
             android:paddingLeft="15dp"
             android:paddingRight="15dp"
             android:layout_marginTop="20dp"
-            android:gravity="center">
+            android:gravity="left">
 
             <ImageView
                 android:layout_width="25dp"
@@ -56,18 +56,18 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="First Name"
+                android:text="First Name :"
                 android:textStyle="bold"
-                android:textColor="@color/black"
+                android:textColor="@android:color/darker_gray"
                 android:textSize="20dp"
                 android:layout_marginLeft="5dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
+                android:layout_gravity="center"
                 android:id="@+id/firstname"
-                android:textColor="@android:color/darker_gray"
+                android:textColor="@color/black"
                 android:textSize="18dp"
                 android:layout_marginLeft="25dp"/>
 
@@ -82,7 +82,7 @@
             android:paddingLeft="15dp"
             android:paddingRight="15dp"
             android:layout_marginTop="20dp"
-            android:gravity="center">
+            android:gravity="left">
 
             <ImageView
                 android:layout_width="25dp"
@@ -92,9 +92,9 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Last Name"
+                android:text="Last Name :"
                 android:textStyle="bold"
-                android:textColor="@color/black"
+                android:textColor="@android:color/darker_gray"
                 android:textSize="20dp"
                 android:layout_marginLeft="5dp"/>
 
@@ -102,7 +102,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/lastname"
-                android:textColor="@android:color/darker_gray"
+                android:textColor="@color/black"
+                android:layout_gravity="center"
                 android:textSize="18dp"
                 android:layout_marginLeft="25dp"/>
 
@@ -117,7 +118,7 @@
             android:paddingLeft="15dp"
             android:paddingRight="15dp"
             android:layout_marginTop="20dp"
-            android:gravity="center">
+            android:gravity="left">
 
             <ImageView
                 android:layout_width="25dp"
@@ -127,9 +128,9 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="email"
+                android:text="Email :"
                 android:textStyle="bold"
-                android:textColor="@color/black"
+                android:textColor="@android:color/darker_gray"
                 android:textSize="20dp"
                 android:layout_marginLeft="5dp"/>
 
@@ -137,7 +138,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/useremail"
-                android:textColor="@android:color/darker_gray"
+                android:textColor="@color/black"
+                android:layout_gravity="center"
                 android:textSize="18dp"
                 android:layout_marginLeft="70dp"/>
 
@@ -159,7 +161,7 @@
             android:paddingLeft="15dp"
             android:paddingRight="15dp"
             android:layout_marginTop="20dp"
-            android:gravity="center">
+            android:gravity="left">
 
             <ImageView
                 android:layout_width="25dp"
@@ -169,19 +171,20 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="password"
+                android:text="Cell number :"
                 android:textStyle="bold"
-                android:textColor="@color/black"
+                android:textColor="@android:color/darker_gray"
                 android:textSize="20dp"
                 android:layout_marginLeft="5dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/password"
-                android:textColor="@android:color/darker_gray"
+                android:id="@+id/p_number"
+                android:textColor="@color/black"
                 android:textSize="18dp"
-                android:layout_marginLeft="70dp"/>
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"/>
 
             <!--            <View-->
             <!--            android:layout_width="match_parent"-->
@@ -206,7 +209,7 @@
                     android:text="Edit Profile"
                     android:id="@+id/editProfile"
                     android:gravity="center"
-                    android:textColor="@android:color/holo_blue_bright"
+                    android:textColor="#12616A"
                     android:textSize="18dp"
                     android:drawableLeft="@drawable/ic_edit"
                     android:paddingLeft="20dp"
@@ -220,7 +223,7 @@
                     android:text="Change Password"
                     android:id="@+id/change_Pass"
                     android:gravity="center"
-                    android:textColor="@android:color/holo_blue_bright"
+                    android:textColor="#12616A"
                     android:textSize="18dp"
                     android:drawableLeft="@drawable/ic_lock"
                     android:paddingLeft="30dp"
