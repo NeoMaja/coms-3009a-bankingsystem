@@ -1,22 +1,25 @@
 package com.example.coms_3009a_banking_system;
 
-import android.content.ContentValues;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.coms_3009a_banking_system.ClientAccount.client_account;
-import com.example.coms_3009a_banking_system.login.AdminLoginKey;
-import com.example.coms_3009a_banking_system.login.Login2;
+import org.jetbrains.annotations.NotNull;
+import org.json.JSONException;
+import org.json.JSONObject;
 
-import org.w3c.dom.Text;
+import java.io.IOException;
 
-import java.util.logging.Logger;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.HttpUrl;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
 public class Profile extends AppCompatActivity {
 
@@ -28,22 +31,22 @@ public class Profile extends AppCompatActivity {
 
 
 
-    private TextView firstName;
+    private TextView FirstName;
     private TextView LastName;
     private TextView UserName;
     private TextView Email;
-    private TextView Password;
+    private TextView P_Number;
     private static final String TAG = "Profile";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.profile_page);
 
-       firstName= (TextView)findViewById(R.id.firstname);
+        FirstName= (TextView)findViewById(R.id.firstname);
         LastName= (TextView)findViewById(R.id.lastname);
         UserName=  (TextView)findViewById(R.id.username);
         Email= (TextView)findViewById(R.id.useremail);
-        Password= (TextView)findViewById(R.id.password);
+        P_Number = (TextView)findViewById(R.id.p_number);
 
 
 
@@ -54,15 +57,15 @@ public class Profile extends AppCompatActivity {
         Log.e(TAG,password);
 
 
-        Email.setText(email.toUpperCase());
-        Password.setText(password);
+//        Email.setText(email.toUpperCase());
+//        Password.setText(password);
 
 
-        ContentValues parameters = new ContentValues();
-        parameters.put("email", email);
-        parameters.put("password", password);
+//        ContentValues parameters = new ContentValues();
+//        parameters.put("email", email);
+//        parameters.put("password", password);
 
-
+//
 //        AsyncHTTPPost asyncHttpPost = new AsyncHTTPPost("https://lamp.ms.wits.ac.za/home/s2143686/retrieveUserData.php",parameters){
 //            @Override
 //            protected void onPostExecute(String output) {
@@ -109,9 +112,56 @@ public class Profile extends AppCompatActivity {
 //
 //         asyncHttpPost.execute();
 
+        OkHttpClient client = new OkHttpClient();
+
+        HttpUrl.Builder urlBuilder = HttpUrl.parse("https://lamp.ms.wits.ac.za/home/s2143686/retrieveUserData.php").newBuilder(); //url here
+        urlBuilder.addQueryParameter("email", email);
+        urlBuilder.addQueryParameter("password", password);
+        String url = urlBuilder.build().toString();
+
+        Request request = new Request.Builder()
+                .url(url)
+                .build();
+        client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(@NotNull Call call, @NotNull IOException e) {
+
+
+            }
+
+            @Override
+            public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
+                final String responseData = response.body().string();
+                Profile.this.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            JSONObject jO = new JSONObject(responseData);
+                            String first_name = jO.getString("First Name");
+                            String last_name = jO.getString("Last Name");
+                            String user_name =jO.getString("username");
+                            String  _email = jO.getString("email");
+                            String number = jO.getString("cellphone");
+                            FirstName.setText(first_name);
+                            UserName.setText(user_name.toUpperCase());
+                            LastName.setText(last_name);
+                            Email.setText(_email);
+                            P_Number.setText(number);
+
+                            ;
+                          //  Toast.makeText(Profile.this, first_name, Toast.LENGTH_SHORT).show();
+                        }catch (JSONException e){
+                            e.printStackTrace();
+                            Toast.makeText(Profile.this, "Login  error", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+            }
+        });
+        }
 
 
 
     }
 
-}
+
