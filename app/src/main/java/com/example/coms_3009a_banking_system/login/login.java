@@ -99,7 +99,7 @@ public class login extends AppCompatActivity {
                 dialog.dismiss();
             }
         });
-        
+
          */
 
     }
