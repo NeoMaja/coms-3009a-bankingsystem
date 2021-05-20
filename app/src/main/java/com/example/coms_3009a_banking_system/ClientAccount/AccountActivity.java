@@ -23,7 +23,7 @@ public class AccountActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(),Account_No,Toast.LENGTH_SHORT).show();
 
         //website to post to the php file
-        //https://lamp.ms.wits.ac.za/home/s2143686/Cli_Account_data.php
+        //https://lamp.ms.wits.ac.za/home/s2143686/Account_activity.php
         //php takes Account number and Account pin.
 
 
