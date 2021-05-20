@@ -177,7 +177,7 @@ public class adminRegister extends AppCompatActivity {
             protected void onPostExecute(String output) {
                 //Unique admin key is output
 
-                //Toast.makeText(getApplicationContext(),output,Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),output,Toast.LENGTH_SHORT).show();
 
                 System.err.println(output);
 
