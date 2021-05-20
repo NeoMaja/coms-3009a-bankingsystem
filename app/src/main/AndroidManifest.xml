@@ -2,9 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.coms_3009a_banking_system">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -13,7 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Coms3009abankingsystem"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ClientAccount.AccountActivity"></activity>
+        <activity android:name=".Transfer"></activity>
+        <activity android:name=".Pay" />
+        <activity android:name=".ClientAccount.AccountActivity" />
         <activity android:name=".AdminProfilePage" />
         <activity android:name=".ClientAccount.Cli_Acc_Test" />
         <activity android:name=".login.AdminLoginKey" />
@@ -50,5 +49,8 @@
             </intent-filter>
         </activity>
     </application>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>
