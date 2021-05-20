@@ -15,6 +15,7 @@ import com.example.coms_3009a_banking_system.AsyncHTTPPost;
 
 import com.example.coms_3009a_banking_system.Profile;
 import com.example.coms_3009a_banking_system.R;
+import com.example.coms_3009a_banking_system.Transfer;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -30,6 +31,7 @@ public class client_account extends AppCompatActivity {
     private RecyclerView.LayoutManager layoutManager;
     private Button AddButton;
     private Button seeProfile;
+    private Button doTransaction;
 
     String AccountType;
     String AccountNumber;
@@ -48,6 +50,7 @@ public class client_account extends AppCompatActivity {
         password =intent.getStringExtra("password");
 
         seeProfile = findViewById(R.id.button_profile);
+        doTransaction = findViewById(R.id.button_transact);
 
 
         seeProfile.setOnClickListener(new View.OnClickListener() {
@@ -67,6 +70,14 @@ public class client_account extends AppCompatActivity {
                 Intent intent1 = new Intent(client_account.this, Cli_Acc_Test.class);
                 intent1.putExtra("email", email);
                 startActivity(intent1);
+            }
+        });
+
+        doTransaction.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent2 = new Intent(client_account.this, Transfer.class);
+                startActivity(intent2);
             }
         });
 
