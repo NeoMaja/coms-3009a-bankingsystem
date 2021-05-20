@@ -34,6 +34,22 @@
   />
 
     <Button
+        android:id="@+id/button_pay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/button_insert"
+        android:layout_marginBottom="76dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:background="@drawable/round_button"
+        android:paddingLeft="25dp"
+        android:paddingTop="10dp"
+        android:paddingRight="25dp"
+        android:text="Pay"
+        android:textStyle="bold"
+        android:gravity="center_horizontal"/>
+
+    <Button
         android:id="@+id/button_transact"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.example.coms_3009a_banking_system.AsyncHTTPPost;
 
+import com.example.coms_3009a_banking_system.Pay;
 import com.example.coms_3009a_banking_system.Profile;
 import com.example.coms_3009a_banking_system.R;
 import com.example.coms_3009a_banking_system.Transfer;
@@ -31,7 +32,8 @@ public class client_account extends AppCompatActivity {
     private RecyclerView.LayoutManager layoutManager;
     private Button AddButton;
     private Button seeProfile;
-    private Button doTransaction;
+    private Button doTransfer;
+    private Button doPayment;
 
     String AccountType;
     String AccountNumber;
@@ -50,7 +52,8 @@ public class client_account extends AppCompatActivity {
         password =intent.getStringExtra("password");
 
         seeProfile = findViewById(R.id.button_profile);
-        doTransaction = findViewById(R.id.button_transact);
+        doTransfer = findViewById(R.id.button_transact);
+        doPayment = findViewById(R.id.button_pay);
 
 
         seeProfile.setOnClickListener(new View.OnClickListener() {
@@ -73,11 +76,19 @@ public class client_account extends AppCompatActivity {
             }
         });
 
-        doTransaction.setOnClickListener(new View.OnClickListener() {
+        doTransfer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent2 = new Intent(client_account.this, Transfer.class);
                 startActivity(intent2);
+            }
+        });
+
+        doPayment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent3 = new Intent(client_account.this, Pay.class);
+                startActivity(intent3);
             }
         });
 
