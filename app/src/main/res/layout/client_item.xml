@@ -47,16 +47,16 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
-            android:layout_marginStart="22dp"
-            android:layout_marginLeft="22dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginEnd="276dp"
-            android:layout_marginRight="276dp"
+            android:layout_marginStart="316dp"
+            android:layout_marginLeft="316dp"
+            android:layout_marginTop="-12dp"
+            android:layout_marginEnd="-18dp"
+            android:layout_marginRight="-18dp"
             android:layout_toEndOf="@+id/account_type"
             android:layout_toRightOf="@+id/account_type"
-            tools:text="Amount"
-            android:textSize="12sp" />
-
+            android:textColor="#000000"
+            android:textSize="15sp"
+            tools:text="Amount" />
 
 
     </RelativeLayout>

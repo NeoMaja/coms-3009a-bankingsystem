@@ -50,6 +50,28 @@
 
     </RadioGroup>
 
+    <EditText
+        android:id="@+id/PinAcc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Please enter desired pin"
+        android:inputType="numberPassword"
+        app:layout_constraintBottom_toTopOf="@+id/verifyaccty"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/account_type" />
+
+    <EditText
+        android:id="@+id/verPin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Please re-enter your pin"
+        android:inputType="numberPassword"
+        app:layout_constraintBottom_toTopOf="@+id/verifyaccty"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/PinAcc" />
+
     <Button
         android:id="@+id/verifyaccty"
         android:layout_width="wrap_content"
