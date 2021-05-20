@@ -77,19 +77,39 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
         holder.mEmail.setText(user.getEmail());
         holder.mPhone.setText(user.getPhoneNo());
 
-        holder.btnAccept.setOnClickListener(new View.OnClickListener() {
+        holder.btnReject.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(mCtx);
-                builder.setTitle("ACCEPT USER");
-                builder.setMessage("CONFIRM TO ACCEPT " + user.getName());
-                builder.setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
-                    @Override   
+                builder.setTitle("Confirm Reject");
+                builder.setMessage("Do you reject " + user.getName());
+
+                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.dismiss();
                     }
                 });
-                builder.setPositiveButton("ACCEPT", new DialogInterface.OnClickListener() {
+
+                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+                AlertDialog dialog = builder.create();
+                dialog.show();
+            }
+        });
+
+        holder.btnAccept.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(mCtx);
+                builder.setTitle("Confirm Accept");
+                builder.setMessage("Do you accept " + user.getName());
+
+                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         StringRequest request = new StringRequest(com.android.volley.Request.Method.POST, URL, new Response.Listener<String>() {
@@ -129,11 +149,20 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
 //                        hashMap.put("First_Name", user.getName());
 
                                 return hashMap;
+
+
                             }
                         };
                         RequestQueue requestQueue = Volley.newRequestQueue(mCtx);
                         requestQueue.add(request);
 
+
+                    }
+                });
+                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
                     }
                 });
                 AlertDialog dialog = builder.create();

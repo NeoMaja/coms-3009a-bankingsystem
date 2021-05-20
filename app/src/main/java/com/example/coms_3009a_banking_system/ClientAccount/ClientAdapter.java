@@ -1,4 +1,5 @@
 package com.example.coms_3009a_banking_system.ClientAccount;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -50,6 +51,14 @@ public class ClientAdapter extends RecyclerView.Adapter<ClientAdapter.ClientView
                             listener.OnItemClick(position);
                         }
                     }
+
+                    //intent to account activity and pass account Number
+                    //first capture account number
+
+                    String AccNo = mtext1.getText().toString();
+                    Intent intent = new Intent(itemView.getContext(), AccountActivity.class);
+                    intent.putExtra("Account_Num", AccNo);
+                    itemView.getContext().startActivity(intent);
                 }
             });
 

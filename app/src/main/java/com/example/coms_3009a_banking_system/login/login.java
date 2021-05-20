@@ -3,12 +3,15 @@ package com.example.coms_3009a_banking_system.login;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -33,6 +36,11 @@ public class login extends AppCompatActivity {
 
     private TextInputEditText Email, Password;
     private Button Login, NewAcc;
+
+    //////////////for the pop up////////////
+    private Dialog dialog;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +55,10 @@ public class login extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 ValidateLogin();
+
+
+              ////////the line below must be used if a client whose an admin and client tries to login.
+                //dialog.show();//
             }
         });
 
@@ -58,6 +70,37 @@ public class login extends AppCompatActivity {
             }
 
         });
+//////////////////////Creation of the popup_screen/dialog//////////////////////////////////////////
+        /*
+        dialog = new Dialog(Login.getContext());
+        dialog.setContentView(R.layout.popup_screen);
+
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            dialog.getWindow().setBackgroundDrawable(getDrawable(R.drawable.background_popup));
+        }
+        dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+        dialog.setCancelable(false);
+
+        Button admin = dialog.findViewById(R.id.admin_button);
+        Button client = dialog.findViewById(R.id.client_btn);
+
+        admin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(Login.getContext(), "You chose to Login as an admin",Toast.LENGTH_SHORT).show();
+                dialog.dismiss();
+            }
+        });
+
+        client.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(Login.getContext(), "You chose to Login as an admin",Toast.LENGTH_SHORT).show();
+                dialog.dismiss();
+            }
+        });
+
+         */
 
     }
 

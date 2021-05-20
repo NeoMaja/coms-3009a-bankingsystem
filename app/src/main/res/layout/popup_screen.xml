@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="350dp"
+    android:layout_height="370dp"
+    android:layout_gravity="center"
+    android:background="@drawable/background_popup"
+    >
+
+    <ImageView
+        android:id="@+id/person_txt"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="18dp"
+        android:src="@drawable/empty_image_avatar"
+        />
+
+    <TextView
+        android:id="@+id/username_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email"
+        android:textSize="24sp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="18dp"
+        android:layout_below="@+id/person_txt"
+        />
+    <TextView
+        android:id="@+id/Question_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hey There, Do you want to continue as a client or admin?"
+        android:textSize="20sp"
+        android:layout_below="@+id/username_txt"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="18dp"
+        android:gravity="center"
+        android:layout_marginRight="22dp"
+        android:layout_marginLeft="22dp"
+        />
+
+    <Button
+        android:id="@+id/admin_button"
+        android:layout_width="183dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Question_txt"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="7dp"
+        android:layout_marginLeft="7dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_toStartOf="@+id/client_btn"
+        android:layout_toLeftOf="@+id/client_btn"
+        android:text="Admin"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/client_btn"
+        android:layout_width="181dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Question_txt"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="7dp"
+        android:layout_marginRight="7dp"
+        android:text="Client"
+        android:textSize="20sp" />
+
+</RelativeLayout>
