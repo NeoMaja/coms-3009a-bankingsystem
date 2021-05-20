@@ -61,7 +61,7 @@
         android:paddingLeft="25dp"
         android:paddingTop="10dp"
         android:paddingRight="25dp"
-        android:text="Transact"
+        android:text="Transfer"
         android:textStyle="bold"
         android:gravity="center_horizontal"/>
 
