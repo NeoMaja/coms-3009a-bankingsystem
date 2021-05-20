@@ -24,7 +24,7 @@ public class AccountActivity extends AppCompatActivity {
 
         //website to post to the php file
         //https://lamp.ms.wits.ac.za/home/s2143686/Account_activity.php
-        //php takes Account number and Account pin.
+        //php takes Account number, Account pin, and the activity to be performed and reciever of funds.
 
 
     }
