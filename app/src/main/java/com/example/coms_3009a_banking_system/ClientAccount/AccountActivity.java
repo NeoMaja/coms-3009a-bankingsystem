@@ -21,7 +21,10 @@ public class AccountActivity extends AppCompatActivity {
         Account_No = intent.getStringExtra("Account_Num");
 
         Toast.makeText(getApplicationContext(),Account_No,Toast.LENGTH_SHORT).show();
-        
+
+        //website to post to the php file
+        //https://lamp.ms.wits.ac.za/home/s2143686/Cli_Account_data.php
+        //php takes Account number and Account pin.
 
 
     }
