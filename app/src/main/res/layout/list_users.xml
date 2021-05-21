@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#12616A"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".VerificationActivity">
 
@@ -10,9 +11,10 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_View"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="541dp"
         tools:layout_editor_absoluteX="745dp"
-        tools:layout_editor_absoluteY="-51dp" />
+        tools:layout_editor_absoluteY="-51dp"
+        android:background="#12616A"/>
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_nav"
         android:layout_width="match_parent"

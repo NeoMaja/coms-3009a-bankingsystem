@@ -3,7 +3,13 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#12616A"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_View2"
+        android:layout_width="match_parent"
+        android:layout_height="541dp"
+        android:background="#12616A" />
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_nav"
         android:layout_width="match_parent"
@@ -13,6 +19,7 @@
         app:itemTextColor="@color/black"
         android:layout_alignParentBottom="true"
         app:menu="@menu/menu_nav"
+
         />
 
 </RelativeLayout>
