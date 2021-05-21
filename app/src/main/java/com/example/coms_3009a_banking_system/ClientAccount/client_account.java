@@ -78,6 +78,7 @@ public class client_account extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent2 = new Intent(client_account.this, Transfer.class);
+                intent2.putExtra("email", email);
                 startActivity(intent2);
             }
         });
@@ -86,6 +87,7 @@ public class client_account extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent3 = new Intent(client_account.this, Pay.class);
+                intent3.putExtra("email", email);
                 startActivity(intent3);
             }
         });

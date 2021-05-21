@@ -32,6 +32,13 @@ public class AccountActivity extends AppCompatActivity {
     String Amount;
     String Time;
 
+    //Do not display ID_No and Pin (But they'll be retrieved from php)
+    String Account_No3;
+    String Acc_Type;
+    String ID_No;
+    String Pin;
+    String Balance;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,7 +54,7 @@ public class AccountActivity extends AppCompatActivity {
         ContentValues parameters = new ContentValues();
         parameters.put("Acc_No", Account_No);
 
-        AsyncHTTPPost asyncHttpPost = new AsyncHTTPPost("https://lamp.ms.wits.ac.za/home/s2143686/Activity.php",parameters){
+        AsyncHTTPPost asyncHttpPost = new AsyncHTTPPost("https://lamp.ms.wits.ac.za/home/s2143686/Activity_list.php",parameters){
             @Override
             protected void onPostExecute(String output) {
                 //json array to output transactions
@@ -69,6 +76,31 @@ public class AccountActivity extends AppCompatActivity {
             }
         };
         asyncHttpPost.execute();
+
+        ContentValues parameters2 = new ContentValues();
+        parameters2.put("Acc_No", Account_No);
+
+        AsyncHTTPPost asyncHttpPost2 = new AsyncHTTPPost("https://lamp.ms.wits.ac.za/home/s2143686/Account_details.php",parameters2){
+            @Override
+            protected void onPostExecute(String output) {
+                //json array to output transactions
+                try {
+                    JSONArray array = new JSONArray(output);
+                    for (int i = 0; i < array.length(); i++) {
+                        final JSONObject object = (JSONObject) array.get(i);
+                        Account_No3 = object.getString("Account_Number");
+                        Acc_Type = object.getString("Account_Type_Name");
+                        ID_No = object.getString("ID_Number");
+                        Pin = object.getString("Pin");
+                        Balance = object.getString("Balance");
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        };
+        asyncHttpPost2.execute();
 
         //TODO
         //display information from php files

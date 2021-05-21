@@ -63,25 +63,29 @@
 
             // radio button for from account
             <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/transferRadioGroup_From"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
+
                 <RadioButton android:id="@+id/fromChequeAccount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Cheque Account"
                     android:textColor="@color/white"
                     android:onClick="onRadioButtonClicked"/>
+
                 <RadioButton android:id="@+id/fromInvestmentAccount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Investment Account"
                     android:textColor="@color/white"
                     android:onClick="onRadioButtonClicked"/>
+
                 <RadioButton android:id="@+id/fromSavingsAccount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Savings Account"
+                    android:text="Saving Account"
                     android:textColor="@color/white"
                     android:onClick="onRadioButtonClicked"/>
             </RadioGroup>
@@ -97,6 +101,7 @@
                 android:text="        To which account ?"
                 android:textSize="16sp" />
             <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/transferRadioGroup_To"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
@@ -115,7 +120,7 @@
                 <RadioButton android:id="@+id/toSavingsAccount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Savings Account"
+                    android:text="Saving Account"
                     android:textColor="@color/white"
                     android:onClick="onRadioButtonClicked"/>
             </RadioGroup>
