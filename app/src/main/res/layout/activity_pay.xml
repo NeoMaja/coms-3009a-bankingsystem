@@ -46,8 +46,8 @@
                     android:id="@+id/recipient"
                     android:layout_width="360dp"
                     android:layout_height="wrap_content"
-                    android:hint="Enter name and surname"
-                    android:inputType="text" />
+                    android:hint="Enter recipient account number"
+                    android:inputType="number" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
@@ -58,17 +58,17 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="34dp"
-                android:text="        To which account ?"
+                android:text="        From which account ?"
                 android:textSize="16sp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="34dp"
-                android:text="        Bank name"
+                android:text="         Acounts:"
                 android:textSize="16sp" />
 
             <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
-                android:id="@+id/payRadioGroup"
+                android:id="@+id/payRadioGroup_From"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
@@ -76,19 +76,19 @@
                 <RadioButton android:id="@+id/toBankA"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Bank A"
+                    android:text="Cheque Account"
                     android:textColor="@color/white"
                     android:onClick="onRadioButtonClicked"/>
                 <RadioButton android:id="@+id/toBankB"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Bank B"
+                    android:text="Investment Account"
                     android:textColor="@color/white"
                     android:onClick="onRadioButtonClicked"/>
                 <RadioButton android:id="@+id/toBankC"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Bank C"
+                    android:text="Saving Account"
                     android:textColor="@color/white"
                     android:onClick="onRadioButtonClicked"/>
             </RadioGroup>
