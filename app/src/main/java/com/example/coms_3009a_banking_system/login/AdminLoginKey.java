@@ -17,7 +17,7 @@ import com.example.coms_3009a_banking_system.R;
 import com.example.coms_3009a_banking_system.Registration.AdminKeyView;
 import com.example.coms_3009a_banking_system.Registration.adminRegister;
 
-public class AdminLoginKey extends AppCompatActivity {
+public class  AdminLoginKey extends AppCompatActivity {
 
     Button Enter;
     EditText Admin_key;

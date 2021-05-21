@@ -32,6 +32,7 @@
             android:name=".Registration.clientRegister"
             android:parentActivityName=".usertype" />
         <activity android:name=".Profile" />
+
         <activity
             android:name=".usertype"
             android:parentActivityName=".login.login" />

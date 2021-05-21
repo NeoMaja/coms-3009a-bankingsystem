@@ -35,10 +35,18 @@ public class VerificationActivity extends AppCompatActivity {
     //this is    the JSON Data URL
     private static final String URL_Data = "https://lamp.ms.wits.ac.za/home/s2143686/Bank_Data.php";
 
+    private String email;
+    private String password;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.list_users);
+
+        // get password and email on intent
+        Intent getIntent= getIntent();
+        email = getIntent.getStringExtra("email");
+        password = getIntent.getStringExtra("password");
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav);
 
@@ -49,20 +57,36 @@ public class VerificationActivity extends AppCompatActivity {
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-
+            Intent intent;
                 switch (item.getItemId()){
                     case R.id.pending_users:
                         return true;
 
                     case R.id.home:
-                        startActivity(new Intent(getApplicationContext()
-                                ,MainActivity.class));
+                        intent = new Intent(getApplicationContext(),AdminVerification.class);
+                        // add email and password on intent
+                        intent.putExtra("email",email);
+                        intent.putExtra("password",password);
+                        startActivity(intent);
+
                         overridePendingTransition(0,0);
                         return true;
 
                     case R.id.verified_users:
-                        startActivity(new Intent(getApplicationContext()
-                                ,ClientsActivity.class));
+                        intent = new Intent(getApplicationContext(),ClientsActivity.class);
+                        //put email and password in intent
+                        intent.putExtra("email",email);
+                        intent.putExtra("password",password);
+                        startActivity(intent);
+
+                        overridePendingTransition(0,0);
+                        return true;
+
+                    case R.id.admin_profile:
+                        intent = new Intent(getApplicationContext(),AdminProfilePage.class);
+                        intent.putExtra("email",email);
+                        intent.putExtra("password",password);
+                        startActivity(intent);
                         overridePendingTransition(0,0);
                         return true;
 
