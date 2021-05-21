@@ -10,8 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Coms3009abankingsystem"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Transfer"></activity>
-        <activity android:name=".Pay" />
+        <activity android:name=".ClientAccount.Transfer"></activity>
+        <activity android:name=".ClientAccount.Pay" />
         <activity android:name=".ClientAccount.AccountActivity" />
         <activity android:name=".AdminProfilePage" />
         <activity android:name=".ClientAccount.Cli_Acc_Test" />

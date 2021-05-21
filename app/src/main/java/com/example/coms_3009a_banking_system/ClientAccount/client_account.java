@@ -13,10 +13,8 @@ import android.widget.Toast;
 
 import com.example.coms_3009a_banking_system.AsyncHTTPPost;
 
-import com.example.coms_3009a_banking_system.Pay;
 import com.example.coms_3009a_banking_system.Profile;
 import com.example.coms_3009a_banking_system.R;
-import com.example.coms_3009a_banking_system.Transfer;
 
 import org.json.JSONArray;
 import org.json.JSONException;

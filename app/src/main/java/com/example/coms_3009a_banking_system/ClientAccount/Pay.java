@@ -1,4 +1,4 @@
-package com.example.coms_3009a_banking_system;
+package com.example.coms_3009a_banking_system.ClientAccount;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
+
+import com.example.coms_3009a_banking_system.R;
 
 public class Pay extends AppCompatActivity {
 
@@ -31,6 +33,9 @@ public class Pay extends AppCompatActivity {
         bankC = (RadioButton)findViewById(R.id.toBankC);
 
         pay = (Button)findViewById(R.id.pay);
+
+        //website to post to the php file
+        //https://lamp.ms.wits.ac.za/home/s2143686/Account_activity.php
 
     }
 

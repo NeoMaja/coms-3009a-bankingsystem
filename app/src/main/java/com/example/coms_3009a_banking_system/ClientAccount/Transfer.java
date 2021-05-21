@@ -1,4 +1,4 @@
-package com.example.coms_3009a_banking_system;
+package com.example.coms_3009a_banking_system.ClientAccount;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
@@ -6,6 +6,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
+
+import com.example.coms_3009a_banking_system.R;
 
 
 public class Transfer extends AppCompatActivity {
@@ -34,6 +36,9 @@ public class Transfer extends AppCompatActivity {
         toSavingsAccount = (RadioButton)findViewById(R.id.toSavingsAccount);
 
         transfer = (Button)findViewById(R.id.transfer);
+
+        //website to post to the php file
+        //https://lamp.ms.wits.ac.za/home/s2143686/Account_activity.php
 
     }
 
