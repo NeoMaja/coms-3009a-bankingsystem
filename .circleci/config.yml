@@ -32,7 +32,12 @@ jobs:
       - run:
           name: Assemble release build
           command: |
-            ./gradlew assembleRelease    
+            ./gradlew assembleRelease 
+            set -x
+            docker-compose -f docker-compose.test.yaml up -d && \
+            docker-compose exec php bin/console security:check && \
+            docker-compose exec php bin/console doctrine:database:create --env=test && \
+            docker-compose exec php ./vendor/bin/phpcs --standard=PSR2 ./src/
 
 workflows:
   # Below is the definition of your workflow.
