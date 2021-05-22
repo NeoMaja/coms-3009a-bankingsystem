@@ -1,8 +1,10 @@
 package com.example.coms_3009a_banking_system.login;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -47,56 +49,109 @@ public class Login2 extends AppCompatActivity {
                 parameters.put("email", email);
                 parameters.put("password", password);
 
-                AsyncHTTPPost asyncHttpPost = new AsyncHTTPPost("https://lamp.ms.wits.ac.za/home/s2143686/userLogin.php",parameters){
+                AsyncHTTPPost asyncHttpPost = new AsyncHTTPPost("https://lamp.ms.wits.ac.za/home/s2143686/userLogin.php", parameters) {
                     @Override
                     protected void onPostExecute(String output) {
                         //output UserTypeID
                         //if 300 go to AdminLoginKey
-                        if(output.equals("300")){
+                        if (output.equals("300")) {
                             Intent intent = new Intent(Login2.this, AdminLoginKey.class); // Intent should take you to Admin Verification Page.
-                                                                                                        // Should Be able to see Admin profile
+                            // Should Be able to see Admin profile
                             intent.putExtra("email", email);
-                            intent.putExtra("password",password);
+                            //intent.putExtra("password", password);
                             startActivity(intent);
                         }
 
                         //if 250verified go to Client_account
-                        if(output.equals("250verified")){
+                        if (output.equals("250verified")) {
 
                             Intent intent = new Intent(Login2.this, client_account.class); // this takes us to the Client Account Page
-                                                                                                            // email and password to be used to get info for Profile page
+                            // email and password to be used to get info for Profile page
                             intent.putExtra("email", email);
-                            intent.putExtra("password",password);
-                           // intent.putExtra("status",status);
+                            intent.putExtra("password", password);
+                            // intent.putExtra("status",status);
                             startActivity(intent);
                         }
 
                         //if 250unverified go to Client_Verification_Status
-                        if(output.equals("250un-verified")){
-                            String status ="un-verified";
+                        if (output.equals("250un-verified")) {
+                            //String status = "un-verified";
                             Intent intent = new Intent(Login2.this, Client_Verification_Status.class);
                             intent.putExtra("email", email);
-                            intent.putExtra("status",status);
+                            //intent.putExtra("status", status);
 
                             startActivity(intent);
                         }
+                        //user who is both verified client and an admin
+                        if (output.equals("400verified")) {
+                            AlertDialog.Builder builder = new AlertDialog.Builder(Login2.this);
+                            builder.setTitle("Confirm User Type");
+                            builder.setMessage("Would you like to continue as client or an admin?");
+
+                            builder.setPositiveButton("Client", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    Intent intent = new Intent(Login2.this, client_account.class);
+                                    intent.putExtra("email", email);
+
+                                    startActivity(intent);
+                                }
+                            });
+                            builder.setNegativeButton("Admin", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    Intent intent = new Intent(Login2.this, AdminLoginKey.class);
+                                    intent.putExtra("email", email);
+
+                                    startActivity(intent);
+                                }
+                            });
+                            AlertDialog dialog = builder.create();
+                            dialog.show();
+                        }
+                        if (output.equals("400un-verified")) {
+                            AlertDialog.Builder builder = new AlertDialog.Builder(Login2.this);
+                            builder.setTitle("Confirm User Type");
+                            builder.setMessage("Would you like to continue as client or an admin?");
+
+                            builder.setPositiveButton("Client", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    Intent intent = new Intent(Login2.this, Client_Verification_Status.class);
+                                    intent.putExtra("email", email);
+
+                                    startActivity(intent);
+                                }
+                            });
+                            builder.setNegativeButton("Admin", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    Intent intent = new Intent(Login2.this, AdminLoginKey.class);
+                                    intent.putExtra("email", email);
+
+                                    startActivity(intent);
+                                }
+                            });
+                            AlertDialog dialog = builder.create();
+                            dialog.show();
+                        }
+
                     }
                 };
                 asyncHttpPost.execute();
+            }
+            });
+                //to register go to reg userType page
+                Register.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                        Intent intent = new Intent(Login2.this, usertype.class);
+                        startActivity(intent);
+                    }
+                });
+
 
             }
-        });
+        }
 
-        //to register go to reg userType page
-        Register.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                
-                Intent intent = new Intent(Login2.this, usertype.class);
-                startActivity(intent);
-            }
-        });
-
-
-    }
-}
