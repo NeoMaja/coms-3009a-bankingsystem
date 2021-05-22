@@ -17,6 +17,9 @@ jobs:
       # Checkout the code as the first step.
       - checkout
       - run: ls
+      - run:
+          name: chmod permissions
+          command: chmod +x ./gradlew
       - run: ./gradlew dependencies
 
       # The next step will run the unit tests
@@ -33,8 +36,7 @@ jobs:
           name: Assemble release build
           command: |
             ./gradlew assembleRelease 
-            docker-compose exec php ./vendor/bin/phpcs --standard=PSR2 ./src/
-
+            
 workflows:
   # Below is the definition of your workflow.
   # Inside the workflow, you provide the jobs you want to run, e.g this workflow runs the build-and-test job above.
