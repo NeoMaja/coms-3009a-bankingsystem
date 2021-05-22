@@ -20,7 +20,8 @@
         <ImageView
             android:layout_width="110dp"
             android:layout_height="110dp"
-            android:src="@drawable/neo_face" />
+            app:srcCompat="@drawable/ic_profile"
+            tools:ignore="VectorDrawableCompat" />
 
         <TextView
             android:layout_width="wrap_content"
