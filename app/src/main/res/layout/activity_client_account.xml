@@ -33,78 +33,15 @@
         android:layout_height="wrap_content"
   />
 
-    <Button
-        android:id="@+id/button_pay"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/button_insert"
-        android:layout_marginBottom="76dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginLeft="4dp"
-        android:background="@drawable/round_button"
-        android:paddingLeft="25dp"
-        android:paddingTop="10dp"
-        android:paddingRight="25dp"
-        android:text="Pay"
-        android:textStyle="bold"
-        android:gravity="center_horizontal"/>
-
-    <Button
-        android:id="@+id/button_transact"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/button_insert"
-        android:layout_marginBottom="16dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginLeft="4dp"
-        android:background="@drawable/round_button"
-        android:paddingLeft="25dp"
-        android:paddingTop="10dp"
-        android:paddingRight="25dp"
-        android:text="Transfer"
-        android:textStyle="bold"
-        android:gravity="center_horizontal"/>
-
-    <Button
-        android:id="@+id/button_insert"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textFontWeight="1"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="4dp"
-        android:layout_marginLeft="4dp"
-        android:layout_marginBottom="70dp"
-        android:paddingRight="25dp"
-        android:paddingLeft="25dp"
-        android:background="@drawable/round_button"
-        android:text="Add Account" />
-    <Button
-        android:id="@+id/button_profile"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="10dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginLeft="4dp"
-        android:paddingTop="10dp"
-        android:textStyle="bold"
-        android:paddingRight="25dp"
-        android:paddingLeft="25dp"
-        android:background="@drawable/round_button"
-        android:text="See Profile" />
-
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_nav"
+        android:id="@+id/menu_bottom_nav"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#12616A"
         app:itemBackground="@color/white"
         app:itemTextColor="@color/black"
         android:layout_alignParentBottom="true"
-        app:menu="@menu/menu_nav"
+        app:menu="@menu/menu_bottom_nav"
         />
 
 </RelativeLayout>

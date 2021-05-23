@@ -1,20 +1,22 @@
 package com.example.coms_3009a_banking_system.ClientAccount;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
+import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.example.coms_3009a_banking_system.AsyncHTTPPost;
 
 import com.example.coms_3009a_banking_system.Profile;
 import com.example.coms_3009a_banking_system.R;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -28,11 +30,6 @@ public class client_account extends AppCompatActivity {
     private ClientAdapter adapter;
 
     private RecyclerView.LayoutManager layoutManager;
-    private Button AddButton;
-    private Button seeProfile;
-    private Button doTransfer;
-    private Button doPayment;
-
     String AccountType;
     String AccountNumber;
     String Amount;
@@ -44,54 +41,63 @@ public class client_account extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_client_account);
 
-        AddButton = findViewById(R.id.button_insert);
+        // get email and password via intent
         Intent intent = getIntent();
         email = intent.getStringExtra("email");
         password =intent.getStringExtra("password");
 
-        seeProfile = findViewById(R.id.button_profile);
-        doTransfer = findViewById(R.id.button_transact);
-        doPayment = findViewById(R.id.button_pay);
+        BottomNavigationView MenuBottomNavigationView = findViewById(R.id.menu_bottom_nav);
 
+        // set Accounts to selected
+        MenuBottomNavigationView.setSelectedItemId(R.id.accounts);
 
-        seeProfile.setOnClickListener(new View.OnClickListener() {
+        // perform ItemSelected
+        MenuBottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            //@SuppressLint("NonConstantResourceId")
             @Override
-            public void onClick(View v) {
-                Intent intent1 = new Intent(client_account.this, Profile.class);
-                intent1.putExtra("email", email);
-                intent1.putExtra("password", password);
-                startActivity(intent1);
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                Intent intent;
+                switch (item.getItemId()){
+                    case R.id.accounts:
+                        return true;
+
+                    case R.id.profile:
+                        intent = new Intent(getApplicationContext(),Profile.class);
+                        intent.putExtra("email",email);
+                        intent.putExtra("password",password);
+                        startActivity(intent);
+                        overridePendingTransition(0,0);
+                        return true;
+
+                    case R.id.pay:
+                        intent = new Intent(getApplicationContext(), Pay.class);
+                        //put email and password in intent
+                        intent.putExtra("email",email);
+                        intent.putExtra("password",password);
+                        startActivity(intent);
+                        overridePendingTransition(0,0);
+                        return true;
+
+                    case R.id.transfer:
+                        intent = new Intent(getApplicationContext(), Transfer.class);
+                        intent.putExtra("email",email);
+                        intent.putExtra("password",password);
+                        startActivity(intent);
+                        overridePendingTransition(0,0);
+                        return true;
+
+                    case R.id.add:
+                        intent = new Intent(getApplicationContext(), Cli_Acc_Test.class);
+                        intent.putExtra("email",email);
+                        intent.putExtra("password",password);
+                        startActivity(intent);
+                        overridePendingTransition(0,0);
+                        return true;
+
+                }
+                return false;
             }
         });
-
-        //going to Cli_Acc_Test page
-        AddButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent1 = new Intent(client_account.this, Cli_Acc_Test.class);
-                intent1.putExtra("email", email);
-                startActivity(intent1);
-            }
-        });
-
-        doTransfer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent2 = new Intent(client_account.this, Transfer.class);
-                intent2.putExtra("email", email);
-                startActivity(intent2);
-            }
-        });
-
-        doPayment.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent3 = new Intent(client_account.this, Pay.class);
-                intent3.putExtra("email", email);
-                startActivity(intent3);
-            }
-        });
-
 
         ContentValues cv = new ContentValues();
         cv.put("Email", email);
@@ -137,8 +143,4 @@ public class client_account extends AppCompatActivity {
             }
         }.execute();
     }
-
-
-
-
 }
