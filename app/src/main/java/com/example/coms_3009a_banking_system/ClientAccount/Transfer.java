@@ -94,6 +94,6 @@ public class Transfer extends AppCompatActivity {
 
     }
 
-    /*public void onRadioButtonClicked(View view) {
-    }*/
+    public void onRadioButtonClicked(View view) {
+    }
 }
