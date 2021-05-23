@@ -19,6 +19,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Locale;
+
 
 public class Transfer extends AppCompatActivity {
 
@@ -47,6 +51,11 @@ public class Transfer extends AppCompatActivity {
         radioGroupfrom = (RadioGroup)findViewById(R.id.transferRadioGroup_From);
         radioGroupTo = (RadioGroup)findViewById(R.id.transferRadioGroup_To);
         transfer = (Button)findViewById(R.id.transfer);
+
+        SimpleDateFormat dateF = new SimpleDateFormat("EEE, d MMM yyyy", Locale.getDefault());
+        String date = dateF.format(Calendar.getInstance().getTime());
+
+        transferDate.setText(date);
 
         //Get email from Previous Page
         Intent intent = getIntent();

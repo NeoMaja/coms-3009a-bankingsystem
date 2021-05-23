@@ -15,6 +15,10 @@ import android.widget.Toast;
 import com.example.coms_3009a_banking_system.AsyncHTTPPost;
 import com.example.coms_3009a_banking_system.R;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Locale;
+
 public class Pay extends AppCompatActivity {
 
     // initializing variables
@@ -45,6 +49,11 @@ public class Pay extends AppCompatActivity {
         bankA = (RadioButton)findViewById(R.id.toBankA);
         bankB = (RadioButton)findViewById(R.id.toBankB);
         bankC = (RadioButton)findViewById(R.id.toBankC);
+
+        // code to make the date be set automatically
+        SimpleDateFormat dateF = new SimpleDateFormat("EEE, d MMM yyyy", Locale.getDefault());
+        String date = dateF.format(Calendar.getInstance().getTime());
+        paymentDate.setText(date);
 
         //Get Email from previous page
         Intent intent = getIntent();

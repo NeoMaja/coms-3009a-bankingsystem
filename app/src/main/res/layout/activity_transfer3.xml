@@ -46,7 +46,7 @@
                     android:id="@+id/transferAmount"
                     android:layout_width="360dp"
                     android:layout_height="wrap_content"
-                    android:hint="R 0.00"
+                    android:hint="Enter amount to be transferred"
                     android:inputType="number" />
             </com.google.android.material.textfield.TextInputLayout>
 
