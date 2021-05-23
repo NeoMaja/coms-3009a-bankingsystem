@@ -36,6 +36,7 @@ public class AdminProfilePage extends AppCompatActivity {
     private TextView UserName;
     private TextView Email;
     private TextView P_Number;
+    private TextView Admin_Key;
     private static final String TAG = "Profile";
    // private Button btnEditUsername,btnEditEmail, btnEditCell;
     @Override
@@ -48,6 +49,7 @@ public class AdminProfilePage extends AppCompatActivity {
         UserName=  (TextView) findViewById(R.id.username);
         Email= (TextView) findViewById(R.id.useremail);
         P_Number = (TextView) findViewById(R.id.p_number);
+        Admin_Key=(TextView)findViewById(R.id.admin_key);
 
 //        btnEditUsername =(Button)findViewById(R.id.EditUsername);
 //        btnEditEmail =(Button)findViewById(R.id.EditEmail);
@@ -92,11 +94,13 @@ public class AdminProfilePage extends AppCompatActivity {
                             String user_name =jO.getString("username");
                             String  _email = jO.getString("email");
                             String number = jO.getString("cellphone");
+                            String A_key = jO.getString("A_key");
                             FirstName.setText(first_name);
                             UserName.setText(user_name.toUpperCase());
                             LastName.setText(last_name);
                             Email.setText(_email);
                             P_Number.setText(number);
+                            Admin_Key.setText(A_key.toUpperCase());
 
 
                             //  Toast.makeText(Profile.this, first_name, Toast.LENGTH_SHORT).show();
