@@ -5,17 +5,21 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.annotation.SuppressLint;
+
 import android.content.ContentValues;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.coms_3009a_banking_system.AsyncHTTPPost;
 
 import com.example.coms_3009a_banking_system.Profile;
 import com.example.coms_3009a_banking_system.R;
+import com.example.coms_3009a_banking_system.login.login;
+import com.example.coms_3009a_banking_system.usertype;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import org.json.JSONArray;
@@ -36,6 +40,8 @@ public class client_account extends AppCompatActivity {
     String email;
     String password;
 
+    Button logout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +51,17 @@ public class client_account extends AppCompatActivity {
         Intent intent = getIntent();
         email = intent.getStringExtra("email");
         password =intent.getStringExtra("password");
+
+        logout = (Button)findViewById(R.id.button_logout);
+
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent logoutIntent = new Intent(client_account.this,
+                        login.class);
+                startActivity(logoutIntent);
+            }
+        });
 
         BottomNavigationView MenuBottomNavigationView = findViewById(R.id.menu_bottom_nav);
 
@@ -93,7 +110,6 @@ public class client_account extends AppCompatActivity {
                         startActivity(intent);
                         overridePendingTransition(0,0);
                         return true;
-
                 }
                 return false;
             }

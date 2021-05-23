@@ -7,6 +7,17 @@
     android:background="#12616A"
     tools:context=".ClientAccount.client_account">
 
+    <Button android:background="@drawable/round_button"
+        android:layout_height="wrap_content"
+        android:layout_width="110dp"
+        android:textStyle="bold"
+        android:text="Log out"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="68dp"
+        android:id="@+id/button_logout"
+        />
+
     <TextView
         android:id="@+id/heading"
         android:layout_width="match_parent"
