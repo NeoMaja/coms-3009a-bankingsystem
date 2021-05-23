@@ -23,15 +23,30 @@
             app:srcCompat="@drawable/ic_profile"
             tools:ignore="VectorDrawableCompat" />
 
-        <TextView
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+        <EditText
+            android:enabled="false"
+            android:id="@+id/username"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/username"
+            android:layout_marginTop="8dp"
             android:textColor="@color/black"
             android:textSize="20dp"
-            android:layout_marginTop="8dp"
-            android:textStyle="bold"
-            />
+            android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/EditUsername"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/ic_edit" />
+
+
+        </LinearLayout>
 
         <View
             android:layout_width="match_parent"

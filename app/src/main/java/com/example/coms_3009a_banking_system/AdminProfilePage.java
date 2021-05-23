@@ -33,11 +33,11 @@ public class AdminProfilePage extends AppCompatActivity {
 
     private TextView FirstName;
     private TextView LastName;
-    private TextView UserName;
-    private TextView Email;
-    private TextView P_Number;
+    private EditText UserName;
+    private EditText Email;
+    private EditText P_Number;
     private static final String TAG = "Profile";
-    private Button btnEditEmail, btnEditCell;
+    private Button btnEditUsername,btnEditEmail, btnEditCell;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,9 +45,11 @@ public class AdminProfilePage extends AppCompatActivity {
 
         FirstName= (TextView)findViewById(R.id.firstname);
         LastName= (TextView)findViewById(R.id.lastname);
-        UserName=  (TextView)findViewById(R.id.username);
-        Email= (TextView)findViewById(R.id.useremail);
-        P_Number = (TextView)findViewById(R.id.p_number);
+        UserName=  (EditText)findViewById(R.id.username);
+        Email= (EditText)findViewById(R.id.useremail);
+        P_Number = (EditText)findViewById(R.id.p_number);
+
+        btnEditUsername =(Button)findViewById(R.id.EditUsername);
         btnEditEmail =(Button)findViewById(R.id.EditEmail);
         btnEditCell =(Button)findViewById(R.id.EditCell);
 
@@ -107,6 +109,12 @@ public class AdminProfilePage extends AppCompatActivity {
             }
         });
 
+
+//        Edit Username
+        btnEditUsername.setOnClickListener(v -> {
+            UserName.setEnabled(true);
+            UserName.requestFocus();
+        });
 
 //        Edit Email
         btnEditEmail.setOnClickListener(v -> {
