@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,6 +37,7 @@ public class AdminProfilePage extends AppCompatActivity {
     private TextView Email;
     private TextView P_Number;
     private static final String TAG = "Profile";
+    private Button btnEditEmail, btnEditCell;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +48,8 @@ public class AdminProfilePage extends AppCompatActivity {
         UserName=  (TextView)findViewById(R.id.username);
         Email= (TextView)findViewById(R.id.useremail);
         P_Number = (TextView)findViewById(R.id.p_number);
+        btnEditEmail =(Button)findViewById(R.id.EditEmail);
+        btnEditCell =(Button)findViewById(R.id.EditCell);
 
 
         // get email and password via intent
@@ -101,6 +106,21 @@ public class AdminProfilePage extends AppCompatActivity {
                 });
             }
         });
+
+
+//        Edit Email
+        btnEditEmail.setOnClickListener(v -> {
+            Email.setEnabled(true);
+            Email.requestFocus();
+        });
+
+//        Edit Cell
+
+        btnEditCell.setOnClickListener(v -> {
+            P_Number.setEnabled(true);
+            P_Number.requestFocus();
+        });
+
 
         // setting the navigation Menu
 

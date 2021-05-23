@@ -135,14 +135,22 @@
                 android:textSize="20dp"
                 android:layout_marginLeft="5dp"/>
 
-            <TextView
+            <EditText
+                android:enabled="false"
+                android:id="@+id/useremail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/useremail"
-                android:textColor="@color/black"
                 android:layout_gravity="center"
-                android:textSize="18dp"
-                android:layout_marginLeft="70dp"/>
+                android:layout_marginLeft="70dp"
+                android:textColor="@color/black"
+                android:textSize="18dp" />
+
+            <Button
+                android:id="@+id/EditEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/ic_edit" />
 
             <!--            <View-->
             <!--            android:layout_width="match_parent"-->
@@ -178,7 +186,8 @@
                 android:textSize="20dp"
                 android:layout_marginLeft="5dp"/>
 
-            <TextView
+            <EditText
+                android:enabled="false"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/p_number"
@@ -186,6 +195,13 @@
                 android:textSize="18dp"
                 android:layout_gravity="center"
                 android:layout_marginLeft="20dp"/>
+
+            <Button
+                android:id="@+id/EditCell"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/ic_edit" />
 
             <!--            <View-->
             <!--            android:layout_width="match_parent"-->
@@ -200,34 +216,36 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="left"
             android:orientation="horizontal"
             android:paddingLeft="15dp"
-            android:paddingRight="15dp"
-            android:layout_marginTop="20dp"
-            android:gravity="left">
+            android:paddingRight="15dp">
 
             <ImageView
                 android:layout_width="25dp"
                 android:layout_height="25dp"
-                android:src="@drawable/ic_lock"/>
+                android:src="@drawable/ic_lock" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
                 android:text="Admin Key :"
-                android:textStyle="bold"
                 android:textColor="@android:color/darker_gray"
                 android:textSize="20dp"
-                android:layout_marginLeft="5dp"/>
+                android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/admin_key"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/admin_key"
-                android:textColor="@color/black"
-                android:textSize="18dp"
                 android:layout_gravity="center"
-                android:layout_marginLeft="20dp"/>
+                android:layout_marginLeft="20dp"
+                android:textColor="@color/black"
+                android:textSize="18dp" />
+
+
 
             <!--            <View-->
             <!--            android:layout_width="match_parent"-->
