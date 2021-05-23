@@ -58,7 +58,7 @@ public class Login2 extends AppCompatActivity {
                             Intent intent = new Intent(Login2.this, AdminLoginKey.class); // Intent should take you to Admin Verification Page.
                             // Should Be able to see Admin profile
                             intent.putExtra("email", email);
-                            //intent.putExtra("password", password);
+                            intent.putExtra("password", password); //!!!!Don't remove
                             startActivity(intent);
                         }
 
@@ -68,7 +68,7 @@ public class Login2 extends AppCompatActivity {
                             Intent intent = new Intent(Login2.this, client_account.class); // this takes us to the Client Account Page
                             // email and password to be used to get info for Profile page
                             intent.putExtra("email", email);
-                            intent.putExtra("password", password);
+                            intent.putExtra("password", password); //!!!!Don't remove
                             // intent.putExtra("status",status);
                             startActivity(intent);
                         }
@@ -78,6 +78,7 @@ public class Login2 extends AppCompatActivity {
                             //String status = "un-verified";
                             Intent intent = new Intent(Login2.this, Client_Verification_Status.class);
                             intent.putExtra("email", email);
+                            intent.putExtra("password", password); //!!!!Don't remove
                             //intent.putExtra("status", status);
 
                             startActivity(intent);
@@ -93,7 +94,7 @@ public class Login2 extends AppCompatActivity {
                                 public void onClick(DialogInterface dialog, int which) {
                                     Intent intent = new Intent(Login2.this, client_account.class);
                                     intent.putExtra("email", email);
-
+                                    intent.putExtra("password", password); //!!!!Don't remove
                                     startActivity(intent);
                                 }
                             });
@@ -102,7 +103,7 @@ public class Login2 extends AppCompatActivity {
                                 public void onClick(DialogInterface dialog, int which) {
                                     Intent intent = new Intent(Login2.this, AdminLoginKey.class);
                                     intent.putExtra("email", email);
-
+                                    intent.putExtra("password", password); //!!!!Don't remove
                                     startActivity(intent);
                                 }
                             });
@@ -119,6 +120,7 @@ public class Login2 extends AppCompatActivity {
                                 public void onClick(DialogInterface dialog, int which) {
                                     Intent intent = new Intent(Login2.this, Client_Verification_Status.class);
                                     intent.putExtra("email", email);
+                                    intent.putExtra("password", password); //!!!!Don't remove
 
                                     startActivity(intent);
                                 }
@@ -128,6 +130,7 @@ public class Login2 extends AppCompatActivity {
                                 public void onClick(DialogInterface dialog, int which) {
                                     Intent intent = new Intent(Login2.this, AdminLoginKey.class);
                                     intent.putExtra("email", email);
+                                    intent.putExtra("password", password); //!!!!Don't remove
 
                                     startActivity(intent);
                                 }

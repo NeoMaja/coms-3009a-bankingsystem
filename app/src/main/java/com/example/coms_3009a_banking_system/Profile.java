@@ -57,60 +57,7 @@ public class Profile extends AppCompatActivity {
         Log.e(TAG,password);
 
 
-//        Email.setText(email.toUpperCase());
-//        Password.setText(password);
 
-
-//        ContentValues parameters = new ContentValues();
-//        parameters.put("email", email);
-//        parameters.put("password", password);
-
-//
-//        AsyncHTTPPost asyncHttpPost = new AsyncHTTPPost("https://lamp.ms.wits.ac.za/home/s2143686/retrieveUserData.php",parameters){
-//            @Override
-//            protected void onPostExecute(String output) {
-//                //if output = success then go the activity page
-//               Log.e(TAG, "Out ="+output.length());
-//
-//            }
-//        };
-//        asyncHttpPost.execute();
-
-
-//        AsyncHTTPPost asyncHttpPost =  new AsyncHTTPPost("https://lamp.ms.wits.ac.za/home/s2143686/retrieveUserData.php",parameters) {
-//
-//            @Override
-//            protected void onPostExecute(String output) {
-//               Log.e(TAG,"msg");
-//
-//
-//                //output is UserData
-//                //String[] Data = output.split(",");
-//
-//
-//                Log.e(TAG,output);
-//
-//                Log.e(TAG,"output");
-////                //Data[0] is Firstname
-////                firstname=Data[0];
-////                Log.e(TAG,firstname);
-////
-////                //Data[1] is Lastname
-////                lastname= Data[1];
-////                Log.e(TAG,lastname);
-////
-//////                //Data[2] is UserIDno. // Not Used
-////                username = Data[3];
-////                Log.e(TAG,username);
-//
-////                //Data[3] is Username
-////                UserName.setText(Data[3].toUpperCase());
-//
-//            }
-//        };
-//
-//
-//         asyncHttpPost.execute();
 
         OkHttpClient client = new OkHttpClient();
 

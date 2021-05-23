@@ -29,6 +29,8 @@ public class AdminVerification extends AppCompatActivity { //declaring variable
         Intent getIntent= getIntent();
         email = getIntent.getStringExtra("email");
         password = getIntent.getStringExtra("password");
+        Log.e("Home email ", email);
+        Log.e("Home Password",password);
 
 
 
