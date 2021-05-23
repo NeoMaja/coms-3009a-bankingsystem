@@ -85,7 +85,7 @@
                 <RadioButton android:id="@+id/fromSavingsAccount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Saving Account"
+                    android:text="Savings Account"
                     android:textColor="@color/white"
                     android:onClick="onRadioButtonClicked"/>
             </RadioGroup>

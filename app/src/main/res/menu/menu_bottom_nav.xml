@@ -2,19 +2,19 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/accounts"
-        android:title="Accounts"
-        android:icon="@drawable/ic_account_foreground"/>
-
-    <item
         android:id="@+id/profile"
         android:title="Profile"
-        android:icon="@drawable/client_foreground"/>
+        android:icon="@drawable/ic_client_profile_foreground"/>
 
     <item
         android:id="@+id/pay"
         android:title="Pay"
         android:icon="@drawable/ic_pay_foreground"/>
+
+    <item
+        android:id="@+id/accounts"
+        android:title="Accounts"
+        android:icon="@drawable/ic_account_foreground"/>xdw3n  u
 
     <item
         android:id="@+id/transfer"
