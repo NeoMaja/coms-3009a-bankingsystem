@@ -139,7 +139,7 @@ public class Transfer extends AppCompatActivity {
 
                 //get selected radio button To
                 int selected2 = radioGroupTo.getCheckedRadioButtonId();
-                radioButton2 = (RadioButton) findViewById(selected);
+                radioButton2 = (RadioButton) findViewById(selected2);
                 To = radioButton2.getText().toString();
 
                 ContentValues parameters = new ContentValues();
@@ -155,6 +155,8 @@ public class Transfer extends AppCompatActivity {
                     protected void onPostExecute(String output) {
                         //Do the transfer and toast output
                         Toast.makeText(getApplicationContext(), output, Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(Transfer.this, client_account.class);
+                        startActivity(intent);
 
                     }
                 };

@@ -106,6 +106,8 @@ public class Pay extends AppCompatActivity {
                     protected void onPostExecute(String output) {
                         //Do the transfer and toast output
                         Toast.makeText(getApplicationContext(), output, Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(Pay.this, client_account.class);
+                        startActivity(intent);
 
                     }
                 };
