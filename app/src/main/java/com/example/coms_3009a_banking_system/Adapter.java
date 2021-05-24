@@ -94,10 +94,8 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
                                 try {
                                     JSONObject jsonObject = new JSONObject(response);
 
-
-                                    //Delete(position);
                                     if (jsonObject.names().get(0).equals("success")) {
-
+                                        Delete(position);
                                         Toast.makeText(mCtx.getApplicationContext(), "SUCCESS " + jsonObject.getString("success"), Toast.LENGTH_SHORT).show();
 
                                     } else {
@@ -118,7 +116,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
                             protected Map<String, String> getParams() throws AuthFailureError {
                                 Map<String, String> hashMap = new HashMap<String, String>();
                                 hashMap.put("name", user.getName());
-                                hashMap.put("Email", user.getEmail());
+                                hashMap.put("email", user.getEmail());
                                 return hashMap;
 
 
@@ -158,8 +156,6 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
                                 try {
                                     JSONObject jsonObject = new JSONObject(response);
 
-
-                                    //Delete(position);
                                     if (jsonObject.names().get(0).equals("success")) {
 
                                         Toast.makeText(mCtx.getApplicationContext(), "SUCCESS " + jsonObject.getString("success"), Toast.LENGTH_SHORT).show();
@@ -181,12 +177,8 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
                             @Override
                             protected Map<String, String> getParams() throws AuthFailureError {
                                 Map<String, String> hashMap = new HashMap<String, String>();
-                                //Intent intent = new Intent();
-                                //String email =intent.getStringExtra("email");
-                                //String name =intent.getStringExtra("name");
-                                hashMap.put("Id", user.getId());
-
-//                        hashMap.put("First_Name", user.getName());
+                                hashMap.put("email", user.getEmail());
+                                //hashMap.put("First_Name", user.getName());
 
                                 return hashMap;
 
@@ -214,6 +206,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
     public void Delete(int position)
     {
         userList.remove(position);
+        notifyItemRemoved(position);
     }
     @Override
     public int getItemCount() {
