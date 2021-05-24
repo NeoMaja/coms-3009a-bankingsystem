@@ -155,8 +155,6 @@ public class Transfer extends AppCompatActivity {
                     protected void onPostExecute(String output) {
                         //Do the transfer and toast output
                         Toast.makeText(getApplicationContext(), output, Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(Transfer.this, client_account.class);
-                        startActivity(intent);
 
                     }
                 };
