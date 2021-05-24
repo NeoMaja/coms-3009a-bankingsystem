@@ -11,6 +11,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
+import com.example.coms_3009a_banking_system.login.Login2;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 
@@ -63,11 +64,18 @@ public class AdminVerification extends AppCompatActivity { //declaring variable
                         intent.putExtra("email",email);
                         intent.putExtra("password",password);
                         startActivity(intent);
-
                         overridePendingTransition(0,0);
                         return true;
                     case R.id.admin_profile:
                         intent = new Intent(getApplicationContext(),AdminProfilePage.class);
+                        intent.putExtra("email",email);
+                        intent.putExtra("password",password);
+                        startActivity(intent);
+                        overridePendingTransition(0,0);
+                        return true;
+
+                    case R.id.admin_logout:
+                        intent = new Intent(getApplicationContext(), Login2.class);
                         intent.putExtra("email",email);
                         intent.putExtra("password",password);
                         startActivity(intent);
