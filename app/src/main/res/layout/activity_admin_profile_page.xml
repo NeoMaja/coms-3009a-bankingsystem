@@ -295,19 +295,22 @@
 
 
     </LinearLayout>
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_nav"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#12616A"
-        app:itemBackground="@color/white"
-        app:itemTextColor="@color/black"
-        android:layout_alignParentBottom="true"
-        app:menu="@menu/menu_nav"
-        android:layout_gravity="bottom"
+        android:layout_height="161dp"
+        android:gravity="bottom">
 
-        />
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottom_nav"
+            android:layout_width="match_parent"
+            android:layout_height="156dp"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="bottom"
+            app:itemBackground="@color/white"
+            app:itemTextColor="@color/black"
+            app:menu="@menu/menu_nav"
 
+            />
+    </LinearLayout>
 
 </LinearLayout>

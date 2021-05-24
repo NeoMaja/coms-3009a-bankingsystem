@@ -1,11 +1,13 @@
 package com.example.coms_3009a_banking_system.ClientAccount;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,8 +17,10 @@ import android.widget.Toast;
 
 import com.example.coms_3009a_banking_system.AsyncHTTPPost;
 import com.example.coms_3009a_banking_system.Client_Verification_Status;
+import com.example.coms_3009a_banking_system.Profile;
 import com.example.coms_3009a_banking_system.R;
 import com.example.coms_3009a_banking_system.login.AdminLoginKey;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class Cli_Acc_Test extends AppCompatActivity {
 
@@ -45,6 +49,56 @@ public class Cli_Acc_Test extends AppCompatActivity {
 
         //getting email from previous page
         email = getIntent().getStringExtra("email");
+
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+
+        //Set home Selected
+        bottomNavigationView.setSelectedItemId(R.id.button_insert);
+
+        // Perform ItemSelected
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                Intent intent1;
+                switch (item.getItemId()){
+
+                    case R.id.button_insert:
+                        return true;
+
+                    case R.id.acc:
+                        intent1 = new Intent(Cli_Acc_Test.this, client_account.class);
+                        intent1.putExtra("email",email);
+                        startActivity(intent1);
+                        overridePendingTransition(0,0);
+                        return true;
+
+                    case R.id.button_transact:
+                        intent1 = new Intent(Cli_Acc_Test.this, Transfer.class);
+                        intent1.putExtra("email",email);
+                        startActivity(intent1);
+                        overridePendingTransition(0,0);
+                        return true;
+
+                    case R.id.button_pay:
+                        intent1 = new Intent(Cli_Acc_Test.this, Pay.class);
+                        intent1.putExtra("email",email);
+                        startActivity(intent1);
+                        overridePendingTransition(0,0);
+                        return true;
+
+                    case R.id.button_profile:
+                        intent1 = new Intent(Cli_Acc_Test.this, Profile.class);
+                        intent1.putExtra("email",email);
+                        startActivity(intent1);
+                        overridePendingTransition(0,0);
+                        return true;
+
+
+                }
+                return false;
+            }
+        });
+
 
         //Try to get data from Radio Group
 

@@ -14,12 +14,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.coms_3009a_banking_system.AdminProfilePage;
 import com.example.coms_3009a_banking_system.AsyncHTTPPost;
 
+import com.example.coms_3009a_banking_system.ClientsActivity;
 import com.example.coms_3009a_banking_system.Profile;
 import com.example.coms_3009a_banking_system.R;
 import com.example.coms_3009a_banking_system.login.login;
 import com.example.coms_3009a_banking_system.usertype;
+import com.example.coms_3009a_banking_system.VerificationActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import org.json.JSONArray;
@@ -32,8 +35,8 @@ public class client_account extends AppCompatActivity {
     private RecyclerView recyclerView;
     private ArrayList<Clientitem> mClientList;
     private ClientAdapter adapter;
+    private RecyclerView.LayoutManager layoutManager;;
 
-    private RecyclerView.LayoutManager layoutManager;
     String AccountType;
     String AccountNumber;
     String Amount;
@@ -48,9 +51,10 @@ public class client_account extends AppCompatActivity {
         setContentView(R.layout.activity_client_account);
 
         // get email and password via intent
+
         Intent intent = getIntent();
         email = intent.getStringExtra("email");
-        password =intent.getStringExtra("password");
+        password =intent.getStringExtra(" password");
 
         logout = (Button)findViewById(R.id.button_logout);
 
@@ -63,53 +67,55 @@ public class client_account extends AppCompatActivity {
             }
         });
 
-        BottomNavigationView MenuBottomNavigationView = findViewById(R.id.menu_bottom_nav);
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
 
-        // set Accounts to selected
-        MenuBottomNavigationView.setSelectedItemId(R.id.accounts);
+        //Set home Selected
+        bottomNavigationView.setSelectedItemId(R.id.acc);
 
-        // perform ItemSelected
-        MenuBottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            //@SuppressLint("NonConstantResourceId")
+        // Perform ItemSelected
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                Intent intent;
+                Intent intent1;
                 switch (item.getItemId()){
-                    case R.id.accounts:
+
+                    case R.id.acc:
                         return true;
 
-                    case R.id.profile:
-                        intent = new Intent(getApplicationContext(),Profile.class);
-                        intent.putExtra("email",email);
-                        intent.putExtra("password",password);
-                        startActivity(intent);
+                    case R.id.button_pay:
+                        intent1 = new Intent(client_account.this, Pay.class);
+                        intent1.putExtra("email",email);
+                        intent1.putExtra("password",password);
+                        startActivity(intent1);
                         overridePendingTransition(0,0);
                         return true;
 
-                    case R.id.pay:
-                        intent = new Intent(getApplicationContext(), Pay.class);
-                        //put email and password in intent
-                        intent.putExtra("email",email);
-                        intent.putExtra("password",password);
-                        startActivity(intent);
+                    case R.id.button_transact:
+                        intent1 = new Intent(client_account.this, Transfer.class);
+                        intent1.putExtra("email", email);
+                        intent1.putExtra("password",password);
+                        startActivity(intent1);
                         overridePendingTransition(0,0);
                         return true;
 
-                    case R.id.transfer:
-                        intent = new Intent(getApplicationContext(), Transfer.class);
-                        intent.putExtra("email",email);
-                        intent.putExtra("password",password);
-                        startActivity(intent);
+                    case R.id.button_insert:
+                        intent1 = new Intent(client_account.this, Cli_Acc_Test.class);
+                        intent1.putExtra("email",email);
+                        intent1.putExtra("password",password);
+                        startActivity(intent1);
                         overridePendingTransition(0,0);
                         return true;
 
-                    case R.id.add:
-                        intent = new Intent(getApplicationContext(), Cli_Acc_Test.class);
-                        intent.putExtra("email",email);
-                        intent.putExtra("password",password);
-                        startActivity(intent);
+                    case R.id.button_profile:
+                        intent1 = new Intent(client_account.this, Profile.class);
+                        intent1.putExtra("email", email);
+                        intent1.putExtra("password", password);
+                        startActivity(intent1);
                         overridePendingTransition(0,0);
                         return true;
+
+
+
                 }
                 return false;
             }

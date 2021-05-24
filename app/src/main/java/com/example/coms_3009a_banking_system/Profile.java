@@ -3,10 +3,18 @@ package com.example.coms_3009a_banking_system;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.coms_3009a_banking_system.ClientAccount.Cli_Acc_Test;
+import com.example.coms_3009a_banking_system.ClientAccount.Pay;
+import com.example.coms_3009a_banking_system.ClientAccount.Transfer;
+import com.example.coms_3009a_banking_system.ClientAccount.client_account;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONException;
@@ -55,6 +63,58 @@ public class Profile extends AppCompatActivity {
         password = getIntent.getStringExtra("password");
         Log.e(TAG,email);
         Log.e(TAG,password);
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+
+        //Set home Selected
+        bottomNavigationView.setSelectedItemId(R.id.button_profile);
+
+        // Perform ItemSelected
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                Intent intent1;
+                switch (item.getItemId()){
+
+                    case R.id.button_profile:
+                        return true;
+
+                    case R.id.acc:
+                        intent1 = new Intent(Profile.this, client_account.class);
+                        intent1.putExtra("email",email);
+                        intent1.putExtra("password",password);
+                        startActivity(intent1);
+                        overridePendingTransition(0,0);
+                        return true;
+
+                    case R.id.button_transact:
+                        intent1 = new Intent(Profile.this, Transfer.class);
+                        intent1.putExtra("email",email);
+                        intent1.putExtra("password",password);
+                        startActivity(intent1);
+                        overridePendingTransition(0,0);
+                        return true;
+
+                    case R.id.button_insert:
+                        intent1 = new Intent(Profile.this, Cli_Acc_Test.class);
+                        intent1.putExtra("email",email);
+                        intent1.putExtra("password",password);
+                        startActivity(intent1);
+                        overridePendingTransition(0,0);
+                        return true;
+
+                    case R.id.button_pay:
+                        intent1 = new Intent(Profile.this, Pay.class);
+                        intent1.putExtra("email",email);
+                        intent1.putExtra("password",password);
+                        startActivity(intent1);
+                        overridePendingTransition(0,0);
+                        return true;
+
+
+                }
+                return false;
+            }
+        });
 
 
 

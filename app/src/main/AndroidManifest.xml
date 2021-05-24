@@ -10,20 +10,23 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Coms3009abankingsystem"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ClientAccount.Transfer"></activity>
+        <activity android:name=".ClientAccount.Transfer"/>
         <activity android:name=".ClientAccount.Pay" />
         <activity android:name=".ClientAccount.AccountActivity" />
+        <activity android:name=".ClientAccount.client_account" />
         <activity android:name=".AdminProfilePage" />
         <activity android:name=".ClientAccount.Cli_Acc_Test" />
         <activity android:name=".login.AdminLoginKey" />
         <activity android:name=".login.Login2" />
+
         <activity android:name=".Registration.AdminRegCode" />
         <activity android:name=".Registration.AdminHomePage" />
+
         <activity
             android:name=".Registration.adminRegister"
             android:parentActivityName=".Registration.AdminRegCode" />
         <activity android:name=".Banking" />
-        <activity android:name=".ClientAccount.client_account" />
+
         <activity android:name=".Registration.AdminKeyView" />
         <activity
             android:name=".Client_Verification_Status"

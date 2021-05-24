@@ -7,6 +7,7 @@
     android:background="#12616A"
     tools:context=".ClientAccount.client_account">
 
+
     <Button android:background="@drawable/round_button"
         android:layout_height="wrap_content"
         android:layout_width="110dp"
@@ -18,6 +19,15 @@
         android:id="@+id/button_logout"
         />
 
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="571dp"
+        android:layout_above="@id/bottom_navigation"
+        android:layout_marginBottom="3dp" />
+
+
     <TextView
         android:id="@+id/heading"
         android:layout_width="match_parent"
@@ -27,32 +37,27 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginEnd="0dp"
-        android:layout_marginRight="0dp"
-        android:layout_marginBottom="684dp"
+        android:layout_marginStart="-3dp"
+        android:layout_marginLeft="-3dp"
+        android:layout_marginEnd="3dp"
+        android:layout_marginRight="3dp"
+        android:layout_marginBottom="683dp"
         android:gravity="center"
         android:text="Home"
         android:textColor="#000000"
         android:textSize="24sp"
         android:textStyle="bold" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-  />
-
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/menu_bottom_nav"
+        android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#12616A"
         app:itemBackground="@color/white"
         app:itemTextColor="@color/black"
         android:layout_alignParentBottom="true"
-        app:menu="@menu/menu_bottom_nav"
+        app:menu="@menu/client_menu"
+
         />
 
 </RelativeLayout>

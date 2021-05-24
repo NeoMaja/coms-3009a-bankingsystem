@@ -32,6 +32,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
      private Context mCtx;
      private List<User> userList;
      private static final String URL = "https://lamp.ms.wits.ac.za/home/s2143686/Bank_Accept.php";
+    private static final String URL1 = "https://lamp.ms.wits.ac.za/home/s2143686/Bank_Reject.php";
 
      public Adapter(Context mCtx, List<User> userList) {
         this.mCtx = mCtx;
@@ -84,14 +85,53 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
                 builder.setTitle("Confirm Reject");
                 builder.setMessage("Do you reject " + user.getName());
 
-                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
+                        StringRequest request = new StringRequest(com.android.volley.Request.Method.POST, URL1, new Response.Listener<String>() {
+                            @Override
+                            public void onResponse(String response) {
+                                try {
+                                    JSONObject jsonObject = new JSONObject(response);
+
+
+                                    //Delete(position);
+                                    if (jsonObject.names().get(0).equals("success")) {
+
+                                        Toast.makeText(mCtx.getApplicationContext(), "SUCCESS " + jsonObject.getString("success"), Toast.LENGTH_SHORT).show();
+
+                                    } else {
+                                        Toast.makeText(mCtx.getApplicationContext(), "ERROR " + jsonObject.getString("error"), Toast.LENGTH_SHORT).show();
+                                    }
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        }, new Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+
+                            }
+
+                        }) {
+                            @Override
+                            protected Map<String, String> getParams() throws AuthFailureError {
+                                Map<String, String> hashMap = new HashMap<String, String>();
+                                hashMap.put("name", user.getName());
+                                hashMap.put("Email", user.getEmail());
+                                return hashMap;
+
+
+                            }
+                        };
+                        RequestQueue requestQueue = Volley.newRequestQueue(mCtx);
+                        requestQueue.add(request);
+
+
                     }
                 });
 
-                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.dismiss();

@@ -1,10 +1,12 @@
 package com.example.coms_3009a_banking_system.ClientAccount;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,7 +15,9 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.example.coms_3009a_banking_system.AsyncHTTPPost;
+import com.example.coms_3009a_banking_system.Profile;
 import com.example.coms_3009a_banking_system.R;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -37,6 +41,16 @@ public class Pay extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pay);
+
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+
+        //Set home Selected
+        bottomNavigationView.setSelectedItemId(R.id.button_pay);
+
+        // Perform ItemSelected
+
+
+
 
         // assigning variables
         recipient = findViewById (R.id.recipient);
@@ -94,6 +108,49 @@ public class Pay extends AppCompatActivity {
                     }
                 };
                 asyncHttpPost.execute();
+            }
+        });
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                Intent intent1;
+                switch (item.getItemId()){
+
+                    case R.id.button_pay:
+                        return true;
+
+                    case R.id.acc:
+                        intent1 = new Intent(Pay.this, client_account.class);
+                        intent1.putExtra("email",Email);
+                        startActivity(intent1);
+                        overridePendingTransition(0,0);
+                        return true;
+
+                    case R.id.button_transact:
+                        intent1 = new Intent(Pay.this, Transfer.class);
+                        intent1.putExtra("email",Email);
+                        startActivity(intent1);
+                        overridePendingTransition(0,0);
+                        return true;
+
+                    case R.id.button_insert:
+                        intent1 = new Intent(Pay.this, Cli_Acc_Test.class);
+                        intent1.putExtra("email",Email);
+                        startActivity(intent1);
+                        overridePendingTransition(0,0);
+                        return true;
+
+                    case R.id.button_profile:
+                        intent1 = new Intent(Pay.this, Profile.class);
+                        intent1.putExtra("email",Email);
+                        startActivity(intent1);
+                        overridePendingTransition(0,0);
+                        return true;
+
+
+                }
+                return false;
             }
         });
 
