@@ -20,6 +20,7 @@ import com.example.coms_3009a_banking_system.AsyncHTTPPost;
 import com.example.coms_3009a_banking_system.ClientsActivity;
 import com.example.coms_3009a_banking_system.Profile;
 import com.example.coms_3009a_banking_system.R;
+import com.example.coms_3009a_banking_system.login.Login2;
 import com.example.coms_3009a_banking_system.login.login;
 import com.example.coms_3009a_banking_system.usertype;
 import com.example.coms_3009a_banking_system.VerificationActivity;
@@ -62,7 +63,7 @@ public class client_account extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent logoutIntent = new Intent(client_account.this,
-                        login.class);
+                        Login2.class);
                 startActivity(logoutIntent);
             }
         });
