@@ -79,6 +79,7 @@ public class AccountActivity extends AppCompatActivity {
 
         ContentValues parameters2 = new ContentValues();
         parameters2.put("Acc_No", Account_No);
+        //gets Account details
 
         AsyncHTTPPost asyncHttpPost2 = new AsyncHTTPPost("https://lamp.ms.wits.ac.za/home/s2143686/Account_details.php",parameters2){
             @Override
