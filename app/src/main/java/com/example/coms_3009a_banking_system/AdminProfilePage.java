@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.coms_3009a_banking_system.login.Login2;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import org.jetbrains.annotations.NotNull;
@@ -148,6 +149,9 @@ public class AdminProfilePage extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 Intent intent;
                 switch (item.getItemId()){
+                    case R.id.admin_profile:
+                        return true;
+
                     case R.id.home:
                         intent = new Intent(getApplicationContext(),AdminVerification.class);
                         // add email and password on intent
@@ -173,8 +177,15 @@ public class AdminProfilePage extends AppCompatActivity {
                         startActivity(intent);
                         overridePendingTransition(0,0);
                         return true;
-                    case R.id.admin_profile:
+
+                    case R.id.admin_logout:
+                        intent = new Intent(getApplicationContext(), Login2.class);
+                        intent.putExtra("email",email);
+                        intent.putExtra("password",password);
+                        startActivity(intent);
+                        overridePendingTransition(0,0);
                         return true;
+
 
                 }
                 return false;
