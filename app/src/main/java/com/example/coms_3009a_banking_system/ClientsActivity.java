@@ -15,6 +15,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.coms_3009a_banking_system.login.Login2;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import org.json.JSONArray;
@@ -85,6 +86,14 @@ public class ClientsActivity extends AppCompatActivity {
 
                     case R.id.admin_profile:
                         intent = new Intent(getApplicationContext(),AdminProfilePage.class);
+                        intent.putExtra("email",email);
+                        intent.putExtra("password",password);
+                        startActivity(intent);
+                        overridePendingTransition(0,0);
+                        return true;
+
+                    case R.id.admin_logout:
+                        intent = new Intent(getApplicationContext(), Login2.class);
                         intent.putExtra("email",email);
                         intent.putExtra("password",password);
                         startActivity(intent);
