@@ -1,9 +1,132 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ClientAccount.AccountActivity">
+    android:orientation="vertical">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#12616A"
+            android:layout_marginTop="10dp"
+            />
+        <!-- Account Number TextField-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:layout_marginTop="20dp"
+            android:gravity="left">
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Account Number :"
+                android:textStyle="bold"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="20dp"
+                android:layout_marginLeft="5dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/account_number"
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                android:layout_marginLeft="25dp"/>
+
+
+        </LinearLayout>
+
+        <!-- Account Type TextField  -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:layout_marginTop="20dp"
+            android:gravity="left">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Account Type :"
+                android:textStyle="bold"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="20dp"
+                android:layout_marginLeft="5dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/account_type"
+                android:textColor="@color/black"
+                android:layout_gravity="center"
+                android:textSize="18dp"
+                android:layout_marginLeft="25dp"/>
+
+
+        </LinearLayout>
+
+        <!--  Balance TextField -->
+
+        <!--  Contact TextField -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="left"
+            android:orientation="horizontal"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="Balance (R):"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/balance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="70dp"
+                android:enabled="false"
+                android:textColor="@color/black"
+                android:textSize="18dp" />
+
+
+
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="90dp"
+            android:id="@+id/transaction_list"
+            android:gravity="center"
+            android:orientation="vertical">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+
+
+    </LinearLayout>
+
+
+
