@@ -36,6 +36,7 @@ public class Pay extends AppCompatActivity {
     String Amount;
     String To;
     String Email;
+    private String password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +73,7 @@ public class Pay extends AppCompatActivity {
         //Get Email from previous page
         Intent intent = getIntent();
         Email = intent.getStringExtra("email");
+        password= intent.getStringExtra("password");
 
         pay = (Button)findViewById(R.id.pay);
 
@@ -123,13 +125,16 @@ public class Pay extends AppCompatActivity {
                     case R.id.acc:
                         intent1 = new Intent(Pay.this, client_account.class);
                         intent1.putExtra("email",Email);
+                        intent1.putExtra("password",password);
                         startActivity(intent1);
                         overridePendingTransition(0,0);
                         return true;
 
+
                     case R.id.button_transact:
                         intent1 = new Intent(Pay.this, Transfer.class);
                         intent1.putExtra("email",Email);
+                        intent1.putExtra("password",password);
                         startActivity(intent1);
                         overridePendingTransition(0,0);
                         return true;
@@ -137,6 +142,7 @@ public class Pay extends AppCompatActivity {
                     case R.id.button_insert:
                         intent1 = new Intent(Pay.this, Cli_Acc_Test.class);
                         intent1.putExtra("email",Email);
+                        intent1.putExtra("password",password);
                         startActivity(intent1);
                         overridePendingTransition(0,0);
                         return true;
@@ -144,6 +150,7 @@ public class Pay extends AppCompatActivity {
                     case R.id.button_profile:
                         intent1 = new Intent(Pay.this, Profile.class);
                         intent1.putExtra("email",Email);
+                        intent1.putExtra("password",password);
                         startActivity(intent1);
                         overridePendingTransition(0,0);
                         return true;

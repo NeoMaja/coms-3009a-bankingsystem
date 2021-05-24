@@ -45,6 +45,24 @@ public class Login2 extends AppCompatActivity {
                 password = Get_Password.getText().toString();
 
                 //send to php files
+                Loginphp(email,password);
+
+            }
+            });
+                //to register go to reg userType page
+                Register.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                        Intent intent = new Intent(Login2.this, usertype.class);
+                        startActivity(intent);
+                    }
+                });
+
+
+            }
+
+            public void Loginphp(String email, String password ){
                 ContentValues parameters = new ContentValues();
                 parameters.put("email", email);
                 parameters.put("password", password);
@@ -142,19 +160,6 @@ public class Login2 extends AppCompatActivity {
                     }
                 };
                 asyncHttpPost.execute();
-            }
-            });
-                //to register go to reg userType page
-                Register.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-
-                        Intent intent = new Intent(Login2.this, usertype.class);
-                        startActivity(intent);
-                    }
-                });
-
-
             }
         }
 

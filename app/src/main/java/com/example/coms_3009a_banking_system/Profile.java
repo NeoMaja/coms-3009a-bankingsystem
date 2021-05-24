@@ -44,7 +44,7 @@ public class Profile extends AppCompatActivity {
     private TextView UserName;
     private TextView Email;
     private TextView P_Number;
-    private static final String TAG = "Profile";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,9 +61,60 @@ public class Profile extends AppCompatActivity {
         Intent getIntent= getIntent();
         email = getIntent.getStringExtra("email");
         password = getIntent.getStringExtra("password");
-        Log.e(TAG,email);
-        Log.e(TAG,password);
+
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+
+
+
+
+
+
+        OkHttpClient client = new OkHttpClient();
+
+        HttpUrl.Builder urlBuilder = HttpUrl.parse("https://lamp.ms.wits.ac.za/home/s2143686/retrieveUserData.php").newBuilder(); //url here
+        urlBuilder.addQueryParameter("email", email);
+        urlBuilder.addQueryParameter("password", password);
+        String url = urlBuilder.build().toString();
+
+        Request request = new Request.Builder()
+                .url(url)
+                .build();
+        client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(@NotNull Call call, @NotNull IOException e) {
+
+
+            }
+
+            @Override
+            public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
+                final String responseData = response.body().string();
+                Profile.this.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            JSONObject jO = new JSONObject(responseData);
+                            String first_name = jO.getString("First Name");
+                            String last_name = jO.getString("Last Name");
+                            String user_name =jO.getString("username");
+                            String  _email = jO.getString("email");
+                            String number = jO.getString("cellphone");
+                            FirstName.setText(first_name);
+                            UserName.setText(user_name.toUpperCase());
+                            LastName.setText(last_name);
+                            Email.setText(_email);
+                            P_Number.setText(number);
+
+                            ;
+                          //  Toast.makeText(Profile.this, first_name, Toast.LENGTH_SHORT).show();
+                        }catch (JSONException e){
+                            e.printStackTrace();
+                            Toast.makeText(Profile.this, "Login  error", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+            }
+        });
 
         //Set home Selected
         bottomNavigationView.setSelectedItemId(R.id.button_profile);
@@ -113,56 +164,6 @@ public class Profile extends AppCompatActivity {
 
                 }
                 return false;
-            }
-        });
-
-
-
-
-        OkHttpClient client = new OkHttpClient();
-
-        HttpUrl.Builder urlBuilder = HttpUrl.parse("https://lamp.ms.wits.ac.za/home/s2143686/retrieveUserData.php").newBuilder(); //url here
-        urlBuilder.addQueryParameter("email", email);
-        urlBuilder.addQueryParameter("password", password);
-        String url = urlBuilder.build().toString();
-
-        Request request = new Request.Builder()
-                .url(url)
-                .build();
-        client.newCall(request).enqueue(new Callback() {
-            @Override
-            public void onFailure(@NotNull Call call, @NotNull IOException e) {
-
-
-            }
-
-            @Override
-            public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
-                final String responseData = response.body().string();
-                Profile.this.runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        try {
-                            JSONObject jO = new JSONObject(responseData);
-                            String first_name = jO.getString("First Name");
-                            String last_name = jO.getString("Last Name");
-                            String user_name =jO.getString("username");
-                            String  _email = jO.getString("email");
-                            String number = jO.getString("cellphone");
-                            FirstName.setText(first_name);
-                            UserName.setText(user_name.toUpperCase());
-                            LastName.setText(last_name);
-                            Email.setText(_email);
-                            P_Number.setText(number);
-
-                            ;
-                          //  Toast.makeText(Profile.this, first_name, Toast.LENGTH_SHORT).show();
-                        }catch (JSONException e){
-                            e.printStackTrace();
-                            Toast.makeText(Profile.this, "Login  error", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
             }
         });
         }

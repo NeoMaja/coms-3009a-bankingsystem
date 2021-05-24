@@ -42,6 +42,7 @@ public class Transfer extends AppCompatActivity {
     String Amount;
     String To;
     String Email;
+    private String password;
 
 
     @Override
@@ -64,6 +65,8 @@ public class Transfer extends AppCompatActivity {
         //Get email from Previous Page
         Intent intent = getIntent();
         Email = intent.getStringExtra("email");
+        password = intent.getStringExtra("password");
+
 
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
@@ -84,6 +87,7 @@ public class Transfer extends AppCompatActivity {
                     case R.id.acc:
                         intent1 = new Intent(Transfer.this, client_account.class);
                         intent1.putExtra("email",Email);
+                        intent1.putExtra("password",password);
                         startActivity(intent1);
                         overridePendingTransition(0,0);
                         return true;
@@ -91,6 +95,7 @@ public class Transfer extends AppCompatActivity {
                     case R.id.button_pay:
                         intent1 = new Intent(Transfer.this, Pay.class);
                         intent1.putExtra("email",Email);
+                        intent1.putExtra("password",password);
                         startActivity(intent1);
                         overridePendingTransition(0,0);
                         return true;
@@ -98,6 +103,7 @@ public class Transfer extends AppCompatActivity {
                     case R.id.button_insert:
                         intent1 = new Intent(Transfer.this, Cli_Acc_Test.class);
                         intent1.putExtra("email",Email);
+                        intent1.putExtra("password",password);
                         startActivity(intent1);
                         overridePendingTransition(0,0);
                         return true;
@@ -105,6 +111,7 @@ public class Transfer extends AppCompatActivity {
                     case R.id.button_profile:
                         intent1 = new Intent(Transfer.this, Profile.class);
                         intent1.putExtra("email",Email);
+                        intent1.putExtra("password",password);
                         startActivity(intent1);
                         overridePendingTransition(0,0);
                         return true;

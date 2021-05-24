@@ -36,6 +36,7 @@ public class Cli_Acc_Test extends AppCompatActivity {
     EditText GetVerPin;
     String Pin;
     String VerPin;
+    private String password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +50,7 @@ public class Cli_Acc_Test extends AppCompatActivity {
 
         //getting email from previous page
         email = getIntent().getStringExtra("email");
+        password = getIntent().getStringExtra("password");
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
 
@@ -68,6 +70,7 @@ public class Cli_Acc_Test extends AppCompatActivity {
                     case R.id.acc:
                         intent1 = new Intent(Cli_Acc_Test.this, client_account.class);
                         intent1.putExtra("email",email);
+                        intent1.putExtra("password",password);
                         startActivity(intent1);
                         overridePendingTransition(0,0);
                         return true;
@@ -75,6 +78,7 @@ public class Cli_Acc_Test extends AppCompatActivity {
                     case R.id.button_transact:
                         intent1 = new Intent(Cli_Acc_Test.this, Transfer.class);
                         intent1.putExtra("email",email);
+                        intent1.putExtra("password",password);
                         startActivity(intent1);
                         overridePendingTransition(0,0);
                         return true;
@@ -82,6 +86,7 @@ public class Cli_Acc_Test extends AppCompatActivity {
                     case R.id.button_pay:
                         intent1 = new Intent(Cli_Acc_Test.this, Pay.class);
                         intent1.putExtra("email",email);
+                        intent1.putExtra("password",password);
                         startActivity(intent1);
                         overridePendingTransition(0,0);
                         return true;
@@ -89,6 +94,7 @@ public class Cli_Acc_Test extends AppCompatActivity {
                     case R.id.button_profile:
                         intent1 = new Intent(Cli_Acc_Test.this, Profile.class);
                         intent1.putExtra("email",email);
+                        intent1.putExtra("password",password);
                         startActivity(intent1);
                         overridePendingTransition(0,0);
                         return true;
