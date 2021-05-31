@@ -57,8 +57,8 @@ public class historyAdapter extends RecyclerView.Adapter<historyAdapter.HistoryV
         }
     }
 
-    public historyAdapter(ArrayList<historyItem> historyItems){
-        historyItems = historyItems;
+    public historyAdapter(ArrayList<historyItem> historyItem){
+        historyItems = historyItem;
     }
 
     @NonNull
