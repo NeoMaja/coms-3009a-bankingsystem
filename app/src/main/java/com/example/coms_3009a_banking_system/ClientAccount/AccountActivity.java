@@ -76,8 +76,8 @@ public class AccountActivity extends AppCompatActivity {
         AccnBalance= intent.getStringExtra("amount");
 
 //        Toast.makeText(getApplicationContext(),Account_No,Toast.LENGTH_SHORT).show();
-        Account_Number = findViewById(R.id.account_number);
-        Account_Type = findViewById(R.id.account_type);
+        Account_Number = findViewById(R.id.account_numberV);
+        Account_Type = findViewById(R.id.account_typeV);
         BalanceAmount = findViewById(R.id.balanceV);
 
 
