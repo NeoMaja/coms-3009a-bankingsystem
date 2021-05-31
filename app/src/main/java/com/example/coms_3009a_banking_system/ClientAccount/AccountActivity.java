@@ -52,6 +52,7 @@ public class AccountActivity extends AppCompatActivity {
     String ID_No;
     String Pin;
     String Balance;
+
     TextView Account_Number ,Account_Type , BalanceAmount ;
 
     @Override
@@ -62,9 +63,11 @@ public class AccountActivity extends AppCompatActivity {
         Intent intent = getIntent();
         Account_No = intent.getStringExtra("Account_Num");
         Toast.makeText(getApplicationContext(),Account_No,Toast.LENGTH_SHORT).show();
-        Account_Number = findViewById(R.id.account_number);
-        Account_Type = findViewById(R.id.account_type);
-        BalanceAmount = findViewById(R.id.balance);
+
+
+        Account_Number = findViewById(R.id.account_numberV);
+        Account_Type = findViewById(R.id.account_typeV);
+        BalanceAmount = findViewById(R.id.balanceV);
 
         //https://lamp.ms.wits.ac.za/home/s2143686/Activity_list.php
         //php takes Account_No

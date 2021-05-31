@@ -38,7 +38,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:id="@+id/account_number"
+                android:id="@+id/account_numberV"
                 android:textColor="@color/black"
                 android:textSize="18dp"
                 android:layout_marginLeft="25dp"/>
@@ -69,7 +69,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/account_type"
+                android:id="@+id/account_typeV"
                 android:textColor="@color/black"
                 android:layout_gravity="center"
                 android:textSize="18dp"
@@ -100,7 +100,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/balance"
+                android:id="@+id/balanceV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
