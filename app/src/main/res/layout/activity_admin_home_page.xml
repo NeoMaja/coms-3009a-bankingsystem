@@ -3,7 +3,18 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="#12616A"
+    android:layout_gravity="center"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="154dp"
+        android:layout_height="143dp"
+        android:layout_below="@id/textView3"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="106dp"
+        android:background="@drawable/stulogo" />
 
     <TextView
         android:id="@+id/textView3"

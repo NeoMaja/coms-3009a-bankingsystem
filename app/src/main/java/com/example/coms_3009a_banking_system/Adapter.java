@@ -177,7 +177,8 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
                             @Override
                             protected Map<String, String> getParams() throws AuthFailureError {
                                 Map<String, String> hashMap = new HashMap<String, String>();
-                                hashMap.put("email", user.getEmail());
+                                //hashMap.put("email", user.getEmail());
+                                hashMap.put("id", user.getId());
                                 //hashMap.put("First_Name", user.getName());
 
                                 return hashMap;

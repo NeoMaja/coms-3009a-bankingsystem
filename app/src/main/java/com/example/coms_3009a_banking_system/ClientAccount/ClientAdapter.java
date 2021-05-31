@@ -56,8 +56,14 @@ public class ClientAdapter extends RecyclerView.Adapter<ClientAdapter.ClientView
                     //first capture account number
 
                     String AccNo = mtext1.getText().toString();
+                    String AccType =mtext0.getText().toString();
+                    String AccAmount =mtext2.getText().toString();
+
                     Intent intent = new Intent(itemView.getContext(), AccountActivity.class);
                     intent.putExtra("Account_Num", AccNo);
+                    intent.putExtra("Account Type",AccType);
+                    intent.putExtra("amount",AccAmount);
+
                     itemView.getContext().startActivity(intent);
                 }
             });

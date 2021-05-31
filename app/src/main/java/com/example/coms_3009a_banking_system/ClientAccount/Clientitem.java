@@ -5,8 +5,8 @@ public class Clientitem {
     private String mText1;
     private String mText2;
 
-    public Clientitem(String clientAcctype, String AccNumber, String Amount) {
-        this.mText0 = clientAcctype;
+    public Clientitem(String Accounttype, String AccNumber, String Amount) {
+        this.mText0 = Accounttype;
         this.mText1 = AccNumber;
         this.mText2 = Amount;
     }
