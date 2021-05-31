@@ -1,6 +1,8 @@
 package com.example.coms_3009a_banking_system.ClientAccount;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.ContentValues;
 import android.content.Intent;
@@ -22,6 +24,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.lang.ref.Reference;
 import java.util.ArrayList;
 
 import okhttp3.Call;
@@ -32,6 +35,10 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 public class AccountActivity extends AppCompatActivity {
+    private RecyclerView recyclerView;
+    private ArrayList<historyItem> HistoryList;
+    private historyAdapter adapter;
+    private RecyclerView.LayoutManager layoutManager;
 
     //Activity to display the Account details, i.e Transaction history and Account Details.
 
@@ -48,6 +55,7 @@ public class AccountActivity extends AppCompatActivity {
     String To;
     String Amount;
     String Time;
+    String Reference;
 
     //Do not display ID_No and Pin (But they'll be retrieved from php)
     String Account_No3;
@@ -70,13 +78,17 @@ public class AccountActivity extends AppCompatActivity {
 //        Toast.makeText(getApplicationContext(),Account_No,Toast.LENGTH_SHORT).show();
         Account_Number = findViewById(R.id.account_number);
         Account_Type = findViewById(R.id.account_type);
-        BalanceAmount = findViewById(R.id.balance);
+        BalanceAmount = findViewById(R.id.balanceV);
 
 
 
         Account_Number.setText(Account_No);
         Account_Type.setText(Accn_type);
         BalanceAmount.setText(AccnBalance);
+
+        ContentValues parameters = new ContentValues();
+        parameters.put("Acc_No", Account_No);
+        getAccounts(parameters);
 
         //https://lamp.ms.wits.ac.za/home/s2143686/Activity_list.php
         //php takes Account_No
@@ -198,5 +210,49 @@ public class AccountActivity extends AppCompatActivity {
 //        BalanceAmount.setText(Balance);
 //        Log.e("Activity Balance" ,Balance);
 
+    }
+
+    private void getAccounts(ContentValues parameters){
+        recyclerView = findViewById(R.id.transaction_list);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        new AsyncHTTPPost("https://lamp.ms.wits.ac.za/home/s2143686/Activity_list.php", parameters){
+            @Override
+            protected void onPreExecute() {
+
+            }
+
+            @Override
+            protected void onPostExecute(String output) {
+                try {
+                    JSONArray array = new JSONArray(output);
+                    ArrayList<historyItem> historyItems = new ArrayList<>();
+                    historyItem historyItem;
+                    for(int i =0; i < array.length(); i++){
+                        final JSONObject object = (JSONObject) array.get(i);
+                        Act_ID = object.getString("Activity_ID"); //No
+                        Account_No2 = object.getString("Account_Number");  //No
+                        Act = object.getString("Activity"); // Transaction Type
+                        To = object.getString("reciever");  // Account Sent to
+                        Amount = object.getString("Amount");
+                        Reference = object.getString("Reference");
+                        Time = object.getString("Time");
+
+                        historyItem = new historyItem(Reference, Act, Amount, Time);
+                        historyItems.add(historyItem);
+                        HistoryList = historyItems;
+                    }
+
+                    if (HistoryList.size() == 0){
+                        Toast toast = Toast.makeText(AccountActivity.this, "User has no accounts", Toast.LENGTH_LONG);
+                    }else{
+                        adapter = new historyAdapter(HistoryList);
+                        recyclerView.setAdapter(adapter);
+                    }
+                }catch (JSONException e){
+                    e.printStackTrace();
+                }
+            }
+        }.execute();
     }
 }
