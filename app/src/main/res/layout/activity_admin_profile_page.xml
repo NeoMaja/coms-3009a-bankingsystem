@@ -20,7 +20,7 @@
         <ImageView
             android:layout_width="110dp"
             android:layout_height="110dp"
-            app:srcCompat="@drawable/ic_profile"
+            app:srcCompat="@drawable/ic_baseline_admin_panel_settings_24"
             tools:ignore="VectorDrawableCompat" />
 
         <LinearLayout

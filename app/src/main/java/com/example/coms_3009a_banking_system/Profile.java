@@ -1,11 +1,9 @@
 package com.example.coms_3009a_banking_system;
 
-import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.InputType;
-import android.util.Log;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,20 +15,16 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.coms_3009a_banking_system.ClientAccount.Cli_Acc_Test;
-import com.example.coms_3009a_banking_system.ClientAccount.ClientAdapter;
-import com.example.coms_3009a_banking_system.ClientAccount.Clientitem;
 import com.example.coms_3009a_banking_system.ClientAccount.Pay;
 import com.example.coms_3009a_banking_system.ClientAccount.Transfer;
 import com.example.coms_3009a_banking_system.ClientAccount.client_account;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import org.jetbrains.annotations.NotNull;
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -48,7 +42,7 @@ public class Profile extends AppCompatActivity {
     String lastname;
     String username;
     String cellphone;
-    String newMonthEarn;
+    String newMonthEarn,newMonthExpend,newResidenceAddress;
 
 
 
@@ -58,7 +52,7 @@ public class Profile extends AppCompatActivity {
     private TextView Email;
     private TextView P_Number;
 
-    private Button btnEditEarn;
+    private Button btnUpdateEarn,btnUpdateExpend,UpdateAddress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,7 +65,8 @@ public class Profile extends AppCompatActivity {
         Email= (TextView)findViewById(R.id.useremail);
         P_Number = (TextView)findViewById(R.id.p_number);
 
-        btnEditEarn =(Button)findViewById(R.id.UpdateEarn);
+        btnUpdateEarn =(Button)findViewById(R.id.UpdateEarn);
+        btnUpdateExpend=(Button)findViewById(R.id.UpdateExpend);
 
 
 
@@ -84,9 +79,9 @@ public class Profile extends AppCompatActivity {
         //retrieving data
         SetUpProfile(email);
 
-        //edit button
+        //editEarn button
 
-        btnEditEarn.setOnClickListener(v -> {
+        btnUpdateEarn.setOnClickListener(v -> {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setTitle("Update Monthly Earnings");
 
@@ -122,6 +117,82 @@ public class Profile extends AppCompatActivity {
             builder.show();
         });
 
+//    Update Monthly expenditure button
+
+        btnUpdateExpend.setOnClickListener(v -> {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("Update Monthly Expenditure");
+
+            // Set up the input
+            final EditText input = new EditText(this);
+            // Specify the type of input expected; this, for example, sets the input as a password, and will mask the text
+            input.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS);
+            builder.setView(input);
+            builder.setCancelable(false);
+            // Set up the buttons
+            builder.setPositiveButton("Update", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    newMonthExpend = input.getText().toString().trim();
+                    if(newMonthExpend.equals(""))
+                    {
+                        input.setError("Required field!");
+                    }
+                    else
+                    {
+                        UpdateExpend();
+                    }
+
+                }
+            });
+            builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.cancel();
+                }
+            });
+
+            builder.show();
+        });
+
+//Update Monthly expenditure
+
+
+        UpdateAddress.setOnClickListener(v -> {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("Update Residence Address");
+
+            // Set up the input
+            final EditText input = new EditText(this);
+            // Specify the type of input expected; this, for example, sets the input as a password, and will mask the text
+            input.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS);
+            builder.setView(input);
+            builder.setCancelable(false);
+            // Set up the buttons
+            builder.setPositiveButton("Update", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    newResidenceAddress = input.getText().toString().trim();
+                    if(newResidenceAddress.equals(""))
+                    {
+                        input.setError("Required field!");
+                    }
+                    else
+                    {
+                        UpdateAddress();
+                    }
+
+                }
+            });
+            builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.cancel();
+                }
+            });
+
+            builder.show();
+        });
 
 
 
@@ -232,7 +303,12 @@ public class Profile extends AppCompatActivity {
 
         }
 
+        //Update functions
+
         private void UpdateEarn(){};
+        private void UpdateExpend(){};
+        private void UpdateAddress(){};
+
 
 
     }

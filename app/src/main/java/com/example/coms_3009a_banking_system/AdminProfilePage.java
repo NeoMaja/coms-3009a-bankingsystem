@@ -39,7 +39,10 @@ public class AdminProfilePage extends AppCompatActivity {
     private TextView P_Number;
     private TextView Admin_Key;
     private static final String TAG = "Profile";
-   // private Button btnEditUsername,btnEditEmail, btnEditCell;
+
+
+    private Button btnEditEarn,btnUpdateExpend,UpdateAddress;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
