@@ -69,7 +69,7 @@ public class AdminProfilePage extends AppCompatActivity {
 
         HttpUrl.Builder urlBuilder = HttpUrl.parse("https://lamp.ms.wits.ac.za/home/s2143686/retrieveUserData.php").newBuilder(); //url here
         urlBuilder.addQueryParameter("email", email);
-        urlBuilder.addQueryParameter("password", password);
+//        urlBuilder.addQueryParameter("password", password);
         String url = urlBuilder.build().toString();
 
         Request request = new Request.Builder()
