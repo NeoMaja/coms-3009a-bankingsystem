@@ -247,6 +247,9 @@
 
 
 
+
+
+
             <!--            <View-->
             <!--            android:layout_width="match_parent"-->
             <!--            android:layout_height="0.5dp"-->
@@ -256,39 +259,135 @@
             <!--            android:layout_marginRight="15dp"/>-->
 
         </LinearLayout>
+
+
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="90dp"
-            android:gravity="center"
-            android:orientation="vertical">
-            <TextView
-                android:layout_width="150dp"
-                android:layout_height="50dp"
-                android:background="@drawable/bg_btn"
-                android:text="Edit Profile"
-                android:id="@+id/editProfile"
-                android:gravity="center"
-                android:textColor="#12616A"
-                android:textSize="18dp"
-                android:drawableLeft="@drawable/ic_edit"
-                android:paddingLeft="20dp"
-                android:layout_marginLeft="-10dp"/>
+            android:orientation="horizontal"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:layout_marginTop="20dp"
+            android:gravity="left">
 
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/ic_baseline_attach_money_24"
+                tools:ignore="VectorDrawableCompat" />
 
             <TextView
-                android:layout_width="240dp"
-                android:layout_height="50dp"
-                android:background="@drawable/bg_btn"
-                android:text="Change Password"
-                android:id="@+id/change_Pass"
-                android:gravity="center"
-                android:textColor="#12616A"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Monthly Earnings :"
+                android:textStyle="bold"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="20dp"
+                android:layout_marginLeft="5dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/monEarn"
+                android:textColor="@color/black"
                 android:textSize="18dp"
-                android:drawableLeft="@drawable/ic_lock"
-                android:paddingLeft="30dp"
-                android:layout_marginLeft="-10dp"
-                android:layout_marginTop="15dp"/>
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"/>
+
+            <Button
+                android:id="@+id/UpdateEarn"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="@drawable/ic_edit"
+                />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:layout_marginTop="20dp"
+            android:gravity="left">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/ic_baseline_money_24"
+                tools:ignore="VectorDrawableCompat" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Monthly Expenditure :"
+                android:textStyle="bold"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="20dp"
+                android:layout_marginLeft="5dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/Expend"
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"/>
+
+            <Button
+                android:id="@+id/UpdateExpend"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="@drawable/ic_edit"
+                />
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:layout_marginTop="20dp"
+            android:gravity="left">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/ic_baseline_home_24"
+                tools:ignore="VectorDrawableCompat" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Residence Address :"
+                android:textStyle="bold"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="20dp"
+                android:layout_marginLeft="5dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/Addess"
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"/>
+
+            <Button
+                android:id="@+id/UpdateAddress"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="@drawable/ic_edit"
+                />
 
         </LinearLayout>
 

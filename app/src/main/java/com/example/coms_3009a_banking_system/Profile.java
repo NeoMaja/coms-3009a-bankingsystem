@@ -1,14 +1,19 @@
 package com.example.coms_3009a_banking_system;
 
 import android.content.ContentValues;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.InputType;
 import android.util.Log;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.coms_3009a_banking_system.ClientAccount.Cli_Acc_Test;
@@ -43,6 +48,7 @@ public class Profile extends AppCompatActivity {
     String lastname;
     String username;
     String cellphone;
+    String newMonthEarn;
 
 
 
@@ -51,6 +57,8 @@ public class Profile extends AppCompatActivity {
     private TextView UserName;
     private TextView Email;
     private TextView P_Number;
+
+    private Button btnEditEarn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,67 +71,58 @@ public class Profile extends AppCompatActivity {
         Email= (TextView)findViewById(R.id.useremail);
         P_Number = (TextView)findViewById(R.id.p_number);
 
+        btnEditEarn =(Button)findViewById(R.id.UpdateEarn);
+
 
 
         Intent getIntent= getIntent();
         email = getIntent.getStringExtra("email");
         password = getIntent.getStringExtra("password");
 
-        System.out.println("email  :"+email);
-        System.out.println("Password  :"+password);
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
 
+        //retrieving data
+        SetUpProfile(email);
 
-//    //Parameters
-//        ContentValues parameters = new ContentValues();
-//        parameters.put("email", email );
-////        parameters.put("password", password);
-        OkHttpClient client = new OkHttpClient();
+        //edit button
 
-        HttpUrl.Builder urlBuilder = HttpUrl.parse("https://lamp.ms.wits.ac.za/home/s2143686/retrieveUserData.php").newBuilder(); //url here
-        urlBuilder.addQueryParameter("email", email);
-//        urlBuilder.addQueryParameter("password", password);
-        String url = urlBuilder.build().toString();
+        btnEditEarn.setOnClickListener(v -> {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("Update Monthly Earnings");
 
-        Request request = new Request.Builder()
-                .url(url)
-                .build();
-        client.newCall(request).enqueue(new Callback() {
-            @Override
-            public void onFailure(@NotNull Call call, @NotNull IOException e) {
-
-
-            }
-
-            @Override
-            public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
-                final String responseData = response.body().string();
-                Profile.this.runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        try {
-                            JSONObject jO = new JSONObject(responseData);
-                            String first_name = jO.getString("First Name");
-                            String last_name = jO.getString("Last Name");
-                            String user_name =jO.getString("username");
-                            String  _email = jO.getString("email");
-                            String number = jO.getString("cellphone");
-                            FirstName.setText(first_name);
-                            UserName.setText(user_name.toUpperCase());
-                            LastName.setText(last_name);
-                            Email.setText(_email);
-                            P_Number.setText(number);
-
-                            ;
-                            //  Toast.makeText(Profile.this, first_name, Toast.LENGTH_SHORT).show();
-                        }catch (JSONException e){
-                            e.printStackTrace();
-                            Toast.makeText(Profile.this, "Login  error", Toast.LENGTH_SHORT).show();
-                        }
+            // Set up the input
+            final EditText input = new EditText(this);
+            // Specify the type of input expected; this, for example, sets the input as a password, and will mask the text
+            input.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS);
+            builder.setView(input);
+            builder.setCancelable(false);
+            // Set up the buttons
+            builder.setPositiveButton("Update", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    newMonthEarn = input.getText().toString().trim();
+                    if(newMonthEarn.equals(""))
+                    {
+                        input.setError("Required field!");
                     }
-                });
-            }
+                    else
+                    {
+                        UpdateEarn();
+                    }
+
+                }
+            });
+            builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.cancel();
+                }
+            });
+
+            builder.show();
         });
+
+
 
 
 
@@ -180,6 +179,60 @@ public class Profile extends AppCompatActivity {
         });
         }
 
+
+
+        private void SetUpProfile(String email){
+
+            OkHttpClient client = new OkHttpClient();
+
+            HttpUrl.Builder urlBuilder = HttpUrl.parse("https://lamp.ms.wits.ac.za/home/s2143686/retrieveUserData.php").newBuilder(); //url here
+            urlBuilder.addQueryParameter("email", email);
+//        urlBuilder.addQueryParameter("password", password);
+            String url = urlBuilder.build().toString();
+
+            Request request = new Request.Builder()
+                    .url(url)
+                    .build();
+            client.newCall(request).enqueue(new Callback() {
+                @Override
+                public void onFailure(@NotNull Call call, @NotNull IOException e) {
+
+
+                }
+
+                @Override
+                public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
+                    final String responseData = response.body().string();
+                    Profile.this.runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            try {
+                                JSONObject jO = new JSONObject(responseData);
+                                String first_name = jO.getString("First Name");
+                                String last_name = jO.getString("Last Name");
+                                String user_name =jO.getString("username");
+                                String  _email = jO.getString("email");
+                                String number = jO.getString("cellphone");
+                                FirstName.setText(first_name);
+                                UserName.setText(user_name.toUpperCase());
+                                LastName.setText(last_name);
+                                Email.setText(_email);
+                                P_Number.setText(number);
+
+                                ;
+                                //  Toast.makeText(Profile.this, first_name, Toast.LENGTH_SHORT).show();
+                            }catch (JSONException e){
+                                e.printStackTrace();
+                                Toast.makeText(Profile.this, "Login  error", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+                }
+            });
+
+        }
+
+        private void UpdateEarn(){};
 
 
     }
