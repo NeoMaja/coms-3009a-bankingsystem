@@ -38,21 +38,22 @@ public class Profile extends AppCompatActivity {
     private  String email;
     private String password;
 
-    String firstname;
-    String lastname;
-    String username;
-    String cellphone;
-    String newMonthEarn,newMonthExpend,newResidenceAddress;
-
-
+    private String firstname;
+    private String lastname;
+    private String username;
+    private String cellphone;
 
     private TextView FirstName;
     private TextView LastName;
     private TextView UserName;
     private TextView Email;
     private TextView P_Number;
+    private TextView MonEarn,MonEx, rAddress;
 
-    private Button btnUpdateEarn,btnUpdateExpend,UpdateAddress;
+
+    private Button btnUpdateEarn,btnUpdateExpend,btnUpdateAddress;
+    private String newMonthEarn,newMonthExpend,newResidenceAddress;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,8 +66,17 @@ public class Profile extends AppCompatActivity {
         Email= (TextView)findViewById(R.id.useremail);
         P_Number = (TextView)findViewById(R.id.p_number);
 
+        MonEarn = (TextView)findViewById(R.id.monEarn);
+        MonEx = (TextView)findViewById(R.id.Expend);
+        rAddress = (TextView)findViewById(R.id.Address);
+
+
+
+
+
         btnUpdateEarn =(Button)findViewById(R.id.UpdateEarn);
         btnUpdateExpend=(Button)findViewById(R.id.UpdateExpend);
+        btnUpdateAddress=(Button)findViewById(R.id.UpdateAddress);
 
 
 
@@ -79,7 +89,7 @@ public class Profile extends AppCompatActivity {
         //retrieving data
         SetUpProfile(email);
 
-        //editEarn button
+        //UpdateEarn button
 
         btnUpdateEarn.setOnClickListener(v -> {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -158,7 +168,7 @@ public class Profile extends AppCompatActivity {
 //Update Monthly expenditure
 
 
-        UpdateAddress.setOnClickListener(v -> {
+        btnUpdateAddress.setOnClickListener(v -> {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setTitle("Update Residence Address");
 
@@ -284,11 +294,22 @@ public class Profile extends AppCompatActivity {
                                 String user_name =jO.getString("username");
                                 String  _email = jO.getString("email");
                                 String number = jO.getString("cellphone");
+
+                                String MonthlyEarn =jO.getString("Monthly Earnings");
+                                String MonthlyEx =jO.getString("Monthly Expenditure");
+                                String ResAddress =jO.getString("Residence Address");
+
                                 FirstName.setText(first_name);
                                 UserName.setText(user_name.toUpperCase());
                                 LastName.setText(last_name);
                                 Email.setText(_email);
                                 P_Number.setText(number);
+
+                                MonEarn.setText(MonthlyEarn);
+                                MonEx.setText(MonthlyEx);
+                                rAddress.setText(ResAddress);
+
+
 
                                 ;
                                 //  Toast.makeText(Profile.this, first_name, Toast.LENGTH_SHORT).show();
@@ -308,8 +329,6 @@ public class Profile extends AppCompatActivity {
         private void UpdateEarn(){};
         private void UpdateExpend(){};
         private void UpdateAddress(){};
-
-
 
     }
 
