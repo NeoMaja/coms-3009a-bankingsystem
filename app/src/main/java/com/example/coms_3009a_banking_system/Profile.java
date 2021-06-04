@@ -1,5 +1,6 @@
 package com.example.coms_3009a_banking_system;
 
+import android.content.ContentValues;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,16 +12,20 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.coms_3009a_banking_system.ClientAccount.Cli_Acc_Test;
+import com.example.coms_3009a_banking_system.ClientAccount.ClientAdapter;
+import com.example.coms_3009a_banking_system.ClientAccount.Clientitem;
 import com.example.coms_3009a_banking_system.ClientAccount.Pay;
 import com.example.coms_3009a_banking_system.ClientAccount.Transfer;
 import com.example.coms_3009a_banking_system.ClientAccount.client_account;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import org.jetbrains.annotations.NotNull;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -35,7 +40,9 @@ public class Profile extends AppCompatActivity {
     private String password;
 
     String firstname;
-    String lastname; String username;
+    String lastname;
+    String username;
+    String cellphone;
 
 
 
@@ -62,14 +69,20 @@ public class Profile extends AppCompatActivity {
         email = getIntent.getStringExtra("email");
         password = getIntent.getStringExtra("password");
 
+        System.out.println("email  :"+email);
+        System.out.println("Password  :"+password);
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
 
 
+//    //Parameters
+//        ContentValues parameters = new ContentValues();
+//        parameters.put("email", email );
+////        parameters.put("password", password);
         OkHttpClient client = new OkHttpClient();
 
         HttpUrl.Builder urlBuilder = HttpUrl.parse("https://lamp.ms.wits.ac.za/home/s2143686/retrieveUserData.php").newBuilder(); //url here
         urlBuilder.addQueryParameter("email", email);
-        urlBuilder.addQueryParameter("password", password);
+//        urlBuilder.addQueryParameter("password", password);
         String url = urlBuilder.build().toString();
 
         Request request = new Request.Builder()
@@ -102,7 +115,7 @@ public class Profile extends AppCompatActivity {
                             P_Number.setText(number);
 
                             ;
-                          //  Toast.makeText(Profile.this, first_name, Toast.LENGTH_SHORT).show();
+                            //  Toast.makeText(Profile.this, first_name, Toast.LENGTH_SHORT).show();
                         }catch (JSONException e){
                             e.printStackTrace();
                             Toast.makeText(Profile.this, "Login  error", Toast.LENGTH_SHORT).show();
@@ -111,6 +124,9 @@ public class Profile extends AppCompatActivity {
                 });
             }
         });
+
+
+
 
         //Set home Selected
         bottomNavigationView.setSelectedItemId(R.id.button_profile);
