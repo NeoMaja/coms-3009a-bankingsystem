@@ -220,7 +220,7 @@ public class AdminProfilePage extends AppCompatActivity {
             builder.show();
         });
 
-//Update Monthly expenditure
+//Update Address
 
 
         btnUpdateAddress.setOnClickListener(v -> {
@@ -377,7 +377,7 @@ public class AdminProfilePage extends AppCompatActivity {
 
         ContentValues parameters = new ContentValues();
         parameters.put("Email", email );
-        parameters.put("DetailID", "3");
+        parameters.put("DetailID","3");
         parameters.put("Detail",newResidenceAddress);
 
 

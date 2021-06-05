@@ -43,7 +43,7 @@
         <!-- First Name TextField-->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="35dp"
             android:orientation="horizontal"
             android:paddingLeft="15dp"
             android:paddingRight="15dp"
@@ -79,7 +79,7 @@
         <!-- Last Name TextField  -->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="35dp"
             android:orientation="horizontal"
             android:paddingLeft="15dp"
             android:paddingRight="15dp"
@@ -115,7 +115,7 @@
         <!--  email TextField -->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="35dp"
             android:orientation="horizontal"
             android:paddingLeft="15dp"
             android:paddingRight="15dp"
@@ -158,7 +158,7 @@
         <!--  password TextField -->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="35dp"
             android:orientation="horizontal"
             android:paddingLeft="15dp"
             android:paddingRight="15dp"
@@ -203,7 +203,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="35dp"
             android:orientation="horizontal"
             android:paddingLeft="15dp"
             android:paddingRight="15dp"
@@ -226,7 +226,7 @@
                 android:layout_marginLeft="5dp"/>
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="140dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/monEarn"
                 android:textColor="@color/black"
@@ -246,7 +246,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="35dp"
             android:orientation="horizontal"
             android:paddingLeft="15dp"
             android:paddingRight="15dp"
@@ -269,7 +269,7 @@
                 android:layout_marginLeft="5dp"/>
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="110dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/Expend"
                 android:textColor="@color/black"
@@ -290,7 +290,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="35dp"
             android:orientation="horizontal"
             android:paddingLeft="15dp"
             android:paddingRight="15dp"
@@ -313,7 +313,7 @@
                 android:layout_marginLeft="5dp"/>
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/Address"
                 android:textColor="@color/black"
@@ -359,6 +359,9 @@
 
     </LinearLayout>
 
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="10dp"/>
 
 
     <LinearLayout

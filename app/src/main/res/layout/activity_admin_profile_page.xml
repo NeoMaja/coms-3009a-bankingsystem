@@ -53,7 +53,7 @@
         <!-- First Name TextField-->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="35dp"
             android:orientation="horizontal"
             android:paddingLeft="15dp"
             android:paddingRight="15dp"
@@ -89,7 +89,7 @@
         <!-- Last Name TextField  -->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="35dp"
             android:orientation="horizontal"
             android:paddingLeft="15dp"
             android:paddingRight="15dp"
@@ -127,7 +127,7 @@
         <!--  Contact TextField -->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="35dp"
             android:layout_marginTop="20dp"
             android:gravity="left"
             android:orientation="horizontal"
@@ -172,7 +172,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="35dp"
             android:orientation="horizontal"
             android:paddingLeft="15dp"
             android:paddingRight="15dp"
@@ -264,7 +264,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="35dp"
             android:orientation="horizontal"
             android:paddingLeft="15dp"
             android:paddingRight="15dp"
@@ -287,7 +287,7 @@
                 android:layout_marginLeft="5dp"/>
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="140dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/monEarn"
                 android:textColor="@color/black"
@@ -300,14 +300,14 @@
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:background="@drawable/ic_edit"
-                />
+                 />
 
         </LinearLayout>
 
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="35dp"
             android:orientation="horizontal"
             android:paddingLeft="15dp"
             android:paddingRight="15dp"
@@ -330,7 +330,7 @@
                 android:layout_marginLeft="5dp"/>
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="110dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/Expend"
                 android:textColor="@color/black"
@@ -351,7 +351,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="35dp"
             android:orientation="horizontal"
             android:paddingLeft="15dp"
             android:paddingRight="15dp"
@@ -374,7 +374,7 @@
                 android:layout_marginLeft="5dp"/>
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/profileAddress"
                 android:textColor="@color/black"
@@ -394,6 +394,11 @@
 
 
     </LinearLayout>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="10dp"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="161dp"
