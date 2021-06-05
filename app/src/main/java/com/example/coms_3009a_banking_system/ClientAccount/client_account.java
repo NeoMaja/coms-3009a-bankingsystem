@@ -45,6 +45,7 @@ public class client_account extends AppCompatActivity {
     String password;
 
     Button logout;
+    Button credit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +65,17 @@ public class client_account extends AppCompatActivity {
             public void onClick(View v) {
                 Intent logoutIntent = new Intent(client_account.this,
                         Login2.class);
+                startActivity(logoutIntent);
+            }
+        });
+
+        credit = (Button)findViewById(R.id.button_credit);
+
+        credit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent logoutIntent = new Intent(client_account.this,
+                        ClientApplication.class);
                 startActivity(logoutIntent);
             }
         });

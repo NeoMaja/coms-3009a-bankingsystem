@@ -10,7 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Coms3009abankingsystem"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ClientAccount.Transfer"/>
+        <activity android:name=".ClientAccount.ClientApplication"></activity>
+        <activity android:name=".ClientAccount.Transfer" />
         <activity android:name=".ClientAccount.Pay" />
         <activity android:name=".ClientAccount.AccountActivity" />
         <activity android:name=".ClientAccount.client_account" />
@@ -18,15 +19,12 @@
         <activity android:name=".ClientAccount.Cli_Acc_Test" />
         <activity android:name=".login.AdminLoginKey" />
         <activity android:name=".login.Login2" />
-
         <activity android:name=".Registration.AdminRegCode" />
         <activity android:name=".Registration.AdminHomePage" />
-
         <activity
             android:name=".Registration.adminRegister"
             android:parentActivityName=".Registration.AdminRegCode" />
         <activity android:name=".Banking" />
-
         <activity android:name=".Registration.AdminKeyView" />
         <activity
             android:name=".Client_Verification_Status"
@@ -35,7 +33,6 @@
             android:name=".Registration.clientRegister"
             android:parentActivityName=".usertype" />
         <activity android:name=".Profile" />
-
         <activity
             android:name=".usertype"
             android:parentActivityName=".login.login" />
@@ -53,8 +50,8 @@
             </intent-filter>
         </activity>
     </application>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
     <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
 </manifest>
