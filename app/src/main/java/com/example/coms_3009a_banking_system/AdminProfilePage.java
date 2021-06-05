@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -166,7 +167,7 @@ public class AdminProfilePage extends AppCompatActivity {
                     }
                     else
                     {
-                        UpdateEarn();
+                        UpdateEarn(email,newMonthEarn,MonEarn);
                     }
 
                 }
@@ -204,7 +205,7 @@ public class AdminProfilePage extends AppCompatActivity {
                     }
                     else
                     {
-                        UpdateExpend();
+                        UpdateExpend(email,newMonthExpend,MonEx);
                     }
 
                 }
@@ -243,7 +244,7 @@ public class AdminProfilePage extends AppCompatActivity {
                     }
                     else
                     {
-                        UpdateAddress();
+                        UpdateAddress(email,newResidenceAddress,rAddress);
                     }
 
                 }
@@ -318,8 +319,84 @@ public class AdminProfilePage extends AppCompatActivity {
 
     }
 
-    private void UpdateEarn(){};
-    private void UpdateExpend(){};
-    private void UpdateAddress(){};
+    private void UpdateEarn(String email,String NewEarn,TextView MonEarn){
+
+        ContentValues parameters = new ContentValues();
+        parameters.put("Email", email );
+        parameters.put("DetailID", "1");
+        parameters.put("Detail",NewEarn);
+
+
+        //TODO
+        AsyncHTTPPost asyncHttpPost = new AsyncHTTPPost("https://lamp.ms.wits.ac.za/home/s2143686/UpdateInfo.php",parameters){
+            @Override
+            protected void onPostExecute(String output) {
+
+                Toast.makeText(getApplicationContext(),output,Toast.LENGTH_SHORT).show();
+
+                if((output.equals("Monthly Earnings updated"))) {
+                    //Go to login page after successful registration.
+                    Toast.makeText(getApplicationContext(),"Monthly Earnings updated",Toast.LENGTH_SHORT).show();
+                    MonEarn.setText(NewEarn);
+
+                }
+            }
+        };
+        asyncHttpPost.execute();
+    }
+
+
+
+    private void UpdateExpend(String email,String newMonthExpend,TextView MonEx){
+
+        ContentValues parameters = new ContentValues();
+        parameters.put("Email", email );
+        parameters.put("DetailID", "2");
+        parameters.put("Detail",newMonthExpend);
+
+
+        //TODO
+        AsyncHTTPPost asyncHttpPost = new AsyncHTTPPost("https://lamp.ms.wits.ac.za/home/s2143686/UpdateInfo.php",parameters){
+            @Override
+            protected void onPostExecute(String output) {
+
+                Toast.makeText(getApplicationContext(),output,Toast.LENGTH_SHORT).show();
+
+                if((output.equals("Monthly Expenditure updated"))) {
+                    //Go to login page after successful registration.
+                    Toast.makeText(getApplicationContext(),"Monthly Expenditure updated",Toast.LENGTH_SHORT).show();
+                    MonEx.setText(newMonthExpend);
+
+                }
+            }
+        };
+        asyncHttpPost.execute();
+    }
+
+    private void UpdateAddress(String email,String newResidenceAddress,TextView rAddress){
+
+        ContentValues parameters = new ContentValues();
+        parameters.put("Email", email );
+        parameters.put("DetailID", "3");
+        parameters.put("Detail",newResidenceAddress);
+
+
+        //TODO
+        AsyncHTTPPost asyncHttpPost = new AsyncHTTPPost("https://lamp.ms.wits.ac.za/home/s2143686/UpdateInfo.php",parameters){
+            @Override
+            protected void onPostExecute(String output) {
+
+                Toast.makeText(getApplicationContext(),output,Toast.LENGTH_SHORT).show();
+
+                if((output.equals("Residence Address updated"))) {
+                    //Go to login page after successful registration.
+                    Toast.makeText(getApplicationContext(),"Residence Address updated",Toast.LENGTH_SHORT).show();
+                    rAddress.setText(newResidenceAddress);
+
+                }
+            }
+        };
+        asyncHttpPost.execute();
+    }
 
 }

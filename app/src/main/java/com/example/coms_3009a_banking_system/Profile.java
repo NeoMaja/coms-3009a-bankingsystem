@@ -1,5 +1,6 @@
 package com.example.coms_3009a_banking_system;
 
+import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,6 +19,7 @@ import com.example.coms_3009a_banking_system.ClientAccount.Cli_Acc_Test;
 import com.example.coms_3009a_banking_system.ClientAccount.Pay;
 import com.example.coms_3009a_banking_system.ClientAccount.Transfer;
 import com.example.coms_3009a_banking_system.ClientAccount.client_account;
+import com.example.coms_3009a_banking_system.Registration.clientRegister;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import org.jetbrains.annotations.NotNull;
@@ -35,7 +37,7 @@ import okhttp3.Response;
 
 public class Profile extends AppCompatActivity {
 
-    private  String email;
+    private String email;
     private String password;
 
     private String firstname;
@@ -112,7 +114,7 @@ public class Profile extends AppCompatActivity {
                     }
                     else
                     {
-                        UpdateEarn();
+                        UpdateEarn(email,newMonthEarn,MonEarn);
                     }
 
                 }
@@ -150,7 +152,7 @@ public class Profile extends AppCompatActivity {
                     }
                     else
                     {
-                        UpdateExpend();
+                        UpdateExpend(email,newMonthExpend,MonEx);
                     }
 
                 }
@@ -189,7 +191,7 @@ public class Profile extends AppCompatActivity {
                     }
                     else
                     {
-                        UpdateAddress();
+                         UpdateAddress(email,newResidenceAddress,rAddress);
                     }
 
                 }
@@ -326,9 +328,85 @@ public class Profile extends AppCompatActivity {
 
         //Update functions
 
-        private void UpdateEarn(){};
-        private void UpdateExpend(){};
-        private void UpdateAddress(){};
+        private void UpdateEarn(String email,String NewEarn,TextView MonEarn){
+
+            ContentValues parameters = new ContentValues();
+            parameters.put("Email", email );
+            parameters.put("DetailID", "1");
+            parameters.put("Detail",NewEarn);
+
+
+            //TODO
+            AsyncHTTPPost asyncHttpPost = new AsyncHTTPPost("https://lamp.ms.wits.ac.za/home/s2143686/UpdateInfo.php",parameters){
+                @Override
+                protected void onPostExecute(String output) {
+
+                    Toast.makeText(getApplicationContext(),output,Toast.LENGTH_SHORT).show();
+
+                    if((output.equals("Monthly Earnings updated"))) {
+                        //Go to login page after successful registration.
+                        Toast.makeText(getApplicationContext(),"Monthly Earnings updated",Toast.LENGTH_SHORT).show();
+                        MonEarn.setText(NewEarn);
+
+                    }
+                }
+            };
+            asyncHttpPost.execute();
+        }
+
+
+
+    private void UpdateExpend(String email,String newMonthExpend,TextView MonEx){
+
+        ContentValues parameters = new ContentValues();
+        parameters.put("Email", email );
+        parameters.put("DetailID", "2");
+        parameters.put("Detail",newMonthExpend);
+
+
+        //TODO
+        AsyncHTTPPost asyncHttpPost = new AsyncHTTPPost("https://lamp.ms.wits.ac.za/home/s2143686/UpdateInfo.php",parameters){
+            @Override
+            protected void onPostExecute(String output) {
+
+                Toast.makeText(getApplicationContext(),output,Toast.LENGTH_SHORT).show();
+
+                if((output.equals("Monthly Expenditure updated"))) {
+                    //Go to login page after successful registration.
+                    Toast.makeText(getApplicationContext(),"Monthly Expenditure updated",Toast.LENGTH_SHORT).show();
+                    MonEx.setText(newMonthExpend);
+
+                }
+            }
+        };
+        asyncHttpPost.execute();
+    }
+
+    private void UpdateAddress(String email,String newResidenceAddress,TextView rAddress){
+
+        ContentValues parameters = new ContentValues();
+        parameters.put("Email", email );
+        parameters.put("DetailID", "3");
+        parameters.put("Detail",newResidenceAddress);
+
+
+        //TODO
+        AsyncHTTPPost asyncHttpPost = new AsyncHTTPPost("https://lamp.ms.wits.ac.za/home/s2143686/UpdateInfo.php",parameters){
+            @Override
+            protected void onPostExecute(String output) {
+
+                Toast.makeText(getApplicationContext(),output,Toast.LENGTH_SHORT).show();
+
+                if((output.equals("Residence Address updated"))) {
+                    //Go to login page after successful registration.
+                    Toast.makeText(getApplicationContext(),"Residence Address updated",Toast.LENGTH_SHORT).show();
+                    rAddress.setText(newResidenceAddress);
+
+                }
+            }
+        };
+        asyncHttpPost.execute();
+    }
 
     }
 
