@@ -17,8 +17,7 @@ import com.example.coms_3009a_banking_system.AsyncHTTPPost;
 import com.example.coms_3009a_banking_system.Profile;
 import com.example.coms_3009a_banking_system.R;
 import com.example.coms_3009a_banking_system.Registration.clientRegister;
-import com.example.coms_3009a_banking_system.Transaction;
-import com.example.coms_3009a_banking_system.TransactionAdapter;
+
 
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONArray;
