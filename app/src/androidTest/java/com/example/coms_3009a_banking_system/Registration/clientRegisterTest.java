@@ -29,6 +29,7 @@ public class clientRegisterTest {
 
     @Test
     public void testLauch(){
+        assertNotNull( onView(withId(R.id.scrollView3)));
         assertNotNull( onView(withId(R.id.firstName)));
         assertNotNull(onView(withId(R.id.lastName)));
         assertNotNull(onView(withId(R.id.username)));
