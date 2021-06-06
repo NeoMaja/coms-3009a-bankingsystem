@@ -6,35 +6,18 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.ContentValues;
 import android.content.Intent;
-import android.media.audiofx.AcousticEchoCanceler;
-import android.nfc.Tag;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.coms_3009a_banking_system.AsyncHTTPPost;
-import com.example.coms_3009a_banking_system.Profile;
 import com.example.coms_3009a_banking_system.R;
-import com.example.coms_3009a_banking_system.Registration.clientRegister;
-import com.example.coms_3009a_banking_system.Transaction;
-import com.example.coms_3009a_banking_system.TransactionAdapter;
 
-import org.jetbrains.annotations.NotNull;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.IOException;
-import java.lang.ref.Reference;
 import java.util.ArrayList;
-
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.HttpUrl;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
 
 public class AccountActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
