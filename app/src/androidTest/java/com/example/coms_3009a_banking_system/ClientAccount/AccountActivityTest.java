@@ -24,12 +24,16 @@ public class AccountActivityTest {
     public void setUp() throws Exception {
         activity = activityTestRule.getActivity();
     }
+
+
     @Test
     public void testLauch(){
         assertNotNull( onView(withId(R.id.account_numberV)));
         assertNotNull(onView(withId(R.id.account_typeV)));
         assertNotNull(onView(withId(R.id.balanceV)));
+
     }
+
     @After
     public void tearDown() throws Exception {
         activity = null;
