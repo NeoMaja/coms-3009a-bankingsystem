@@ -56,13 +56,21 @@ public class Login2 extends AppCompatActivity {
 
                         Intent intent = new Intent(Login2.this, usertype.class);
                         startActivity(intent);
+
                     }
                 });
 
 
             }
 
-            public void Loginphp(String email, String password ){
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Get_email.setText("");
+        Get_Password.setText("");
+    }
+
+    public void Loginphp(String email, String password ){
                 ContentValues parameters = new ContentValues();
                 parameters.put("email", email);
                 parameters.put("password", password);
@@ -89,6 +97,7 @@ public class Login2 extends AppCompatActivity {
                             intent.putExtra("password", password); //!!!!Don't remove
                             // intent.putExtra("status",status);
                             startActivity(intent);
+
                         }
 
                         //if 250unverified go to Client_Verification_Status
