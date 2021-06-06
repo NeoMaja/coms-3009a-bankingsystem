@@ -18,7 +18,6 @@ public class loginTest {
 
     @Rule
     public ActivityScenarioRule<login> tLoginScenarioRule = new ActivityScenarioRule<login>(login.class);
-
     private ActivityScenario<login> tLogin = null;
 
     @Before

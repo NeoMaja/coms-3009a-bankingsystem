@@ -1,6 +1,10 @@
 package com.example.coms_3009a_banking_system;
 
+import androidx.test.core.app.ActivityScenario;
+import androidx.test.ext.junit.rules.ActivityScenarioRule;
 import androidx.test.rule.ActivityTestRule;
+
+import com.example.coms_3009a_banking_system.login.login;
 
 import org.junit.After;
 import org.junit.Before;
@@ -14,18 +18,16 @@ import static org.junit.Assert.*;
 public class AdminProfilePageTest {
 
     @Rule
-    public ActivityTestRule<AdminProfilePage> activityTestRule = new ActivityTestRule<AdminProfilePage>(AdminProfilePage.class);
-    private AdminProfilePage activity = null;
-
+    public ActivityScenarioRule<AdminProfilePage> activityTestRule = new ActivityScenarioRule<AdminProfilePage>(AdminProfilePage.class);
+    private ActivityScenario<AdminProfilePage> activity = null;
 
     @Before
     public void setUp() throws Exception {
-        activity = activityTestRule.getActivity();
+        activity = activityTestRule.getScenario();
     }
 
     @Test
     public void testLauch(){
-        assertNotNull( onView(withId(R.id.firstName)));
         assertNotNull(onView(withId(R.id.lastName)));
         assertNotNull(onView(withId(R.id.username)));
         assertNotNull(onView(withId(R.id.useremail)));

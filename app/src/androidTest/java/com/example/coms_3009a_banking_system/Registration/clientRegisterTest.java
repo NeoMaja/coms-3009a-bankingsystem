@@ -1,8 +1,12 @@
 package com.example.coms_3009a_banking_system.Registration;
 
+import androidx.test.core.app.ActivityScenario;
+import androidx.test.ext.junit.rules.ActivityScenarioRule;
 import androidx.test.rule.ActivityTestRule;
 
+import com.example.coms_3009a_banking_system.AdminProfilePage;
 import com.example.coms_3009a_banking_system.R;
+
 
 
 import org.junit.After;
@@ -15,30 +19,35 @@ import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static org.junit.Assert.*;
 
 
-
 public class clientRegisterTest {
 
     @Rule
-    public ActivityTestRule<clientRegister> activityTestRule = new ActivityTestRule<clientRegister>(clientRegister.class);
-    private clientRegister activity = null;
+    public ActivityScenarioRule<clientRegister> activityTestRule = new ActivityScenarioRule<clientRegister>(clientRegister.class);
+    private ActivityScenario<clientRegister> activity = null;
+
 
     @Before
     public void setUp() throws Exception {
-        activity = activityTestRule.getActivity();
+        activity = activityTestRule.getScenario();
     }
+
+
 
     @Test
     public void testLaunch(){
-        assertNotNull(activity.findViewById(R.id.scrollView3));
-        assertNotNull(activity.findViewById(R.id.firstName));
-        assertNotNull(activity.findViewById(R.id.lastName));
-        assertNotNull(activity.findViewById(R.id.username));
-        assertNotNull(activity.findViewById(R.id.idNumber));
-        assertNotNull(activity.findViewById(R.id.cellNumber));
-        assertNotNull(activity.findViewById(R.id.email));
-        assertNotNull(activity.findViewById(R.id.p_number));
-        assertNotNull(activity.findViewById(R.id.confirmPassword));
-        assertNotNull(activity.findViewById(R.id._register));
+
+        assertNotNull(onView(withId(R.id.scrollView3)));
+        assertNotNull(onView(withId(R.id.firstName)));
+        assertNotNull(onView(withId(R.id.lastName)));
+        assertNotNull(onView(withId(R.id.username)));
+        assertNotNull(onView(withId(R.id.idNumber)));
+        assertNotNull(onView(withId(R.id.cellNumber)));
+        assertNotNull(onView(withId(R.id.email)));
+        assertNotNull(onView(withId(R.id.p_number)));
+        assertNotNull(onView(withId(R.id.confirmPassword)));
+        assertNotNull(onView(withId(R.id._register)));
+
+
 
     }
 

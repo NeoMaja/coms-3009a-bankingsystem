@@ -25,7 +25,7 @@ public class adminRegisterTest {
     }
 
     @Test
-    public void testLaunch(){
+    public void testLauch(){
         assertNotNull( onView(withId(R.id.firstNameAdmin)));
         assertNotNull(onView(withId(R.id.lastNameAdmin)));
         assertNotNull(onView(withId(R.id.usernameAdmin)));
