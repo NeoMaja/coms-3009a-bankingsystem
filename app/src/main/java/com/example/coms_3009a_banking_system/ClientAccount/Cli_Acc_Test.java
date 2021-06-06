@@ -72,6 +72,7 @@ public class Cli_Acc_Test extends AppCompatActivity {
                         intent1.putExtra("email",email);
                         intent1.putExtra("password",password);
                         startActivity(intent1);
+                        finish(); // Don't draw over this activity
                         overridePendingTransition(0,0);
                         return true;
 
@@ -80,6 +81,7 @@ public class Cli_Acc_Test extends AppCompatActivity {
                         intent1.putExtra("email",email);
                         intent1.putExtra("password",password);
                         startActivity(intent1);
+                        finish(); // Don't draw over this activity
                         overridePendingTransition(0,0);
                         return true;
 
@@ -88,6 +90,7 @@ public class Cli_Acc_Test extends AppCompatActivity {
                         intent1.putExtra("email",email);
                         intent1.putExtra("password",password);
                         startActivity(intent1);
+                        finish(); // Don't draw over this activity
                         overridePendingTransition(0,0);
                         return true;
 
@@ -96,6 +99,7 @@ public class Cli_Acc_Test extends AppCompatActivity {
                         intent1.putExtra("email",email);
                         intent1.putExtra("password",password);
                         startActivity(intent1);
+                        finish(); // Don't draw over this activity
                         overridePendingTransition(0,0);
                         return true;
 
@@ -142,6 +146,7 @@ public class Cli_Acc_Test extends AppCompatActivity {
                                     if (output.equals("success")) {
                                         Intent intent = new Intent(Cli_Acc_Test.this, client_account.class);
                                         startActivity(intent);
+                                        finish(); // Don't draw over this activity
                                     } else {
                                         Toast.makeText(getApplicationContext(), output, Toast.LENGTH_SHORT).show();
                                     }
