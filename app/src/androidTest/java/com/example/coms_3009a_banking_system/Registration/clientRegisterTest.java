@@ -29,16 +29,16 @@ public class clientRegisterTest {
 
     @Test
     public void testLauch(){
-        assertNotNull( onView(withId(R.id.scrollView3)));
-        assertNotNull( onView(withId(R.id.firstName)));
-        assertNotNull(onView(withId(R.id.lastName)));
-        assertNotNull(onView(withId(R.id.username)));
-        assertNotNull(onView(withId(R.id.idNumber)));
-        assertNotNull(onView(withId(R.id.cellNumber)));
-        assertNotNull(onView(withId(R.id.email)));
-        assertNotNull(onView(withId(R.id.p_number)));
-        assertNotNull(onView(withId(R.id.confirmPassword)));
-        assertNotNull(onView(withId(R.id._register)));
+        assertNotNull(activity.findViewById(R.id.scrollView3));
+        assertNotNull(activity.findViewById(R.id.firstName));
+        assertNotNull(activity.findViewById(R.id.lastName));
+        assertNotNull(activity.findViewById(R.id.username));
+        assertNotNull(activity.findViewById(R.id.idNumber));
+        assertNotNull(activity.findViewById(R.id.cellNumber));
+        assertNotNull(activity.findViewById(R.id.email));
+        assertNotNull(activity.findViewById(R.id.p_number));
+        assertNotNull(activity.findViewById(R.id.confirmPassword));
+        assertNotNull(activity.findViewById(R.id._register));
 
     }
 
