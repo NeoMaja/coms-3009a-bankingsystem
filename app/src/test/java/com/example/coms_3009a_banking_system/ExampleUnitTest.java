@@ -15,6 +15,19 @@ public class ExampleUnitTest {
         assertEquals(4, 2 + 2);
     }
 
+    @Test
+    public void testUser(){
+        User testUser= new User("990011","Neoza","Nmail@gmail.com","0723456781");
+        String  IDno, Fname ,email,Cno;
+        Fname = testUser.getName();
+        assertEquals("Neoza",Fname);
+        email = testUser.getEmail();
+        assertEquals("Nmail@gmail.com",email);
+        IDno = testUser.getName();
+        assertEquals("990011",IDno);
+        Cno = testUser.getName();
+        assertEquals("0723456781",Cno);
+    }
 
 
 }

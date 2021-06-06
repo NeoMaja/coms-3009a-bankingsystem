@@ -39,7 +39,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
         this.userList = userList;
     }
 
-    public class MyViewHolder extends RecyclerView.ViewHolder{
+    public static class MyViewHolder extends RecyclerView.ViewHolder{
 
          TextView mName;
          TextView mID;

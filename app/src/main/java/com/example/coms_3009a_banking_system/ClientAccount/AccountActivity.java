@@ -17,6 +17,8 @@ import com.example.coms_3009a_banking_system.AsyncHTTPPost;
 import com.example.coms_3009a_banking_system.Profile;
 import com.example.coms_3009a_banking_system.R;
 import com.example.coms_3009a_banking_system.Registration.clientRegister;
+import com.example.coms_3009a_banking_system.Transaction;
+import com.example.coms_3009a_banking_system.TransactionAdapter;
 
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONArray;
@@ -70,18 +72,20 @@ public class AccountActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account);
 
+        // Get information using Intents
         Intent intent = getIntent();
         Account_No = intent.getStringExtra("Account_Num");
         Accn_type =intent.getStringExtra("Account Type");
         AccnBalance= intent.getStringExtra("amount");
 
-//        Toast.makeText(getApplicationContext(),Account_No,Toast.LENGTH_SHORT).show();
+    // Instantiate TextViews and recyclerview
         Account_Number = findViewById(R.id.account_numberV);
         Account_Type = findViewById(R.id.account_typeV);
         BalanceAmount = findViewById(R.id.balanceV);
+        recyclerView = findViewById(R.id.transaction_list);
 
 
-
+    // Set information on TextViews
         Account_Number.setText(Account_No);
         Account_Type.setText(Accn_type);
         BalanceAmount.setText(AccnBalance);
@@ -210,6 +214,9 @@ public class AccountActivity extends AppCompatActivity {
 //        BalanceAmount.setText(Balance);
 //        Log.e("Activity Balance" ,Balance);
 
+        // create Transaction Adapter and create a list of transactions
+
+
     }
 
     private void getAccounts(ContentValues parameters){
@@ -244,7 +251,7 @@ public class AccountActivity extends AppCompatActivity {
                     }
 
                     if (HistoryList.size() == 0){
-                        Toast toast = Toast.makeText(AccountActivity.this, "User has no accounts", Toast.LENGTH_LONG);
+                        Toast toast = Toast.makeText(AccountActivity.this, "This Account has No Historical Transactions", Toast.LENGTH_LONG);
                     }else{
                         adapter = new historyAdapter(HistoryList);
                         recyclerView.setAdapter(adapter);

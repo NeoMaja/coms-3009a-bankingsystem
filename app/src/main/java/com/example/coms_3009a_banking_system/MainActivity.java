@@ -10,23 +10,29 @@ import android.widget.Button;
 import com.example.coms_3009a_banking_system.login.Login2;
 import com.example.coms_3009a_banking_system.login.login;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class MainActivity extends AppCompatActivity {
-    private Button button;
+
+    Timer timer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        button = findViewById(R.id.button);
-        button.setOnClickListener(new View.OnClickListener() {
+        timer = new Timer();
+
+        timer.schedule(new TimerTask() {
             @Override
-            public void onClick(View v) {
-                OpenActivity();
+            public void run() {
+                Intent intent = new Intent(MainActivity.this,Login2.class);
+                startActivity(intent);
+                finish();
             }
-        });
+        },2000);
+
     }
-    public void OpenActivity(){
-        Intent intent = new Intent(this, Login2.class);
-        startActivity(intent);
-    }
+
 }
