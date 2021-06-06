@@ -20,7 +20,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-;
+
 import java.util.ArrayList;
 
 
@@ -241,6 +241,7 @@ public class AccountActivity extends AppCompatActivity {
 
                     if (HistoryList.size() == 0){
                         Toast toast = Toast.makeText(AccountActivity.this, "This Account has No Historical Transactions", Toast.LENGTH_LONG);
+                        toast.show();
                     }else{
                         adapter = new historyAdapter(HistoryList);
                         recyclerView.setAdapter(adapter);
