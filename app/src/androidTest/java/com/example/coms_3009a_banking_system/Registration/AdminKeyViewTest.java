@@ -25,7 +25,7 @@ public class AdminKeyViewTest {
     }
 
     @Test
-    public void testLauch(){
+    public void testLaunch(){
         assertNotNull( onView(withId(R.id.enter_key_log)));
         assertNotNull(onView(withId(R.id.adminlog_key)));
     }

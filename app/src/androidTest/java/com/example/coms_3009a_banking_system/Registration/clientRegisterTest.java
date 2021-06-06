@@ -28,7 +28,7 @@ public class clientRegisterTest {
     }
 
     @Test
-    public void testLauch(){
+    public void testLaunch(){
         assertNotNull(activity.findViewById(R.id.scrollView3));
         assertNotNull(activity.findViewById(R.id.firstName));
         assertNotNull(activity.findViewById(R.id.lastName));
