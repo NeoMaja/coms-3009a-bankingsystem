@@ -29,15 +29,16 @@ import java.util.List;
 import java.util.Map;
 
 public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
+
      private Context mCtx;
      private List<User> userList;
      private static final String URL = "https://lamp.ms.wits.ac.za/home/s2143686/Bank_Accept.php";
-    private static final String URL1 = "https://lamp.ms.wits.ac.za/home/s2143686/Bank_Reject.php";
+     private static final String URL1 = "https://lamp.ms.wits.ac.za/home/s2143686/Bank_Reject.php";
 
      public Adapter(Context mCtx, List<User> userList) {
         this.mCtx = mCtx;
         this.userList = userList;
-    }
+     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder{
 
@@ -46,6 +47,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
          TextView mEmail;
          TextView mPhone;
          Button btnAccept, btnReject;
+
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
 
@@ -57,6 +59,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
             btnReject = itemView.findViewById(R.id.btnreject);
         }
     }
+
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -177,7 +180,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
                             @Override
                             protected Map<String, String> getParams() throws AuthFailureError {
                                 Map<String, String> hashMap = new HashMap<String, String>();
-                                //hashMap.put("email", user.getEmail());
+                                hashMap.put("email", user.getEmail());
                                 hashMap.put("id", user.getId());
                                 //hashMap.put("First_Name", user.getName());
 
