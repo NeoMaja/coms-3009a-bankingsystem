@@ -70,7 +70,7 @@ public class Transfer extends AppCompatActivity {
         Email = intent.getStringExtra("email");
         password= intent.getStringExtra("password");
 
-       /* BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
 
         //Set home Selected
         bottomNavigationView.setSelectedItemId(R.id.acc);
@@ -122,7 +122,7 @@ public class Transfer extends AppCompatActivity {
                 return false;
             }
         });
-*/
+
 
         //website to post to the php file
         //https://lamp.ms.wits.ac.za/home/s2143686/Account_activity.php
