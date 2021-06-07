@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.TransactionTooLargeException;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -17,6 +18,8 @@ import android.widget.Toast;
 import com.example.coms_3009a_banking_system.AsyncHTTPPost;
 import com.example.coms_3009a_banking_system.Profile;
 import com.example.coms_3009a_banking_system.R;
+import com.example.coms_3009a_banking_system.Transact;
+import com.example.coms_3009a_banking_system.login.Login2;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import org.json.JSONArray;
@@ -62,17 +65,15 @@ public class Transfer extends AppCompatActivity {
 
         transferDate.setText(date);
 
-        //Get email from Previous Page
+        //Get Email from previous page
         Intent intent = getIntent();
         Email = intent.getStringExtra("email");
-        password = intent.getStringExtra("password");
-
-
+        password= intent.getStringExtra("password");
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
 
         //Set home Selected
-        bottomNavigationView.setSelectedItemId(R.id.button_transact);
+        bottomNavigationView.setSelectedItemId(R.id.acc);
 
         // Perform ItemSelected
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -81,24 +82,22 @@ public class Transfer extends AppCompatActivity {
                 Intent intent1;
                 switch (item.getItemId()){
 
-                    case R.id.button_transact:
+                    case R.id.acc:
                         return true;
 
-                    case R.id.acc:
-                        intent1 = new Intent(Transfer.this, client_account.class);
+                    case R.id.button_logoutnow:
+                        intent1 = new Intent(Transfer.this, Login2.class);
                         intent1.putExtra("email",Email);
                         intent1.putExtra("password",password);
                         startActivity(intent1);
-                        finish();
                         overridePendingTransition(0,0);
                         return true;
 
-                    case R.id.button_pay:
-                        intent1 = new Intent(Transfer.this, Pay.class);
-                        intent1.putExtra("email",Email);
+                    case R.id.button_transact:
+                        intent1 = new Intent(Transfer.this, Transact.class);
+                        intent1.putExtra("email", Email);
                         intent1.putExtra("password",password);
                         startActivity(intent1);
-                        finish();
                         overridePendingTransition(0,0);
                         return true;
 
@@ -107,16 +106,14 @@ public class Transfer extends AppCompatActivity {
                         intent1.putExtra("email",Email);
                         intent1.putExtra("password",password);
                         startActivity(intent1);
-                        //Don't finish activity because Insert Activity doesn't have navigation Menu
                         overridePendingTransition(0,0);
                         return true;
 
                     case R.id.button_profile:
                         intent1 = new Intent(Transfer.this, Profile.class);
-                        intent1.putExtra("email",Email);
-                        intent1.putExtra("password",password);
+                        intent1.putExtra("email", Email);
+                        intent1.putExtra("password", password);
                         startActivity(intent1);
-                        //Don't finish activity because Profile Activity doesn't have navigation Menu
                         overridePendingTransition(0,0);
                         return true;
 
