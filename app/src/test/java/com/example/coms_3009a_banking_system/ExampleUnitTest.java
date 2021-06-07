@@ -33,5 +33,23 @@ public class ExampleUnitTest {
         assertEquals("0723456781",Cno);
     }
 
+    @Test
+    public void testClient(){
+        ClientUser testUser= new ClientUser("990011","Neoza","Nmail@gmail.com","0723456781");
+        String  IDno, Fname ,email,Cno;
+        //test F  Name
+        Fname = testUser.getName();
+        assertEquals("Neoza",Fname);
+        //test Email
+        email = testUser.getEmail();
+        assertEquals("Nmail@gmail.com",email);
+        //Test Id No
+        IDno = testUser.getId();
+        assertEquals("990011",IDno);
+        // TEst Cellphone Number
+        Cno = testUser.getPhoneNo();
+        assertEquals("0723456781",Cno);
+    }
+
 
 }

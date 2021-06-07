@@ -66,6 +66,7 @@ public class client_account extends AppCompatActivity {
                 Intent logoutIntent = new Intent(client_account.this,
                         Login2.class);
                 startActivity(logoutIntent);
+                finish();
             }
         });
 

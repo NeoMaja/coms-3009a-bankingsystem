@@ -6,7 +6,38 @@
     android:layout_height="match_parent"
     android:background="#12616A"
     tools:context=".ClientAccount.client_account">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <TextView
+        android:id="@+id/heading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="3dp"
+        android:layout_marginRight="3dp"
 
+        android:gravity="center"
+        android:text="Home"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="571dp"
+        android:layout_above="@id/bottom_navigation"
+        android:layout_marginBottom="3dp" />
+
+
+</LinearLayout>
 
     <Button android:background="@drawable/round_button"
         android:layout_height="wrap_content"
@@ -29,33 +60,10 @@
         />
 
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerview"
-        android:layout_width="match_parent"
-        android:layout_height="571dp"
-        android:layout_above="@id/bottom_navigation"
-        android:layout_marginBottom="3dp" />
 
 
-    <TextView
-        android:id="@+id/heading"
-        android:layout_width="match_parent"
-        android:layout_height="47dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="-3dp"
-        android:layout_marginLeft="-3dp"
-        android:layout_marginEnd="3dp"
-        android:layout_marginRight="3dp"
-        android:layout_marginBottom="683dp"
-        android:gravity="center"
-        android:text="Home"
-        android:textColor="#000000"
-        android:textSize="24sp"
-        android:textStyle="bold" />
+
+
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
