@@ -19,13 +19,17 @@ public class ExampleUnitTest {
     public void testUser(){
         User testUser= new User("990011","Neoza","Nmail@gmail.com","0723456781");
         String  IDno, Fname ,email,Cno;
+        //test F  Name
         Fname = testUser.getName();
         assertEquals("Neoza",Fname);
+        //test Email
         email = testUser.getEmail();
         assertEquals("Nmail@gmail.com",email);
-        IDno = testUser.getName();
+        //Test Id No
+        IDno = testUser.getId();
         assertEquals("990011",IDno);
-        Cno = testUser.getName();
+        // TEst Cellphone Number
+        Cno = testUser.getPhoneNo();
         assertEquals("0723456781",Cno);
     }
 
