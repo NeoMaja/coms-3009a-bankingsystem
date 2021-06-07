@@ -1,4 +1,4 @@
-package com.example.coms_3009a_banking_system.Registration;
+/*package com.example.coms_3009a_banking_system.Registration;
 
 import androidx.test.rule.ActivityTestRule;
 
@@ -26,7 +26,7 @@ public class AdminKeyViewTest {
 
     @Test
     public void testLaunch(){
-        assertNotNull( onView(withId(R.id.enter_key_log)));
+        assertNotNull(onView(withId(R.id.enter_key_log)));
         assertNotNull(onView(withId(R.id.adminlog_key)));
     }
 
@@ -34,4 +34,7 @@ public class AdminKeyViewTest {
     public void tearDown() throws Exception {
         activity = null;
     }
+
 }
+
+ */

@@ -1,4 +1,4 @@
-package com.example.coms_3009a_banking_system;
+/*package com.example.coms_3009a_banking_system;
 
 import androidx.test.core.app.ActivityScenario;
 import androidx.test.ext.junit.rules.ActivityScenarioRule;
@@ -27,7 +27,7 @@ public class AdminProfilePageTest {
     }
 
     @Test
-    public void testLauch(){
+    public void testLaunch(){
         assertNotNull(onView(withId(R.id.lastName)));
         assertNotNull(onView(withId(R.id.username)));
         assertNotNull(onView(withId(R.id.useremail)));
@@ -48,3 +48,5 @@ public class AdminProfilePageTest {
         activity = null;
     }
 }
+
+ */

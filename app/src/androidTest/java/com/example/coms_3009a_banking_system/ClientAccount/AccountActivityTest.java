@@ -1,4 +1,4 @@
-package com.example.coms_3009a_banking_system.ClientAccount;
+/*package com.example.coms_3009a_banking_system.ClientAccount;
 
 import androidx.test.rule.ActivityTestRule;
 
@@ -39,3 +39,5 @@ public class AccountActivityTest {
         activity = null;
     }
 }
+
+ */

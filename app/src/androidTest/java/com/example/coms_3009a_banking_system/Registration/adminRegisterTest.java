@@ -1,4 +1,6 @@
+/*
 package com.example.coms_3009a_banking_system.Registration;
+
 
 import androidx.test.rule.ActivityTestRule;
 
@@ -43,3 +45,4 @@ public class adminRegisterTest {
         activity = null;
     }
 }
+*/

@@ -1,4 +1,6 @@
+/*
 package com.example.coms_3009a_banking_system.Registration;
+
 
 import androidx.test.core.app.ActivityScenario;
 import androidx.test.ext.junit.rules.ActivityScenarioRule;
@@ -58,3 +60,5 @@ public class clientRegisterTest {
     }
 
 }
+
+ */
