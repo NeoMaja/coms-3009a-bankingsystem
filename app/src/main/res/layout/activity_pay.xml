@@ -191,15 +191,7 @@
                 tools:layout_editor_absoluteX="159dp"
                 tools:layout_editor_absoluteY="604dp" />
 
-            <com.google.android.material.bottomnavigation.BottomNavigationView
-                android:id="@+id/bottom_navigation"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:background="#12616A"
-                app:itemBackground="@color/white"
-                app:itemTextColor="@color/black"
-                app:menu="@menu/client_menu" />        </LinearLayout>
+              </LinearLayout>
 
     </ScrollView>
 

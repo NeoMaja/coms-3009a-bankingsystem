@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#12616A"
     tools:context=".ClientAccount.client_account">
-
+    
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview"
@@ -45,6 +45,7 @@
         app:itemTextColor="@color/black"
         android:layout_alignParentBottom="true"
         app:menu="@menu/client_menu"
+
         />
 
 </RelativeLayout>
