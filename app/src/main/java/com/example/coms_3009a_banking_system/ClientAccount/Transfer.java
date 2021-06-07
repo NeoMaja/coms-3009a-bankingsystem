@@ -89,6 +89,7 @@ public class Transfer extends AppCompatActivity {
                         intent1.putExtra("email",Email);
                         intent1.putExtra("password",password);
                         startActivity(intent1);
+                        finish();
                         overridePendingTransition(0,0);
                         return true;
 
@@ -97,6 +98,7 @@ public class Transfer extends AppCompatActivity {
                         intent1.putExtra("email",Email);
                         intent1.putExtra("password",password);
                         startActivity(intent1);
+                        finish();
                         overridePendingTransition(0,0);
                         return true;
 
@@ -105,6 +107,7 @@ public class Transfer extends AppCompatActivity {
                         intent1.putExtra("email",Email);
                         intent1.putExtra("password",password);
                         startActivity(intent1);
+                        //Don't finish activity because Insert Activity doesn't have navigation Menu
                         overridePendingTransition(0,0);
                         return true;
 
@@ -113,6 +116,7 @@ public class Transfer extends AppCompatActivity {
                         intent1.putExtra("email",Email);
                         intent1.putExtra("password",password);
                         startActivity(intent1);
+                        //Don't finish activity because Profile Activity doesn't have navigation Menu
                         overridePendingTransition(0,0);
                         return true;
 
