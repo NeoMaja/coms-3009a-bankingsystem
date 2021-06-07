@@ -16,9 +16,12 @@
         <activity android:name=".Transact"></activity>
 
         <activity android:name=".AdminWelcomePage"/>
-        <activity android:name=".ClientAccount.ClientApplication" />
-        <activity android:name=".ClientAccount.Transfer" />
-        <activity android:name=".ClientAccount.Pay" />
+        <activity android:name=".ClientAccount.ClientApplication"
+            android:parentActivityName=".Transact"/>
+        <activity android:name=".ClientAccount.Transfer"
+            android:parentActivityName=".Transact"/>
+        <activity android:name=".ClientAccount.Pay"
+            android:parentActivityName=".Transact"/>
         <activity android:name=".ClientAccount.AccountActivity" />
         <activity android:name=".ClientAccount.client_account" />
         <activity android:name=".AdminProfilePage" />

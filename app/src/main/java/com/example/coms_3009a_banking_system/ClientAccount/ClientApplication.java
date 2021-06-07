@@ -59,7 +59,7 @@ public class ClientApplication extends AppCompatActivity {
         Email = intent.getStringExtra("email");
         password= intent.getStringExtra("password");
 
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+       /* BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
 
         //Set home Selected
         bottomNavigationView.setSelectedItemId(R.id.acc);
@@ -110,7 +110,7 @@ public class ClientApplication extends AppCompatActivity {
                 return false;
             }
         });
-
+*/
     }
 
     private void validateDataAndDoApplication() {
