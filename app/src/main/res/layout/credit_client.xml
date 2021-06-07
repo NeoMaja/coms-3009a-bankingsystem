@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#12616A"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp">
+
+
+        <ImageView
+            android:id="@+id/icon_Person"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:background="@drawable/client_foreground" />
+
+        <TextView
+            android:id="@+id/name_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_toEndOf="@id/icon_Person"
+            android:layout_toRightOf="@id/icon_Person"
+            android:text="Name"
+            android:textColor="@color/black"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/titleSur"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/name_title"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_toEndOf="@id/icon_Person"
+            android:layout_toRightOf="@id/icon_Person"
+            android:text="Surname"
+            android:textColor="@color/black"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/id_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/titleSur"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_toEndOf="@id/icon_Person"
+            android:layout_toRightOf="@id/icon_Person"
+            android:text="ID"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/residence_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/id_title"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_toEndOf="@id/icon_Person"
+            android:layout_toRightOf="@id/icon_Person"
+            android:text="Residence"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/earnings_subtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/residence_address"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_toEndOf="@id/icon_Person"
+            android:layout_toRightOf="@id/icon_Person"
+            android:text="Monthly Earnings"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/exp_subtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/earnings_subtitle"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_toEndOf="@id/icon_Person"
+            android:layout_toRightOf="@id/icon_Person"
+            android:text="Monthly Expenditure"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/acceptBtn"
+            style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton.Icon"
+            android:layout_width="112dp"
+            android:layout_height="37dp"
+            android:layout_below="@id/exp_subtitle"
+            android:layout_marginLeft="-260dp"
+            android:layout_marginTop="48dp"
+            android:layout_marginBottom="1dp"
+            android:layout_toRightOf="@id/exp_subtitle"
+            android:background="@drawable/round_button"
+            android:icon="@drawable/ic_accept1_foreground"
+            android:text="Accept"
+            android:textSize="10dp" />
+
+        <Button
+            android:id="@+id/rejectBtn"
+            style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton.Icon"
+            android:layout_width="111dp"
+            android:layout_height="37dp"
+            android:layout_below="@id/exp_subtitle"
+            android:layout_marginStart="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="48dp"
+            android:layout_marginBottom="1dp"
+            android:layout_toEndOf="@id/acceptBtn"
+            android:layout_toRightOf="@id/acceptBtn"
+            android:background="@drawable/round_button"
+            android:text="Reject"
+            android:textSize="10sp" />
+
+    </RelativeLayout>
+
+</LinearLayout>
