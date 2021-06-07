@@ -79,8 +79,7 @@ public class AdminProfilePage extends AppCompatActivity {
         Intent getIntent= getIntent();
         email = getIntent.getStringExtra("email");
         password = getIntent.getStringExtra("password");
-        Log.e(TAG,email);
-        Log.e(TAG,password);
+
 
 
         OkHttpClient client = new OkHttpClient();
