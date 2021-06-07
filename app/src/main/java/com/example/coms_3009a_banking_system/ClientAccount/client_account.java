@@ -20,7 +20,6 @@ import com.example.coms_3009a_banking_system.AsyncHTTPPost;
 import com.example.coms_3009a_banking_system.ClientsActivity;
 import com.example.coms_3009a_banking_system.Profile;
 import com.example.coms_3009a_banking_system.R;
-import com.example.coms_3009a_banking_system.Transact;
 import com.example.coms_3009a_banking_system.login.Login2;
 import com.example.coms_3009a_banking_system.login.login;
 import com.example.coms_3009a_banking_system.usertype;
@@ -46,6 +45,7 @@ public class client_account extends AppCompatActivity {
     String password;
 
     Button logout;
+    Button credit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +57,28 @@ public class client_account extends AppCompatActivity {
         Intent intent = getIntent();
         email = intent.getStringExtra("email");
         password =intent.getStringExtra(" password");
+
+        logout = (Button)findViewById(R.id.button_logout);
+
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent logoutIntent = new Intent(client_account.this,
+                        Login2.class);
+                startActivity(logoutIntent);
+            }
+        });
+
+        credit = (Button)findViewById(R.id.button_credit);
+
+        credit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent logoutIntent = new Intent(client_account.this,
+                        ClientApplication.class);
+                startActivity(logoutIntent);
+            }
+        });
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
 
@@ -73,16 +95,16 @@ public class client_account extends AppCompatActivity {
                     case R.id.acc:
                         return true;
 
-                    case R.id.button_profile:
-                        intent1 = new Intent(client_account.this, Profile.class);
-                        intent1.putExtra("email", email);
-                        intent1.putExtra("password", password);
+                    case R.id.button_pay:
+                        intent1 = new Intent(client_account.this, Pay.class);
+                        intent1.putExtra("email",email);
+                        intent1.putExtra("password",password);
                         startActivity(intent1);
                         overridePendingTransition(0,0);
                         return true;
 
                     case R.id.button_transact:
-                        intent1 = new Intent(client_account.this, Transact.class);
+                        intent1 = new Intent(client_account.this, Transfer.class);
                         intent1.putExtra("email", email);
                         intent1.putExtra("password",password);
                         startActivity(intent1);
@@ -97,13 +119,16 @@ public class client_account extends AppCompatActivity {
                         overridePendingTransition(0,0);
                         return true;
 
-                    case R.id.button_logoutnow:
-                        intent1 = new Intent(client_account.this, Login2.class);
+                    case R.id.button_profile:
+                        intent1 = new Intent(client_account.this, Profile.class);
                         intent1.putExtra("email", email);
                         intent1.putExtra("password", password);
                         startActivity(intent1);
                         overridePendingTransition(0,0);
                         return true;
+
+
+
                 }
                 return false;
             }
@@ -139,6 +164,9 @@ public class client_account extends AppCompatActivity {
                         clientitem = new Clientitem(AccountType, AccountNumber, Amount);
                         cl.add(clientitem);
                         mClientList = cl;
+
+                        adapter = new historyAdapter(mClientList);
+                        recyclerView.setAdapter(adapter);
                     }
 
                     /*if (mClientList.size() == 0){
