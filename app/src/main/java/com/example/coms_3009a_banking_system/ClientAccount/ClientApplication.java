@@ -105,15 +105,12 @@ public class ClientApplication extends AppCompatActivity {
                         overridePendingTransition(0,0);
                         return true;
 
-
                 }
                 return false;
             }
         });
 
     }
-
-
 
     private void validateDataAndDoApplication() {
 
@@ -176,28 +173,28 @@ public class ClientApplication extends AppCompatActivity {
         //add information to database
         //adding/declaring parameters
 
-        ContentValues parameters = new ContentValues();
-        parameters.put("Name", String.valueOf(Name));
-        parameters.put("Surname", String.valueOf(Surname));
-        parameters.put("Residence", String.valueOf(Residence));
-        parameters.put("IDNumber", String.valueOf(IDNumber));
-        parameters.put("Earnings", String.valueOf(Earnings));
-        parameters.put("Expenditure", String.valueOf(Expenditure));        
-
-
-        //TODO
-        AsyncHTTPPost asyncHttpPost = new AsyncHTTPPost("https://lamp.ms.wits.ac.za/home/s2143686/Bank_Registration.php",parameters){
-            @Override
-            protected void onPostExecute(String output) {
-
-                Toast.makeText(getApplicationContext(),output,Toast.LENGTH_SHORT).show();
-
-                if((output.equals("Await your verification"))) {
-                    // Display Application Complete
-                    Toast.makeText(getApplicationContext(),"Application Complete",Toast.LENGTH_SHORT).show();
-                }
-            }
-        };
-        asyncHttpPost.execute();
-    }
+//        ContentValues parameters = new ContentValues();
+//        parameters.put("Name", String.valueOf(Name));
+//        parameters.put("Surname", String.valueOf(Surname));
+//        parameters.put("Residence", String.valueOf(Residence));
+//        parameters.put("IDNumber", String.valueOf(IDNumber));
+//        parameters.put("Earnings", String.valueOf(Earnings));
+//        parameters.put("Expenditure", String.valueOf(Expenditure));        //y
+//
+//
+//        
+//        AsyncHTTPPost asyncHttpPost = new AsyncHTTPPost("https://lamp.ms.wits.ac.za/home/s2143686/Bank_Registration.php",parameters){
+//            @Override
+//            protected void onPostExecute(String output) {
+//
+//                Toast.makeText(getApplicationContext(),output,Toast.LENGTH_SHORT).show();
+//
+//                if((output.equals("Await your verification"))) {
+//                    // Display Application Complete
+//                    Toast.makeText(getApplicationContext(),"Application Complete",Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//        };
+//        asyncHttpPost.execute();
+  }
 }
