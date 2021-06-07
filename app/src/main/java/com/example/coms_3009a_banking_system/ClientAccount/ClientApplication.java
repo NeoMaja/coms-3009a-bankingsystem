@@ -50,6 +50,7 @@ public class ClientApplication extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 validateDataAndDoApplication();
+                Toast.makeText(getApplicationContext(),"Application Complete",Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -170,6 +171,13 @@ public class ClientApplication extends AppCompatActivity {
 
     private void doApplication(String name, String surname, String address, String id, String earnings, String expenditure){
         // do something
+        Name.getText().clear();
+        Surname.getText().clear();
+        Residence.getText().clear();
+        IDNumber.getText().clear();
+        Earnings.getText().clear();
+        Expenditure.getText().clear();
+
         //add information to database
         //adding/declaring parameters
 
@@ -182,7 +190,7 @@ public class ClientApplication extends AppCompatActivity {
 //        parameters.put("Expenditure", String.valueOf(Expenditure));        //y
 //
 //
-//        
+//
 //        AsyncHTTPPost asyncHttpPost = new AsyncHTTPPost("https://lamp.ms.wits.ac.za/home/s2143686/Bank_Registration.php",parameters){
 //            @Override
 //            protected void onPostExecute(String output) {
