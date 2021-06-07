@@ -2,15 +2,20 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.coms_3009a_banking_system">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="STUBANK"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:icon="@drawable/stulogo"
+        android:label="StuBank"
+        android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/Theme.Coms3009abankingsystem"
         android:usesCleartextTraffic="true">
         <activity android:name=".Transact"></activity>
+
+        <activity android:name=".AdminWelcomePage"/>
         <activity android:name=".ClientAccount.ClientApplication" />
         <activity android:name=".ClientAccount.Transfer" />
         <activity android:name=".ClientAccount.Pay" />
@@ -51,6 +56,7 @@
             </intent-filter>
         </activity>
     </application>
+
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <uses-permission android:name="android.permission.INTERNET" />

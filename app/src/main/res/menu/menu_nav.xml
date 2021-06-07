@@ -3,7 +3,7 @@
 
     <item
         android:id="@+id/home"
-        android:title="Home"
+        android:title="Credit Application"
         android:icon="@drawable/ic_home"
         />
 

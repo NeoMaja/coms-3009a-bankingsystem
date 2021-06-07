@@ -39,7 +39,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:id="@+id/account_numberV"
-                android:textColor="@color/black"
+                android:textColor="@color/colorTheme"
                 android:textSize="18dp"
                 android:layout_marginLeft="25dp"/>
 

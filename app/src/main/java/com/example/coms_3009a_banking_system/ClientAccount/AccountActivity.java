@@ -237,6 +237,9 @@ public class AccountActivity extends AppCompatActivity {
                         historyItem = new historyItem(Reference, Act, Amount, Time);
                         historyItems.add(historyItem);
                         HistoryList = historyItems;
+
+                        adapter = new historyAdapter(HistoryList);
+                        recyclerView.setAdapter(adapter);
                     }
 
                     /*if (HistoryList.size() == 0){
