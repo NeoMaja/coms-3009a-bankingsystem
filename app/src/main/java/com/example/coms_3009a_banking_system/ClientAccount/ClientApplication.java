@@ -182,7 +182,7 @@ public class ClientApplication extends AppCompatActivity {
         parameters.put("Residence", String.valueOf(Residence));
         parameters.put("IDNumber", String.valueOf(IDNumber));
         parameters.put("Earnings", String.valueOf(Earnings));
-        parameters.put("Expenditure", String.valueOf(Expenditure));        //TODO
+        parameters.put("Expenditure", String.valueOf(Expenditure));        
 
 
         //TODO
