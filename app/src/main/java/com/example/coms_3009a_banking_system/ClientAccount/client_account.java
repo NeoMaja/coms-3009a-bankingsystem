@@ -166,12 +166,12 @@ public class client_account extends AppCompatActivity {
                         mClientList = cl;
                     }
 
-                    if (mClientList.size() == 0){
+                    /*if (mClientList.size() == 0){
                         Toast toast = Toast.makeText(client_account.this, "User has no accounts", Toast.LENGTH_LONG);
                     }else{
                         adapter = new ClientAdapter(mClientList);
                         recyclerView.setAdapter(adapter);
-                    }
+                    }*/
                 }catch (JSONException e){
                     e.printStackTrace();
                 }

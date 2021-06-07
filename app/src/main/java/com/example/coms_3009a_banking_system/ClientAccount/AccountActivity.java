@@ -239,13 +239,13 @@ public class AccountActivity extends AppCompatActivity {
                         HistoryList = historyItems;
                     }
 
-                    if (HistoryList.size() == 0){
+                    /*if (HistoryList.size() == 0){
                         Toast toast = Toast.makeText(AccountActivity.this, "This Account has No Historical Transactions", Toast.LENGTH_LONG);
                         toast.show();
                     }else{
                         adapter = new historyAdapter(HistoryList);
                         recyclerView.setAdapter(adapter);
-                    }
+                    }*/
                 }catch (JSONException e){
                     e.printStackTrace();
                 }
