@@ -17,6 +17,8 @@ import android.widget.Toast;
 import com.example.coms_3009a_banking_system.AsyncHTTPPost;
 import com.example.coms_3009a_banking_system.Profile;
 import com.example.coms_3009a_banking_system.R;
+import com.example.coms_3009a_banking_system.Transact;
+import com.example.coms_3009a_banking_system.login.Login2;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.text.SimpleDateFormat;
@@ -43,16 +45,6 @@ public class Pay extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pay);
 
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
-
-        //Set home Selected
-        bottomNavigationView.setSelectedItemId(R.id.button_pay);
-
-        // Perform ItemSelected
-
-
-
-
         // assigning variables
         recipient = findViewById (R.id.recipient);
         amount = findViewById(R.id.amount);
@@ -70,12 +62,67 @@ public class Pay extends AppCompatActivity {
         String date = dateF.format(Calendar.getInstance().getTime());
         paymentDate.setText(date);
 
+        pay = (Button)findViewById(R.id.pay);
+
         //Get Email from previous page
         Intent intent = getIntent();
         Email = intent.getStringExtra("email");
         password= intent.getStringExtra("password");
 
-        pay = (Button)findViewById(R.id.pay);
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+
+        //Set home Selected
+        bottomNavigationView.setSelectedItemId(R.id.acc);
+
+        // Perform ItemSelected
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                Intent intent1;
+                switch (item.getItemId()){
+
+                    case R.id.acc:
+                        return true;
+
+                    case R.id.button_logoutnow:
+                        intent1 = new Intent(Pay.this, Login2.class);
+                        intent1.putExtra("email",Email);
+                        intent1.putExtra("password",password);
+                        startActivity(intent1);
+                        overridePendingTransition(0,0);
+                        return true;
+
+                    case R.id.button_transact:
+                        intent1 = new Intent(Pay.this, Transact.class);
+                        intent1.putExtra("email", Email);
+                        intent1.putExtra("password",password);
+                        startActivity(intent1);
+                        overridePendingTransition(0,0);
+                        return true;
+
+                    case R.id.button_insert:
+                        intent1 = new Intent(Pay.this, Cli_Acc_Test.class);
+                        intent1.putExtra("email",Email);
+                        intent1.putExtra("password",password);
+                        startActivity(intent1);
+                        overridePendingTransition(0,0);
+                        return true;
+
+                    case R.id.button_profile:
+                        intent1 = new Intent(Pay.this, Profile.class);
+                        intent1.putExtra("email", Email);
+                        intent1.putExtra("password", password);
+                        startActivity(intent1);
+                        overridePendingTransition(0,0);
+                        return true;
+
+
+                }
+                return false;
+            }
+        });
+
+
 
         //website to post to the php file
         //https://lamp.ms.wits.ac.za/home/s2143686/Account_activity.php
@@ -112,59 +159,6 @@ public class Pay extends AppCompatActivity {
                 asyncHttpPost.execute();
             }
         });
-
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                Intent intent1;
-                switch (item.getItemId()){
-
-                    case R.id.button_pay:
-                        return true;
-
-                    case R.id.acc:
-                        intent1 = new Intent(Pay.this, client_account.class);
-                        intent1.putExtra("email",Email);
-                        intent1.putExtra("password",password);
-                        startActivity(intent1);
-                        finish();
-                        overridePendingTransition(0,0);
-                        return true;
-
-
-                    case R.id.button_transact:
-                        intent1 = new Intent(Pay.this, Transfer.class);
-                        intent1.putExtra("email",Email);
-                        intent1.putExtra("password",password);
-                        startActivity(intent1);
-                        finish();
-                        overridePendingTransition(0,0);
-                        return true;
-
-                    case R.id.button_insert:
-                        intent1 = new Intent(Pay.this, Cli_Acc_Test.class);
-                        intent1.putExtra("email",Email);
-                        intent1.putExtra("password",password);
-                        startActivity(intent1);
-                        // Don't Finish
-                        overridePendingTransition(0,0);
-                        return true;
-
-                    case R.id.button_profile:
-                        intent1 = new Intent(Pay.this, Profile.class);
-                        intent1.putExtra("email",Email);
-                        intent1.putExtra("password",password);
-                        startActivity(intent1);
-                        // Don't Finish
-                        overridePendingTransition(0,0);
-                        return true;
-
-
-                }
-                return false;
-            }
-        });
-
     }
 
     public void onRadioButtonClicked(View view) {

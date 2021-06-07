@@ -20,6 +20,7 @@ import com.example.coms_3009a_banking_system.ClientAccount.Pay;
 import com.example.coms_3009a_banking_system.ClientAccount.Transfer;
 import com.example.coms_3009a_banking_system.ClientAccount.client_account;
 import com.example.coms_3009a_banking_system.Registration.clientRegister;
+import com.example.coms_3009a_banking_system.login.Login2;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import org.jetbrains.annotations.NotNull;
@@ -232,7 +233,7 @@ public class Profile extends AppCompatActivity {
                         return true;
 
                     case R.id.button_transact:
-                        intent1 = new Intent(Profile.this, Transfer.class);
+                        intent1 = new Intent(Profile.this, Transact.class);
                         intent1.putExtra("email",email);
                         intent1.putExtra("password",password);
                         startActivity(intent1);
@@ -247,8 +248,8 @@ public class Profile extends AppCompatActivity {
                         overridePendingTransition(0,0);
                         return true;
 
-                    case R.id.button_pay:
-                        intent1 = new Intent(Profile.this, Pay.class);
+                    case R.id.button_logoutnow:
+                        intent1 = new Intent(Profile.this, Login2.class);
                         intent1.putExtra("email",email);
                         intent1.putExtra("password",password);
                         startActivity(intent1);

@@ -19,7 +19,9 @@ import com.example.coms_3009a_banking_system.AsyncHTTPPost;
 import com.example.coms_3009a_banking_system.Client_Verification_Status;
 import com.example.coms_3009a_banking_system.Profile;
 import com.example.coms_3009a_banking_system.R;
+import com.example.coms_3009a_banking_system.Transact;
 import com.example.coms_3009a_banking_system.login.AdminLoginKey;
+import com.example.coms_3009a_banking_system.login.Login2;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class Cli_Acc_Test extends AppCompatActivity {
@@ -76,26 +78,26 @@ public class Cli_Acc_Test extends AppCompatActivity {
                         overridePendingTransition(0,0);
                         return true;
 
-                    case R.id.button_transact:
-                        intent1 = new Intent(Cli_Acc_Test.this, Transfer.class);
-                        intent1.putExtra("email",email);
-                        intent1.putExtra("password",password);
-                        startActivity(intent1);
-                        finish(); // Don't draw over this activity
-                        overridePendingTransition(0,0);
-                        return true;
-
-                    case R.id.button_pay:
-                        intent1 = new Intent(Cli_Acc_Test.this, Pay.class);
-                        intent1.putExtra("email",email);
-                        intent1.putExtra("password",password);
-                        startActivity(intent1);
-                        finish(); // Don't draw over this activity
-                        overridePendingTransition(0,0);
-                        return true;
-
                     case R.id.button_profile:
                         intent1 = new Intent(Cli_Acc_Test.this, Profile.class);
+                        intent1.putExtra("email",email);
+                        intent1.putExtra("password",password);
+                        startActivity(intent1);
+                        finish(); // Don't draw over this activity
+                        overridePendingTransition(0,0);
+                        return true;
+
+                    case R.id.button_transact:
+                        intent1 = new Intent(Cli_Acc_Test.this, Transact.class);
+                        intent1.putExtra("email",email);
+                        intent1.putExtra("password",password);
+                        startActivity(intent1);
+                        finish(); // Don't draw over this activity
+                        overridePendingTransition(0,0);
+                        return true;
+
+                    case R.id.button_logoutnow:
+                        intent1 = new Intent(Cli_Acc_Test.this, Login2.class);
                         intent1.putExtra("email",email);
                         intent1.putExtra("password",password);
                         startActivity(intent1);
