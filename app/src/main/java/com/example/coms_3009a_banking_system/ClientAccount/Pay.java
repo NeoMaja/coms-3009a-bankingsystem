@@ -127,6 +127,7 @@ public class Pay extends AppCompatActivity {
                         intent1.putExtra("email",Email);
                         intent1.putExtra("password",password);
                         startActivity(intent1);
+                        finish();
                         overridePendingTransition(0,0);
                         return true;
 
@@ -136,6 +137,7 @@ public class Pay extends AppCompatActivity {
                         intent1.putExtra("email",Email);
                         intent1.putExtra("password",password);
                         startActivity(intent1);
+                        finish();
                         overridePendingTransition(0,0);
                         return true;
 
@@ -144,6 +146,7 @@ public class Pay extends AppCompatActivity {
                         intent1.putExtra("email",Email);
                         intent1.putExtra("password",password);
                         startActivity(intent1);
+                        // Don't Finish
                         overridePendingTransition(0,0);
                         return true;
 
@@ -152,6 +155,7 @@ public class Pay extends AppCompatActivity {
                         intent1.putExtra("email",Email);
                         intent1.putExtra("password",password);
                         startActivity(intent1);
+                        // Don't Finish
                         overridePendingTransition(0,0);
                         return true;
 
