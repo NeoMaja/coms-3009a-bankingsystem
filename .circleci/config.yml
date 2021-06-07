@@ -23,8 +23,8 @@ jobs:
           command: chmod +x ./gradlew
       - run: ./gradlew dependencies
       - codecov/upload:
-          echo "token" > .cc_token
-          bash <(curl -s https://codecov.io/bash) -t @.cc_token
+          file: 'pom.xml'
+          token: '4ebb17a9-ca4d-43b5-8138-9c3fd5268c5b'
 
       # The next step will run the unit tests
       - android/run-tests:
