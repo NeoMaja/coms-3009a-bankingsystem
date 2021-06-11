@@ -22,7 +22,11 @@ jobs:
           name: chmod permissions
           command: chmod +x ./gradlew
       - run: ./gradlew dependencies
-      - run: mvn test
+
+      #Generating Coverage Reports
+      - run: ./gradlew connectedCheck
+      - run: .gradlew testDebugUnitTest #Unit test Report
+      - run: .gradlew connectedDebugAndroidTest #Instrumented Test Report
       - codecov/upload:
           file: 'pom.xml'
           token: '4ebb17a9-ca4d-43b5-8138-9c3fd5268c5b'
