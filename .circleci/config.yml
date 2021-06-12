@@ -41,7 +41,7 @@ jobs:
 
       #upload report to codecov
       - codecov/upload:
-          file: 'pom.xml'
+          file: 'coverage/report.xml'
           token: '4ebb17a9-ca4d-43b5-8138-9c3fd5268c5b'
       # And finally run the release build
       - run:
