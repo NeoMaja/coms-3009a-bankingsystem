@@ -22,7 +22,7 @@ jobs:
           name: chmod permissions
           command: chmod +x ./gradlew
       - run: ./gradlew dependencies
-
+      - run: mvn test
       #Generating Coverage Reports
       #- run: ./gradlew connectedCheck
 
@@ -34,7 +34,7 @@ jobs:
       # The next step will run the unit tests
       - android/run-tests:
           test-command: ./gradlew lint testDebug --continue
-                       #Unit test Report
+
 
       # Then start the emulator and run the Instrumentation tests!
       - android/start-emulator-and-run-tests:
