@@ -70,59 +70,6 @@ public class Transfer extends AppCompatActivity {
         Email = intent.getStringExtra("email");
         password= intent.getStringExtra("password");
 
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
-
-        //Set home Selected
-        bottomNavigationView.setSelectedItemId(R.id.acc);
-
-        // Perform ItemSelected
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                Intent intent1;
-                switch (item.getItemId()){
-
-                    case R.id.acc:
-                        return true;
-
-                    case R.id.button_logoutnow:
-                        intent1 = new Intent(Transfer.this, Login2.class);
-                        intent1.putExtra("email",Email);
-                        intent1.putExtra("password",password);
-                        startActivity(intent1);
-                        overridePendingTransition(0,0);
-                        return true;
-
-                    case R.id.button_transact:
-                        intent1 = new Intent(Transfer.this, Transact.class);
-                        intent1.putExtra("email", Email);
-                        intent1.putExtra("password",password);
-                        startActivity(intent1);
-                        overridePendingTransition(0,0);
-                        return true;
-
-                    case R.id.button_insert:
-                        intent1 = new Intent(Transfer.this, Cli_Acc_Test.class);
-                        intent1.putExtra("email",Email);
-                        intent1.putExtra("password",password);
-                        startActivity(intent1);
-                        overridePendingTransition(0,0);
-                        return true;
-
-                    case R.id.button_profile:
-                        intent1 = new Intent(Transfer.this, Profile.class);
-                        intent1.putExtra("email", Email);
-                        intent1.putExtra("password", password);
-                        startActivity(intent1);
-                        overridePendingTransition(0,0);
-                        return true;
-
-
-                }
-                return false;
-            }
-        });
-
 
         //website to post to the php file
         //https://lamp.ms.wits.ac.za/home/s2143686/Account_activity.php
