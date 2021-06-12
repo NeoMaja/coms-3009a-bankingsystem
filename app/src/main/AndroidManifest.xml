@@ -18,9 +18,12 @@
         <activity android:name=".Transact"></activity>
 
         <activity android:name=".AdminWelcomePage"/>
-        <activity android:name=".ClientAccount.ClientApplication" />
-        <activity android:name=".ClientAccount.Transfer" />
-        <activity android:name=".ClientAccount.Pay" />
+        <activity android:name=".ClientAccount.ClientApplication"
+            android:parentActivityName=".Transact"/>
+        <activity android:name=".ClientAccount.Transfer"
+            android:parentActivityName=".Transact"/>
+        <activity android:name=".ClientAccount.Pay"
+            android:parentActivityName=".Transact"/>
         <activity android:name=".ClientAccount.AccountActivity" />
         <activity android:name=".ClientAccount.client_account" />
         <activity android:name=".AdminProfilePage" />
@@ -33,7 +36,8 @@
             android:name=".Registration.adminRegister"
             android:parentActivityName=".Registration.AdminRegCode" />
         <activity android:name=".Banking" />
-        <activity android:name=".Registration.AdminKeyView" />
+        <activity android:name=".Registration.AdminKeyView"
+            android:parentActivityName=".login.Login2"/>
         <activity
             android:name=".Client_Verification_Status"
             android:parentActivityName=".login.login" />
