@@ -27,20 +27,22 @@ jobs:
       #- run: ./gradlew connectedCheck
 
       #- run: .gradlew connectedDebugAndroidTest #Instrumented Test Report
-      - codecov/upload:
-          file: 'pom.xml'
-          token: '4ebb17a9-ca4d-43b5-8138-9c3fd5268c5b'
+
 
       # The next step will run the unit tests
       - android/run-tests:
-          test-command: ./gradlew lint testDebug --continue
+          test-command:  ./gradlew testDebugUnitTest   #./gradlew lint testDebug --continue
 
 
       # Then start the emulator and run the Instrumentation tests!
       - android/start-emulator-and-run-tests:
-          test-command: ./gradlew connectedDebugAndroidTest
+          test-command: ./gradlew connectedCheck           #./gradlew connectedDebugAndroidTest
           system-image: system-images;android-25;google_apis;x86
 
+      #upload report to codecov
+      - codecov/upload:
+          file: 'pom.xml'
+          token: '4ebb17a9-ca4d-43b5-8138-9c3fd5268c5b'
       # And finally run the release build
       - run:
           name: Assemble release build
