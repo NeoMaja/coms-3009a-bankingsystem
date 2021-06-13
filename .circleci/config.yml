@@ -42,9 +42,11 @@ jobs:
       #upload report to codecov
       - run:
           name: Upload to Codecov
-          command: |
-            bash <(curl -s https://codecov.io/bash) -Z
           token: '4ebb17a9-ca4d-43b5-8138-9c3fd5268c5b'
+          command: |
+            bash <(curl -s https://codecov.io/bash)
+
+
       # And finally run the release build
       - run:
           name: Assemble release build
