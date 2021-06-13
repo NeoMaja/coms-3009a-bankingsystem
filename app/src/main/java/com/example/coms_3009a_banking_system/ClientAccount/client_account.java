@@ -20,6 +20,7 @@ import com.example.coms_3009a_banking_system.AsyncHTTPPost;
 import com.example.coms_3009a_banking_system.ClientsActivity;
 import com.example.coms_3009a_banking_system.Profile;
 import com.example.coms_3009a_banking_system.R;
+import com.example.coms_3009a_banking_system.Transact;
 import com.example.coms_3009a_banking_system.login.Login2;
 import com.example.coms_3009a_banking_system.login.login;
 import com.example.coms_3009a_banking_system.usertype;
@@ -83,7 +84,7 @@ public class client_account extends AppCompatActivity {
                         return true;
 
                     case R.id.button_transact:
-                        intent1 = new Intent(client_account.this, Transfer.class);
+                        intent1 = new Intent(client_account.this, Transact.class);
                         intent1.putExtra("email", email);
                         intent1.putExtra("password",password);
                         startActivity(intent1);

@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.coms_3009a_banking_system.AsyncHTTPPost;
@@ -50,7 +51,6 @@ public class ClientApplication extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 validateDataAndDoApplication();
-                Toast.makeText(getApplicationContext(),"Application Complete",Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -59,8 +59,9 @@ public class ClientApplication extends AppCompatActivity {
         Email = intent.getStringExtra("email");
         password= intent.getStringExtra("password");
 
-
     }
+
+
 
     private void validateDataAndDoApplication() {
 
@@ -95,7 +96,7 @@ public class ClientApplication extends AppCompatActivity {
             Surname.requestFocus();
         }
 
-        else if(Residence.length()<5){
+        else if(Residence.length()<1){
             Residence.setError("Enter residence address");
             Residence.requestFocus();
         }
@@ -114,44 +115,32 @@ public class ClientApplication extends AppCompatActivity {
 
         }
         else {
-            doApplication(CName, CSurname, CResidence, CID, CEarnings, CExpenditure);
+            doApplication(Email, CEarnings, CExpenditure, CResidence);
         }
     }
 
-    private void doApplication(String name, String surname, String address, String id, String earnings, String expenditure){
-        // do something
-        Name.getText().clear();
-        Surname.getText().clear();
-        Residence.getText().clear();
-        IDNumber.getText().clear();
-        Earnings.getText().clear();
-        Expenditure.getText().clear();
+    private void doApplication(String email,String earn, String expend, String res){
 
-        //add information to database
-        //adding/declaring parameters
+        ContentValues parameters = new ContentValues();
+        parameters.put("Email", email );
+        parameters.put("MEarn", earn);
+        parameters.put("MExpend", expend);
+        parameters.put("MRAddress", res);
 
-//        ContentValues parameters = new ContentValues();
-//        parameters.put("Name", String.valueOf(Name));
-//        parameters.put("Surname", String.valueOf(Surname));
-//        parameters.put("Residence", String.valueOf(Residence));
-//        parameters.put("IDNumber", String.valueOf(IDNumber));
-//        parameters.put("Earnings", String.valueOf(Earnings));
-//        parameters.put("Expenditure", String.valueOf(Expenditure));        //y
-//
-//
-//
-//        AsyncHTTPPost asyncHttpPost = new AsyncHTTPPost("https://lamp.ms.wits.ac.za/home/s2143686/Bank_Registration.php",parameters){
-//            @Override
-//            protected void onPostExecute(String output) {
-//
-//                Toast.makeText(getApplicationContext(),output,Toast.LENGTH_SHORT).show();
-//
-//                if((output.equals("Await your verification"))) {
-//                    // Display Application Complete
-//                    Toast.makeText(getApplicationContext(),"Application Complete",Toast.LENGTH_SHORT).show();
-//                }
-//            }
-//        };
-//        asyncHttpPost.execute();
-  }
-}
+        //TODO
+        AsyncHTTPPost asyncHttpPost = new AsyncHTTPPost("https://lamp.ms.wits.ac.za/home/s2143686/CreditApplication.php",parameters){
+            @Override
+            protected void onPostExecute(String output) {
+
+                Toast.makeText(getApplicationContext(),output,Toast.LENGTH_SHORT).show();
+
+                if((output.equals("Application Captured"))) {
+                    Toast.makeText(getApplicationContext(),"Application Complete",Toast.LENGTH_SHORT).show();
+
+                }
+            }
+        };
+        asyncHttpPost.execute();
+    }
+
+    }
