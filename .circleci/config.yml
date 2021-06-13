@@ -40,8 +40,10 @@ jobs:
           system-image: system-images;android-25;google_apis;x86
 
       #upload report to codecov
-      - codecov/upload:
-          file: 'app/build/reports/coverage/debug/report.xml'
+      - run:
+          name: Upload to Codecov
+          command: |
+            bash <(curl -s https://codecov.io/bash) -Z
           token: '4ebb17a9-ca4d-43b5-8138-9c3fd5268c5b'
       # And finally run the release build
       - run:
