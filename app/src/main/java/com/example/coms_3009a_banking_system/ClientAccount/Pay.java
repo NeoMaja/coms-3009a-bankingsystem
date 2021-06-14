@@ -67,7 +67,7 @@ public class Pay extends AppCompatActivity {
         //Get Email from previous page
         Intent intent = getIntent();
         Email = intent.getStringExtra("email");
-        password= intent.getStringExtra("password");
+      //  password= intent.getStringExtra("password");
 
 
 

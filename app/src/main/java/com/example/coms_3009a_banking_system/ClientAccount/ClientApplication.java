@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
 import android.content.Intent;
+import android.nfc.Tag;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -21,8 +23,20 @@ import com.example.coms_3009a_banking_system.Transact;
 import com.example.coms_3009a_banking_system.login.Login2;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import org.jetbrains.annotations.NotNull;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.HttpUrl;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
 public class ClientApplication extends AppCompatActivity {
 
@@ -35,6 +49,14 @@ public class ClientApplication extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_client_application);
+
+
+        //Get Email from previous page
+        Intent intent = getIntent();
+        Email = intent.getStringExtra("email");
+        // password= intent.getStringExtra("password");
+
+        Log.e("Credit Application",Email);
 
         // assigning variables
 
@@ -54,10 +76,6 @@ public class ClientApplication extends AppCompatActivity {
             }
         });
 
-        //Get Email from previous page
-        Intent intent = getIntent();
-        Email = intent.getStringExtra("email");
-        password= intent.getStringExtra("password");
 
     }
 
@@ -127,20 +145,80 @@ public class ClientApplication extends AppCompatActivity {
         parameters.put("MExpend", expend);
         parameters.put("MRAddress", res);
 
-        //TODO
-        AsyncHTTPPost asyncHttpPost = new AsyncHTTPPost("https://lamp.ms.wits.ac.za/home/s2143686/CreditApplication.php",parameters){
+
+
+
+        OkHttpClient client = new OkHttpClient();
+
+        HttpUrl.Builder urlBuilder = HttpUrl.parse("https://lamp.ms.wits.ac.za/home/s2143686/CreditApplication.php").newBuilder(); //url here
+        urlBuilder.addQueryParameter("Email", email );
+        urlBuilder.addQueryParameter("MEarn", earn);
+        urlBuilder.addQueryParameter("MExpend", expend);
+        urlBuilder.addQueryParameter("MRAddress", res);
+
+        String url = urlBuilder.build().toString();
+
+        Request request = new Request.Builder()
+                .url(url)
+                .build();
+        client.newCall(request).enqueue(new Callback() {
             @Override
-            protected void onPostExecute(String output) {
+            public void onFailure(@NotNull Call call, @NotNull IOException e) {
 
-                Toast.makeText(getApplicationContext(),output,Toast.LENGTH_SHORT).show();
 
-                if((output.equals("Application Captured"))) {
-                    Toast.makeText(getApplicationContext(),"Application Complete",Toast.LENGTH_SHORT).show();
-
-                }
             }
-        };
-        asyncHttpPost.execute();
+
+            @Override
+            public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
+                final String responseData = response.body().string();
+                ClientApplication.this.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            JSONObject jO = new JSONObject(responseData);
+                            String success = jO.getString("success");
+                          //  Integer MonthlyRev = jO.getInt("Monthly_Earnings");
+                           // String MonthlyExp = jO.getString("Monthly_Expenditure");
+                           if(success.equals("1")) {
+                               Toast.makeText(ClientApplication.this, "Application Successful ", Toast.LENGTH_SHORT).show();
+
+                               refresh();
+
+                           }
+                           else{
+                                Toast.makeText(ClientApplication.this, "Application Failed ", Toast.LENGTH_SHORT).show();
+
+                            }
+                        }catch (JSONException e){
+                            e.printStackTrace();
+                            Toast.makeText(ClientApplication.this, e.toString(), Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+            }
+        });
+
+//        //TODO
+//        AsyncHTTPPost asyncHttpPost = new AsyncHTTPPost("https://lamp.ms.wits.ac.za/home/s2143686/CreditApplication.php",parameters){
+//            @Override
+//            protected void onPostExecute(String output) {
+//
+//                Toast.makeText(getApplicationContext(),output,Toast.LENGTH_SHORT).show();
+//
+//                if((output.equals("Application Captured"))) {
+//                    Toast.makeText(getApplicationContext(),"Application Complete",Toast.LENGTH_SHORT).show();
+//
+//                }
+//            }
+//        };
+//        asyncHttpPost.execute();
+    }
+
+    public void refresh(){
+        finish();
+        overridePendingTransition(0, 0);
+        startActivity(getIntent());
+        overridePendingTransition(0, 0);
     }
 
     }

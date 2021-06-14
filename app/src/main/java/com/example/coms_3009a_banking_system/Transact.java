@@ -53,6 +53,7 @@ public class Transact extends AppCompatActivity {
             public void onClick(View v) {
                 Intent payIntent = new Intent(Transact.this,
                         Pay.class);
+                payIntent.putExtra("email",email);
                 startActivity(payIntent);
             }
         });
@@ -64,6 +65,7 @@ public class Transact extends AppCompatActivity {
             public void onClick(View v) {
                 Intent transferIntent = new Intent(Transact.this,
                         Transfer.class);
+                transferIntent.putExtra("email",email);
                 startActivity(transferIntent);
             }
         });
@@ -75,6 +77,7 @@ public class Transact extends AppCompatActivity {
             public void onClick(View v) {
                 Intent creditIntent = new Intent(Transact.this,
                         ClientApplication.class);
+                creditIntent.putExtra("email",email);
                 startActivity(creditIntent);
             }
         });
