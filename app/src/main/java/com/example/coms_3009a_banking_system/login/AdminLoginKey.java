@@ -63,6 +63,9 @@ public class  AdminLoginKey extends AppCompatActivity {
                             intent.putExtra("status",Status);
                             startActivity(intent);
                         }
+                        if(output.equals("fail")){
+                            Toast.makeText(getApplicationContext(), "Incorrect key", Toast.LENGTH_SHORT).show();
+                        }
 
                     }
                 };

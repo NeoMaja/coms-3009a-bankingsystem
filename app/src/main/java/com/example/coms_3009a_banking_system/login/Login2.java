@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.coms_3009a_banking_system.AsyncHTTPPost;
 import com.example.coms_3009a_banking_system.Client_Verification_Status;
@@ -164,6 +165,12 @@ public class Login2 extends AppCompatActivity {
                             });
                             AlertDialog dialog = builder.create();
                             dialog.show();
+                        }
+                        if(output.equals("-1")){
+                            Toast.makeText(getApplicationContext(), "Incorrect Password", Toast.LENGTH_SHORT).show();
+                        }
+                        if(output.equals("0")){
+                            Toast.makeText(getApplicationContext(), "This email does not exist", Toast.LENGTH_SHORT).show();
                         }
 
                     }
