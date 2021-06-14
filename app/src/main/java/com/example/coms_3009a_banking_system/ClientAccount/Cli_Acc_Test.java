@@ -97,11 +97,10 @@ public class Cli_Acc_Test extends AppCompatActivity {
                         return true;
 
                     case R.id.button_logoutnow:
-                        intent1 = new Intent(Cli_Acc_Test.this, Login2.class);
-                        intent1.putExtra("email",email);
-                        intent1.putExtra("password",password);
+                        intent1 = new Intent(getApplicationContext(), Login2.class);
+                        intent1.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        //  intent1.putExtra("EXIT", true);
                         startActivity(intent1);
-                        finish(); // Don't draw over this activity
                         overridePendingTransition(0,0);
                         return true;
 

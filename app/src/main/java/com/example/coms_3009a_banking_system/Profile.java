@@ -229,6 +229,7 @@ public class Profile extends AppCompatActivity {
                         intent1.putExtra("email",email);
                         intent1.putExtra("password",password);
                         startActivity(intent1);
+                        finish();
                         overridePendingTransition(0,0);
                         return true;
 
@@ -237,6 +238,7 @@ public class Profile extends AppCompatActivity {
                         intent1.putExtra("email",email);
                         intent1.putExtra("password",password);
                         startActivity(intent1);
+                        finish();
                         overridePendingTransition(0,0);
                         return true;
 
@@ -245,13 +247,14 @@ public class Profile extends AppCompatActivity {
                         intent1.putExtra("email",email);
                         intent1.putExtra("password",password);
                         startActivity(intent1);
+                        finish();
                         overridePendingTransition(0,0);
                         return true;
 
                     case R.id.button_logoutnow:
-                        intent1 = new Intent(Profile.this, Login2.class);
-                        intent1.putExtra("email",email);
-                        intent1.putExtra("password",password);
+                        intent1 = new Intent(getApplicationContext(), Login2.class);
+                        intent1.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                      //  intent1.putExtra("EXIT", true);
                         startActivity(intent1);
                         overridePendingTransition(0,0);
                         return true;

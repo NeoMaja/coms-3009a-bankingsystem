@@ -59,7 +59,30 @@ public class client_account extends AppCompatActivity {
         email = intent.getStringExtra("email");
         password =intent.getStringExtra(" password");
 
+        // Set Navigation Bar
+        setNavigationBar();
 
+
+        ContentValues cv = new ContentValues();
+        cv.put("Email", email);
+        getAccounts(cv);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        // Reset Navigation Bar
+        setNavigationBar();
+
+        // Get Accounts If updated
+        ContentValues cv = new ContentValues();
+        cv.put("Email", email);
+        getAccounts(cv);
+
+    }
+
+    private void setNavigationBar(){
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
 
         //Set home Selected
@@ -71,7 +94,6 @@ public class client_account extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 Intent intent1;
                 switch (item.getItemId()){
-
                     case R.id.acc:
                         return true;
 
@@ -88,6 +110,7 @@ public class client_account extends AppCompatActivity {
                         intent1.putExtra("email", email);
                         intent1.putExtra("password",password);
                         startActivity(intent1);
+                        finish();
                         overridePendingTransition(0,0);
                         return true;
 
@@ -100,21 +123,18 @@ public class client_account extends AppCompatActivity {
                         return true;
 
                     case R.id.button_logoutnow:
-                        intent1 = new Intent(client_account.this, Login2.class);
-                        intent1.putExtra("email", email);
-                        intent1.putExtra("password", password);
+                        intent1 = new Intent(getApplicationContext(), Login2.class);
+                        intent1.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        //  intent1.putExtra("EXIT", true);
                         startActivity(intent1);
                         overridePendingTransition(0,0);
+
                         return true;
 
                 }
                 return false;
             }
         });
-
-        ContentValues cv = new ContentValues();
-        cv.put("Email", email);
-        getAccounts(cv);
     }
 
     private void getAccounts(ContentValues cv){

@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.ContentValues;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -42,12 +43,23 @@ public class Transact extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_transact);
 
+        //get Intent
         Intent intent = getIntent();
         email = intent.getStringExtra("email");
         password =intent.getStringExtra(" password");
 
         pay = (Button)findViewById(R.id.button_PAYSCREEN);
 
+        // SetNavigationBar
+        setNavigationBar();
+
+        //setButtons
+        setButtons();
+
+
+    }
+
+    private void setButtons() {
         pay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -81,7 +93,19 @@ public class Transact extends AppCompatActivity {
                 startActivity(creditIntent);
             }
         });
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        // Reset Navigation Bar
+        setNavigationBar();
+
+
+    }
+
+    private void setNavigationBar() {
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
 
         //Set home Selected
@@ -95,22 +119,25 @@ public class Transact extends AppCompatActivity {
                 switch (item.getItemId()){
 
                     case R.id.acc:
+                        intent1 = new Intent(Transact.this,client_account.class);
+                        intent1.putExtra("email",email);
+                        intent1.putExtra("password",password);
+                        startActivity(intent1);
+                        finish();
+                        overridePendingTransition(0,0);
                         return true;
 
                     case R.id.button_logoutnow:
-                        intent1 = new Intent(Transact.this, Login2.class);
-                        intent1.putExtra("email",email);
-                        intent1.putExtra("password",password);
+                        // Logout of the App
+                        intent1 = new Intent(getApplicationContext(), Login2.class);
+                        intent1.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        //  intent1.putExtra("EXIT", true);
                         startActivity(intent1);
                         overridePendingTransition(0,0);
                         return true;
 
                     case R.id.button_transact:
-                        intent1 = new Intent(Transact.this, Transact.class);
-                        intent1.putExtra("email", email);
-                        intent1.putExtra("password",password);
-                        startActivity(intent1);
-                        overridePendingTransition(0,0);
+                        // We Are Already in the transact Class so we do nothing
                         return true;
 
                     case R.id.button_insert:
@@ -118,6 +145,7 @@ public class Transact extends AppCompatActivity {
                         intent1.putExtra("email",email);
                         intent1.putExtra("password",password);
                         startActivity(intent1);
+
                         overridePendingTransition(0,0);
                         return true;
 
