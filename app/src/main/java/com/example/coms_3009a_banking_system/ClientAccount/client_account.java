@@ -69,6 +69,18 @@ public class client_account extends AppCompatActivity {
     }
 
     @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        // pressing Back from Client Account logs you out
+        Intent intent1 = new Intent(getApplicationContext(), Login2.class);
+        intent1.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        //  intent1.putExtra("EXIT", true);
+        startActivity(intent1);
+        overridePendingTransition(0,0);
+
+    }
+
+    @Override
     protected void onResume() {
         super.onResume();
 
@@ -102,6 +114,7 @@ public class client_account extends AppCompatActivity {
                         intent1.putExtra("email", email);
                         intent1.putExtra("password", password);
                         startActivity(intent1);
+                        finish();
                         overridePendingTransition(0,0);
                         return true;
 
@@ -119,6 +132,7 @@ public class client_account extends AppCompatActivity {
                         intent1.putExtra("email",email);
                         intent1.putExtra("password",password);
                         startActivity(intent1);
+                        finish();
                         overridePendingTransition(0,0);
                         return true;
 

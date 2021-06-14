@@ -164,4 +164,16 @@ public class Cli_Acc_Test extends AppCompatActivity {
 
 
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        // Pressing back from This Page takes you to client account page
+        Intent intent1 = new Intent(getApplicationContext(), client_account.class);
+        intent1.putExtra("email",email);
+        intent1.putExtra("password",password);
+        startActivity(intent1);
+        finish();
+        overridePendingTransition(0,0);
+    }
 }

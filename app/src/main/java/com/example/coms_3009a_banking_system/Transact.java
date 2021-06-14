@@ -104,6 +104,17 @@ public class Transact extends AppCompatActivity {
 
 
     }
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        // Pressing back from Transact Page takes you to client account page
+        Intent intent1 = new Intent(getApplicationContext(), client_account.class);
+        intent1.putExtra("email",email);
+        intent1.putExtra("password",password);
+        startActivity(intent1);
+        finish();
+        overridePendingTransition(0,0);
+    }
 
     private void setNavigationBar() {
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
@@ -145,7 +156,7 @@ public class Transact extends AppCompatActivity {
                         intent1.putExtra("email",email);
                         intent1.putExtra("password",password);
                         startActivity(intent1);
-
+                        finish();
                         overridePendingTransition(0,0);
                         return true;
 
@@ -154,6 +165,7 @@ public class Transact extends AppCompatActivity {
                         intent1.putExtra("email", email);
                         intent1.putExtra("password", password);
                         startActivity(intent1);
+                        finish();
                         overridePendingTransition(0,0);
                         return true;
 

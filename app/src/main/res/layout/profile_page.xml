@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -12,9 +12,11 @@
 <!--    <include layout="@layout/profile_toolbar" />-->
 
     <LinearLayout
+        android:id="@+id/imageBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:layout_alignParentTop="true"
         android:orientation="vertical"
         android:paddingTop="15dp">
 
@@ -35,16 +37,20 @@
         />
     </LinearLayout>
     <View
+        android:id="@+id/view1"
         android:layout_width="match_parent"
         android:layout_height="1dp"
+        android:layout_below="@+id/imageBarLayout"
         android:background="#12616A"
         android:layout_marginTop="10dp"
         />
         <!-- First Name TextField-->
         <LinearLayout
             android:layout_width="match_parent"
+            android:id="@+id/Fname_layout"
             android:layout_height="35dp"
             android:orientation="horizontal"
+            android:layout_below="@+id/view1"
             android:paddingLeft="15dp"
             android:paddingRight="15dp"
             android:layout_marginTop="20dp"
@@ -80,6 +86,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="35dp"
+            android:id="@+id/Lname_layout"
+            android:layout_below="@id/Fname_layout"
             android:orientation="horizontal"
             android:paddingLeft="15dp"
             android:paddingRight="15dp"
@@ -116,6 +124,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="35dp"
+            android:layout_below="@id/Lname_layout"
+            android:id="@+id/email_layout"
             android:orientation="horizontal"
             android:paddingLeft="15dp"
             android:paddingRight="15dp"
@@ -148,9 +158,12 @@
 
         </LinearLayout>
 
+    // Cell number Layout
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="35dp"
+            android:id="@+id/c_num_layout"
+            android:layout_below="@id/email_layout"
             android:orientation="horizontal"
             android:paddingLeft="15dp"
             android:paddingRight="15dp"
@@ -182,12 +195,12 @@
 
         </LinearLayout>
 
-
-
-
+    //Earnings Layout
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="35dp"
+            android:layout_below="@id/c_num_layout"
+            android:id="@+id/earnings_layout"
             android:orientation="horizontal"
             android:paddingLeft="15dp"
             android:paddingRight="15dp"
@@ -227,11 +240,13 @@
 
         </LinearLayout>
 
-
+// Expenditure layout
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="35dp"
             android:orientation="horizontal"
+            android:layout_below="@id/earnings_layout"
+            android:id="@+id/exp_layout"
             android:paddingLeft="15dp"
             android:paddingRight="15dp"
             android:layout_marginTop="20dp"
@@ -271,11 +286,13 @@
         </LinearLayout>
 
 
-
+// Address Layout
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="35dp"
+            android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:layout_below="@id/exp_layout"
+            android:id="@+id/address_layout"
             android:paddingLeft="15dp"
             android:paddingRight="15dp"
             android:layout_marginTop="20dp"
@@ -301,7 +318,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/Address"
                 android:textColor="@color/black"
-                android:textSize="18dp"
+                android:textSize="14dp"
                 android:layout_gravity="center"
                 android:layout_marginLeft="20dp"/>
 
@@ -314,25 +331,15 @@
 
         </LinearLayout>
 
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="50dp"></Space>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="161dp"
-            android:gravity="bottom">
-
             <com.google.android.material.bottomnavigation.BottomNavigationView
                 android:id="@+id/bottom_navigation"
                 android:layout_width="match_parent"
-                android:layout_height="127dp"
-                android:layout_gravity="bottom"
-                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="20dp"
                 app:itemBackground="@color/white"
                 app:itemTextColor="@color/black"
                 app:menu="@menu/client_menu" />
 
-        </LinearLayout>
-    </LinearLayout>
+
+    </RelativeLayout>

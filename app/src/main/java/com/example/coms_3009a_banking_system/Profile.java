@@ -359,8 +359,19 @@ public class Profile extends AppCompatActivity {
         }
 
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        // Pressing back from Profile Page takes you to client account page
+        Intent intent1 = new Intent(Profile.this, client_account.class);
+        intent1.putExtra("email",email);
+        intent1.putExtra("password",password);
+        startActivity(intent1);
+        finish();
+        overridePendingTransition(0,0);
+    }
 
-    private void UpdateExpend(String email,String newMonthExpend,TextView MonEx){
+    private void UpdateExpend(String email, String newMonthExpend, TextView MonEx){
 
         ContentValues parameters = new ContentValues();
         parameters.put("Email", email );
