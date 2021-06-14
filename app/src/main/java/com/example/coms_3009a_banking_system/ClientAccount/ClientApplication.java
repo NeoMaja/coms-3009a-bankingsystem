@@ -54,12 +54,8 @@ public class ClientApplication extends AppCompatActivity {
         //Get Email from previous page
         Intent intent = getIntent();
         Email = intent.getStringExtra("email");
-        // password= intent.getStringExtra("password");
-
-        Log.e("Credit Application",Email);
 
         // assigning variables
-
         Name = findViewById(R.id.Name);
         Surname = findViewById(R.id.Surname);
         Residence = findViewById(R.id.residence_address);
@@ -219,6 +215,19 @@ public class ClientApplication extends AppCompatActivity {
         overridePendingTransition(0, 0);
         startActivity(getIntent());
         overridePendingTransition(0, 0);
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        // Pressing back from Transact Page takes you to client account page
+        Intent intent1 = new Intent(getApplicationContext(), Transact.class);
+        intent1.putExtra("email",Email);
+        intent1.putExtra("password",password);
+        startActivity(intent1);
+        finish();
+        overridePendingTransition(0,0);
     }
 
     }

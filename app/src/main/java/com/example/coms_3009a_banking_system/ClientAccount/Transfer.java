@@ -7,6 +7,7 @@ import android.content.ContentValues;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.TransactionTooLargeException;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -44,8 +45,7 @@ public class Transfer extends AppCompatActivity {
     String From;
     String Amount;
     String To;
-    String Email;
-    private String password;
+    private String Email, password;
 
 
     @Override
@@ -68,7 +68,7 @@ public class Transfer extends AppCompatActivity {
         //Get Email from previous page
         Intent intent = getIntent();
         Email = intent.getStringExtra("email");
-        password= intent.getStringExtra("password");
+
 
 
         //website to post to the php file
@@ -113,6 +113,15 @@ public class Transfer extends AppCompatActivity {
 
     }
 
-    public void onRadioButtonClicked(View view) {
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        // Pressing back from Transact Page takes you to client account page
+        Intent intent1 = new Intent(getApplicationContext(), Transact.class);
+        intent1.putExtra("email",Email);
+        intent1.putExtra("password",password);
+        startActivity(intent1);
+        finish();
+        overridePendingTransition(0,0);
     }
 }

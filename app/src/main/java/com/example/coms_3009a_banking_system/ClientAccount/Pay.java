@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -37,8 +38,7 @@ public class Pay extends AppCompatActivity {
     String From;
     String Amount;
     String To;
-    String Email;
-    private String password;
+    private String Email, password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,7 +67,7 @@ public class Pay extends AppCompatActivity {
         //Get Email from previous page
         Intent intent = getIntent();
         Email = intent.getStringExtra("email");
-      //  password= intent.getStringExtra("password");
+
 
 
 
@@ -107,6 +107,19 @@ public class Pay extends AppCompatActivity {
                 asyncHttpPost.execute();
             }
         });
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        // Pressing back from Transact Page takes you to client account page
+        Intent intent1 = new Intent(getApplicationContext(), Transact.class);
+        intent1.putExtra("email",Email);
+        intent1.putExtra("password",password);
+        startActivity(intent1);
+        finish();
+        overridePendingTransition(0,0);
     }
 
     public void onRadioButtonClicked(View view) {
