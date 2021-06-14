@@ -165,7 +165,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="34dp"
-                android:text="        Monthly Earnings"
+                android:text="        Monthly Expenditure"
                 android:textSize="16sp" />
 
             <com.google.android.material.textfield.TextInputLayout

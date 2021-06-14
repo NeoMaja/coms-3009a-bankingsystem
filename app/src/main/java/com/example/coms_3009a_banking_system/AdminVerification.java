@@ -136,7 +136,8 @@ public class AdminVerification extends AppCompatActivity {
                                 String Last_Name = user.getString("Last_Name");
                                 String Residence_Address = user.getString("Residence_Address");
                                 String Monthly_Earnings = user.getString("Monthly_Earnings");
-                                String Monthly_Expenditure = user.getString("Monthly_Earnings");
+                                String Monthly_Expenditure = user.getString("Monthly_Expenditure" +
+                                        "");
                                 CreditClass userlist = new CreditClass(ID_Number, First_Name, Last_Name, Residence_Address, Monthly_Earnings, Monthly_Expenditure);
                                 userList.add(userlist);
 
