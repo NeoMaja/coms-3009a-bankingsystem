@@ -124,4 +124,7 @@ public class Transfer extends AppCompatActivity {
         finish();
         overridePendingTransition(0,0);
     }
+
+    public void onRadioButtonClicked(View view) {
+    }
 }
