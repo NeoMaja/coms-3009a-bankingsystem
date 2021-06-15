@@ -38,6 +38,7 @@ public class Pay extends AppCompatActivity {
     String From;
     String Amount;
     String To;
+    String ref;
     private String Email, password;
 
     @Override
@@ -67,7 +68,10 @@ public class Pay extends AppCompatActivity {
         //Get Email from previous page
         Intent intent = getIntent();
         Email = intent.getStringExtra("email");
+        password = intent.getStringExtra("password");
 
+        Log.e("Pay ", Email);
+      //  Log.e("Pay 2", password);
 
 
 
@@ -82,6 +86,7 @@ public class Pay extends AppCompatActivity {
                 //get from which account you're paying from
                 To = recipient.getText().toString();
                 Amount = amount.getText().toString();
+                ref = reference.getText().toString();
 
                 //get selected radio button From
                 int selected = radioGroupfrom.getCheckedRadioButtonId();
@@ -90,11 +95,12 @@ public class Pay extends AppCompatActivity {
 
                 ContentValues parameters = new ContentValues();
                 parameters.put("Acc_Name", From);
-                parameters.put("Pin", 12345);
+                parameters.put("Pin", "12345");
                 parameters.put("Activity", "Pay");
                 parameters.put("Amount", Amount);
                 parameters.put("To", To);
                 parameters.put("Email", Email);
+                parameters.put("Ref",ref);
 
                 AsyncHTTPPost asyncHttpPost = new AsyncHTTPPost("https://lamp.ms.wits.ac.za/home/s2143686/Account_activity.php",parameters){
                     @Override

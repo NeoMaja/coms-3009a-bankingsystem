@@ -45,6 +45,7 @@ public class Transfer extends AppCompatActivity {
     String From;
     String Amount;
     String To;
+    String ref;
     private String Email, password;
 
 
@@ -68,6 +69,9 @@ public class Transfer extends AppCompatActivity {
         //Get Email from previous page
         Intent intent = getIntent();
         Email = intent.getStringExtra("email");
+        password= intent.getStringExtra("password");
+
+        Log.e("Transfer",Email);
 
 
 
@@ -97,6 +101,7 @@ public class Transfer extends AppCompatActivity {
                 parameters.put("Amount", Amount);
                 parameters.put("To", To);
                 parameters.put("Email", Email);
+                parameters.put("Ref","Test");
 
                 AsyncHTTPPost asyncHttpPost = new AsyncHTTPPost("https://lamp.ms.wits.ac.za/home/s2143686/Account_activity.php",parameters){
                     @Override
@@ -119,7 +124,7 @@ public class Transfer extends AppCompatActivity {
         // Pressing back from Transact Page takes you to client account page
         Intent intent1 = new Intent(getApplicationContext(), Transact.class);
         intent1.putExtra("email",Email);
-        intent1.putExtra("password",password);
+//        intent1.putExtra("password",password);
         startActivity(intent1);
         finish();
         overridePendingTransition(0,0);

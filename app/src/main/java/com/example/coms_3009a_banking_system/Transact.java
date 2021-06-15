@@ -66,6 +66,7 @@ public class Transact extends AppCompatActivity {
                 Intent payIntent = new Intent(Transact.this,
                         Pay.class);
                 payIntent.putExtra("email",email);
+                payIntent.putExtra("password",password);
                 startActivity(payIntent);
             }
         });
@@ -78,6 +79,7 @@ public class Transact extends AppCompatActivity {
                 Intent transferIntent = new Intent(Transact.this,
                         Transfer.class);
                 transferIntent.putExtra("email",email);
+                transferIntent.putExtra("password",password);
                 startActivity(transferIntent);
             }
         });
@@ -90,6 +92,7 @@ public class Transact extends AppCompatActivity {
                 Intent creditIntent = new Intent(Transact.this,
                         ClientApplication.class);
                 creditIntent.putExtra("email",email);
+                creditIntent.putExtra("password",password);
                 startActivity(creditIntent);
             }
         });
