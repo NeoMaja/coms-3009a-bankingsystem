@@ -69,7 +69,7 @@ public class VerificationActivity extends AppCompatActivity {
                         intent.putExtra("email",email);
                         intent.putExtra("password",password);
                         startActivity(intent);
-
+                        finish();
                         overridePendingTransition(0,0);
                         return true;
 
@@ -79,7 +79,7 @@ public class VerificationActivity extends AppCompatActivity {
                         intent.putExtra("email",email);
                         intent.putExtra("password",password);
                         startActivity(intent);
-
+                        finish();
                         overridePendingTransition(0,0);
                         return true;
 
@@ -88,13 +88,14 @@ public class VerificationActivity extends AppCompatActivity {
                         intent.putExtra("email",email);
                         intent.putExtra("password",password);
                         startActivity(intent);
+                        finish();
                         overridePendingTransition(0,0);
                         return true;
 
                     case R.id.admin_logout:
                         intent = new Intent(getApplicationContext(), Login2.class);
-                        intent.putExtra("email",email);
-                        intent.putExtra("password",password);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        //  intent1.putExtra("EXIT", true);
                         startActivity(intent);
                         overridePendingTransition(0,0);
                         return true;
@@ -111,6 +112,19 @@ public class VerificationActivity extends AppCompatActivity {
 
         getData();
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        // If back pressed in this activity then go to home
+        Intent intent = new Intent(getApplicationContext(),AdminVerification.class);
+        // add email and password on intent
+        intent.putExtra("email",email);
+        intent.putExtra("password",password);
+        startActivity(intent);
+        finish();
+        overridePendingTransition(0,0);
     }
 
     private void getData() {

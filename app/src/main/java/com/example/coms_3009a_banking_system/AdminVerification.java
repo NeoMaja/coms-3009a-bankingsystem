@@ -51,8 +51,8 @@ public class AdminVerification extends AppCompatActivity {
         Intent getIntent= getIntent();
         email = getIntent.getStringExtra("email");
         password = getIntent.getStringExtra("password");
-        Log.e("Home email ", email);
-        Log.e("Home Password",password);
+//        Log.e("Home email ", email);
+//        Log.e("Home Password",password);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav);
 
@@ -73,6 +73,7 @@ public class AdminVerification extends AppCompatActivity {
                         intent.putExtra("email",email);
                         intent.putExtra("password",password);
                         startActivity(intent);
+                        finish();
                         overridePendingTransition(0,0);
                         return true;
 
@@ -82,6 +83,7 @@ public class AdminVerification extends AppCompatActivity {
                         intent.putExtra("email",email);
                         intent.putExtra("password",password);
                         startActivity(intent);
+                        finish();
                         overridePendingTransition(0,0);
                         return true;
                     case R.id.admin_profile:
@@ -89,13 +91,14 @@ public class AdminVerification extends AppCompatActivity {
                         intent.putExtra("email",email);
                         intent.putExtra("password",password);
                         startActivity(intent);
+                        finish();
                         overridePendingTransition(0,0);
                         return true;
 
                     case R.id.admin_logout:
                         intent = new Intent(getApplicationContext(), Login2.class);
-                        intent.putExtra("email",email);
-                        intent.putExtra("password",password);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        //  intent1.putExtra("EXIT", true);
                         startActivity(intent);
                         overridePendingTransition(0,0);
                         return true;
@@ -114,6 +117,16 @@ public class AdminVerification extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        //If back pressed then Logout
+       Intent intent = new Intent(getApplicationContext(), Login2.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        //  intent1.putExtra("EXIT", true);
+        startActivity(intent);
+        overridePendingTransition(0,0);
+    }
 
     private void getData() {
 

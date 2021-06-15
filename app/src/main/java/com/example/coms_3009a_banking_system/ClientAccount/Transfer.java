@@ -101,7 +101,7 @@ public class Transfer extends AppCompatActivity {
                 parameters.put("Amount", Amount);
                 parameters.put("To", To);
                 parameters.put("Email", Email);
-                parameters.put("Ref","Test");
+                parameters.put("Ref","Transfer");
 
                 AsyncHTTPPost asyncHttpPost = new AsyncHTTPPost("https://lamp.ms.wits.ac.za/home/s2143686/Account_activity.php",parameters){
                     @Override

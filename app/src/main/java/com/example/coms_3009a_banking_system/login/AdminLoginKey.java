@@ -26,7 +26,7 @@ public class  AdminLoginKey extends AppCompatActivity {
 
     String Email;
     String Password;
-    String Status;
+   // String Status;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +35,7 @@ public class  AdminLoginKey extends AppCompatActivity {
 
         Email = getIntent().getStringExtra("email");
         Password = getIntent().getStringExtra("password");
-        Status= getIntent().getStringExtra("status");
+     //   Status= getIntent().getStringExtra("status");
 
         Enter = (Button)findViewById(R.id.enter_key_log);
         Admin_key = (EditText)findViewById(R.id.adminlog_key);
@@ -60,8 +60,9 @@ public class  AdminLoginKey extends AppCompatActivity {
                             Intent intent = new Intent(AdminLoginKey.this, AdminWelcomePage.class);
                             intent.putExtra("email",Email);
                             intent.putExtra("password",Password);
-                            intent.putExtra("status",Status);
+                          //  intent.putExtra("status",Status);
                             startActivity(intent);
+                            finish();
                         }
                         if(output.equals("fail")){
                             Toast.makeText(getApplicationContext(), "Incorrect key", Toast.LENGTH_SHORT).show();

@@ -281,6 +281,7 @@ public class AdminProfilePage extends AppCompatActivity {
                         intent.putExtra("email",email);
                         intent.putExtra("password",password);
                         startActivity(intent);
+                        finish();
                         return true;
 
                     case R.id.pending_users:
@@ -289,6 +290,7 @@ public class AdminProfilePage extends AppCompatActivity {
                         intent.putExtra("email",email);
                         intent.putExtra("password",password);
                         startActivity(intent);
+                        finish();
                         overridePendingTransition(0,0);
                         return true;
 
@@ -298,13 +300,14 @@ public class AdminProfilePage extends AppCompatActivity {
                         intent.putExtra("email",email);
                         intent.putExtra("password",password);
                         startActivity(intent);
+                        finish();
                         overridePendingTransition(0,0);
                         return true;
 
                     case R.id.admin_logout:
                         intent = new Intent(getApplicationContext(), Login2.class);
-                        intent.putExtra("email",email);
-                        intent.putExtra("password",password);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        //  intent1.putExtra("EXIT", true);
                         startActivity(intent);
                         overridePendingTransition(0,0);
                         return true;
@@ -318,7 +321,18 @@ public class AdminProfilePage extends AppCompatActivity {
 
     }
 
-    private void UpdateEarn(String email,String NewEarn,TextView MonEarn){
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(getApplicationContext(),AdminVerification.class);
+        // add email and password on intent
+        intent.putExtra("email",email);
+        intent.putExtra("password",password);
+        startActivity(intent);
+        finish();
+    }
+
+    private void UpdateEarn(String email, String NewEarn, TextView MonEarn){
 
         ContentValues parameters = new ContentValues();
         parameters.put("Email", email );
