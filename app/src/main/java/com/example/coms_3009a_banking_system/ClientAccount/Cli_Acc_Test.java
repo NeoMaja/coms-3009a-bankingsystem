@@ -146,6 +146,8 @@ public class Cli_Acc_Test extends AppCompatActivity {
                                     //if output = success then go the activiy page
                                     if (output.equals("success")) {
                                         Intent intent = new Intent(Cli_Acc_Test.this, client_account.class);
+                                        intent.putExtra("email", email);
+                                        intent.putExtra("password", password);
                                         startActivity(intent);
                                         finish(); // Don't draw over this activity
                                     } else {

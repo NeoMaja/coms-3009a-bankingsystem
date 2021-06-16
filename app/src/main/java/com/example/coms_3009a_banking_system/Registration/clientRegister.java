@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.coms_3009a_banking_system.AsyncHTTPPost;
+import com.example.coms_3009a_banking_system.Client_Verification_Status;
 import com.example.coms_3009a_banking_system.R;
 import com.example.coms_3009a_banking_system.ClientAccount.client_account;
 import com.google.android.material.textfield.TextInputEditText;
@@ -192,7 +193,8 @@ public class clientRegister extends AppCompatActivity {
                 if((output.equals("Await your verification"))) {
                     //Go to login page after successful registration.
                     Toast.makeText(getApplicationContext(),"Welcome to the family",Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(clientRegister.this, client_account.class);
+                    Intent intent = new Intent(clientRegister.this, Client_Verification_Status.class);
+                    finish();
                     startActivity(intent);
                 }
             }

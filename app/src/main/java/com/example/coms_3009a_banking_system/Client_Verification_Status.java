@@ -18,8 +18,7 @@ public class Client_Verification_Status extends Activity {
 
 
         TextView status = (TextView) findViewById(R.id.verification_status);
-
-        status.setText(VerificationStatus);
+        status.setText("Your Status is Pending.");
 
     }
 }
